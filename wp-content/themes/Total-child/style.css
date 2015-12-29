@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+ Theme Name: Total-Child
+ Version: 1.0.0
+ Description: Child Theme which extends Premium WordPress theme by WPExplorer
+ Author: Stefan Iancu
+ Template: Total
+ Theme URI: http://www.wpexplorer.com
+ Author URI: http://www.wpexplorer.com
+ License: Custom license
+ License URI: http://themeforest.net/licenses/terms/regular
+ Text Domain: total
+
+------------------------------------------------------------------*/
+
+.page-header-title {
+	color: orange;
+}
