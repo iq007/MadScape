@@ -46,3 +46,7 @@ wp-config-azure.php
 #access
 
 .htaccess
+
+#raw
+
+wp-content/raw/
