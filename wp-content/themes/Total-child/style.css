@@ -12,6 +12,7 @@
 
 ------------------------------------------------------------------*/
 
-.page-header-title {
-	color: orange;
+#top-bar-wrap {
+  border-bottom: 0px solid #eee;
+  font-size: 0.923em;
 }
