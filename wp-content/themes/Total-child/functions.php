@@ -8,7 +8,9 @@ function theme_enqueue_styles() {
 }
 
 function theme_enqueue_scripts(){
-    wp_enqueue_script('theme_enqueue_scripts', get_stylesheet_directory_uri() . '/js/total-child-ui-helpers.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_script('total-child-ui-helpers', get_stylesheet_directory_uri() . '/js/total-child-ui-helpers.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_script('google-analytics', get_stylesheet_directory_uri() . '/js/google-analytics.js', null, '1.0', true);
+
 }
 
 add_filter('show_admin_bar', '__return_false');
