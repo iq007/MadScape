@@ -12,18 +12,19 @@
 
 ------------------------------------------------------------------*/
 
+
 #top-bar-wrap {
   border-bottom: 0px solid #eee;
   font-size: 0.923em;
 }
 
 .local-scroll {
-  color: darkred;
+ color: #666;
  opacity: 0.6;
 }
 
 .local-scroll:hover {
- color: darkred;
+ color: #666;
  opacity: 1;
  -moz-transition: all 400ms ease-out;
  -webkit-transition: all 400ms ease-out;
