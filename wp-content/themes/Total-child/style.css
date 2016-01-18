@@ -26,6 +26,20 @@
     color: #b34800;
 }
 
+.dopbsp-input-wrapper input[type="submit"]{
+    background: #c95000  none repeat scroll 0 0 !important;
+    border-radius: 5px !important;
+}
+
+.dopbsp-input-wrapper input[type="submit"]:hover{
+   background: #b34800  none repeat scroll 0 0 !important;
+   border-radius: 5px  !important;
+}
+
+.dopbsp-input-wrapper input[type="submit"]:focus{
+   background: #b34800  none repeat scroll 0 0 !important;
+   border-radius: 5px  !important;
+}
 
 #top-bar-wrap {
   border-bottom: 0px solid #eee;
