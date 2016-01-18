@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.3
+* Version                 : 2.1.4
 * File                    : assets/js/jquery.dop.frontend.BSPCalendar.js
-* File Version            : 1.3.9
-* Created / Last Modified : 17 December 2015
+* File Version            : 1.4
+* Created / Last Modified : 21 December 2015
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -243,9 +243,11 @@
                                                                  "row": 7}},
                                          "style": 5},
                                 "text": {}}, 
-                    "woocommerce": {"data": {"add_to_cart": false,
+                    "woocommerce": {"data": {"addToCart": false,
+                                             "cartURL": "",
                                              "enabled": false,
-                                             "product_id": 0},
+                                             "productID": 0,
+                                             "redirect": false},
                                     "text": {"addToCart": "Add to cart"}}},
         ajaxURL = '',
         Container = this,
@@ -4692,7 +4694,7 @@
                  */
                 if (methods_cart.data['enabled']
                         || (methods_woocommerce.data['enabled']
-                                && methods_woocommerce.data['add_to_cart'])){
+                                && methods_woocommerce.data['addToCart'])){
                     HTML.push('     <div class="dopbsp-input-wrapper dopbsp-add-to-cart-wrapper">');
                     HTML.push('         <input type="submit" name="DOPBSPCalendar-add-to-cart'+ID+'" id="DOPBSPCalendar-add-to-cart'+ID+'" value="'+DOPBSPFrontEnd.text(ID, 'woocommerce', 'addToCart')+'" />');
                     HTML.push('     </div>');
@@ -4985,7 +4987,7 @@
                  * Scroll to reservation or to add to cart button for WooCommerce.
                  */
                 if (methods_woocommerce.data['enabled']
-                        && !methods_woocommerce.data['add_to_cart']){
+                        && !methods_woocommerce.data['addToCart']){
                     if ($('.cart').offset().top+$('.cart').height() < $(document).scrollTop()){
                         prototypes.scrollToY($('.cart').offset().top+$('.cart').height()-200);
                     }
@@ -5027,7 +5029,7 @@
                 $('#DOPBSPCalendar-add-to-cart'+ID).unbind('click');
                 $('#DOPBSPCalendar-add-to-cart'+ID).bind('click', function(){
                     if (methods_woocommerce.data['enabled']
-                            && methods_woocommerce.data['add_to_cart']){
+                            && methods_woocommerce.data['addToCart']){
                         methods_woocommerce.add();
                     }
                 });
@@ -6696,7 +6698,7 @@
                 /*
                  * Woocommerce "Add to cart" button.
                  */
-                if (!methods_woocommerce.data['add_to_cart']){
+                if (!methods_woocommerce.data['addToCart']){
                     $('.cart').unbind('submit');
                     $('.cart').bind('submit', function(e){
                         e.preventDefault();
@@ -6708,7 +6710,7 @@
             /*
              * Set WooCommerce button for current reservation.
              */
-                if (!methods_woocommerce.data['add_to_cart']){
+                if (!methods_woocommerce.data['addToCart']){
                     $('.cart button[type=submit]').css('display', 'block');
                 }
                 else{
@@ -6727,15 +6729,15 @@
                                  currency: methods_currency.data['sign'],
                                  currency_code: methods_currency.data['code'],
                                  cart_data: methods_cart.cart,
-                                 product_id: methods_woocommerce.data['product_id']}, function(data){
+                                 product_id: methods_woocommerce.data['productID']}, function(data){
                     data = $.trim(data);
                     
                     var result = data.split(';;;;;')[0],
                     message = data.split(';;;;;')[1];
                     
                     if (result === 'success'){
-                        if (wc_add_to_cart_params['cart_redirect_after_add'] === 'yes'){
-                            window.location.href = wc_add_to_cart_params['cart_url'];
+                        if (methods_woocommerce.data['redirect']){
+                            window.location.href = methods_woocommerce.data['cartURL'];
                         }
                         else{
                             methods_info.toggleMessages(message,

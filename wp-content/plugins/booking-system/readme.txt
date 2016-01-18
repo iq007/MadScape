@@ -3,7 +3,7 @@ Contributors: DOTonPAPER
 Donate link: http://wordpressbooking.systems/
 Tags: accommodations, admin, administration, ajax, appointment, availability, availability calendar, book, bookable, bookable events, boking, booking, booking calendar, booking form, booking module, booking plugin, booking system, bookings, calendar, event, event calendar, events, hotel, hotel booking, hotel rooms, jquery, management, meeting, meeting scheduling, organizer, payment, paypal, plugin, rent, rental, reservation, reservation calendar, reservation plugin, reservation system, responsive, schedule, schedule calendar, schedule system, scheduling, service, to book, villa booking
 Requires at least: 4.0
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -99,29 +99,37 @@ View [demo](http://wordpressbooking.systems/) here.
 
 == Changelog ==
 
+= 2.1.5 =
+* Fatal error that appears when WooCommerce is not installed has been repaired.
+
+= 2.1.4 =
+* Compatibility with some WooCommerce themes has been repaired.
+* The documentation link has changed.
+* The shop's SSL certificate will validate when the licence is activated, bug repaired.
+
 = 2.1.3 =
 * "Beautify" theme has been added.
-* Reservations are added in WooCommerce cart if user is not logged in, bug fixed.
+* Reservations are added in WooCommerce cart if user is not logged in, bug repaired.
 
 = 2.1.2 =
 * Add-ons' update class has been improved.
-* The coupon code is not visible in JavaScript anymore, bug fixed.
+* The coupon code is not visible in JavaScript anymore, bug repaired.
 * WooCommerce functionalities have been changed. You can more easily attach Pinpoint to an WooCommerce product, variations are not needed anymore, availability is restored when an order is canceled and much more. Integration is much easier with multi vendor plugins types.
 
 = 2.1.1 =
 * "Booking System" has been renamed "Pinpoint".
 * API - List reservations added.
-* Calendar can be selected/removed in WooCommerce products, bug fixed.
+* Calendar can be selected/removed in WooCommerce products, bug repaired.
 * Classes constructors have been modified to meet the PHP5 standards.
-* Reservations list pagination display the correct reservations, bug fixed.
+* Reservations list pagination display the correct reservations, bug repaired.
 * Widgets constructor call has been modified to work in WordPress version 4.3.0 and higher.
 
 = 2.1 =
 * "Add-ons" & "Themes" load data also via cURL.
 * API - Beta version released.
 * Reservations list pagination added.
-* PayPal small bug fixed.
-* Security bug fixed.
+* PayPal small bug repaired.
+* Security bug repaired.
 * WooCommerce "Add to cart" text added in translation.
 
 = 2.0 =
@@ -270,23 +278,23 @@ View [demo](http://wordpressbooking.systems/) here.
 * You have the possibility to calculate the total price using the last hour selected value, or not.
 
 = 1.4 =
-* Security issue fixed.
+* Security issue repaired.
 
 = 1.3.1 =
-* TinyMCE shortcodes bug fixed.
+* TinyMCE shortcodes bug repaired.
 
 = 1.3 =
 * Security fixes.
-* 3.9 compatibilities fixed.
+* 3.9 compatibilities repaired.
 
 = 1.2.1 =
-* Calendar "is stuck" bug fixed.
+* Calendar "is stuck" bug repaired.
 
 = 1.2 =
-* Localhost bugs fixed.
+* Localhost bugs repaired.
 
 = 1.1 =
-* Access-Control-Allow-Origin Buster bug fixed.
+* Access-Control-Allow-Origin Buster bug repaired.
 * French Translation updated thanks to Asselin de Beauville Christophe - http://gegeek.net/
 * German Translation updated thanks to Dieter Pfenning - dieter.pfenning@winball.de
 * Polish Translation updated thanks to Kwasniewski Krzysztof - http://etechnologie.pl
@@ -297,29 +305,37 @@ View [demo](http://wordpressbooking.systems/) here.
 
 == Upgrade Notice ==
 
+= 2.1.5 =
+* Fatal error that appears when WooCommerce is not installed has been repaired.
+
+= 2.1.4 =
+* Compatibility with some WooCommerce themes has been repaired.
+* The documentation link has changed.
+* The shop's SSL certificate will validate when the licence is activated, bug repaired.
+
 = 2.1.3 =
 * "Beautify" theme has been added.
-* Reservations are added in WooCommerce cart if user is not logged in, bug fixed.
+* Reservations are added in WooCommerce cart if user is not logged in, bug repaired.
 
 = 2.1.2 =
 * Add-ons' update class has been improved.
-* The coupon code is not visible in JavaScript anymore, bug fixed.
+* The coupon code is not visible in JavaScript anymore, bug repaired.
 * WooCommerce functionalities have been changed. You can more easily attach Pinpoint to an WooCommerce product, variations are not needed anymore, availability is restored when an order is canceled and much more. Integration is much easier with multi vendor plugins types.
 
 = 2.1.1 =
 * "Booking System" has been renamed "Pinpoint".
 * API - List reservations added.
-* Calendar can be selected/removed in WooCommerce products, bug fixed.
+* Calendar can be selected/removed in WooCommerce products, bug repaired.
 * Classes constructors have been modified to meet the PHP5 standards.
-* Reservations list pagination display the correct reservations, bug fixed.
+* Reservations list pagination display the correct reservations, bug repaired.
 * Widgets constructor call has been modified to work in WordPress version 4.3.0 and higher.
 
 = 2.1 =
 * "Add-ons" & "Themes" load data also via cURL.
 * API - Beta version released.
 * Reservations list pagination added.
-* PayPal small bug fixed.
-* Security bug fixed.
+* PayPal small bug repaired.
+* Security bug repaired.
 * WooCommerce "Add to cart" text added in translation.
 
 = 2.0 =
@@ -468,23 +484,23 @@ View [demo](http://wordpressbooking.systems/) here.
 * You have the possibility to calculate the total price using the last hour selected value, or not.
 
 = 1.4 =
-* Security issue fixed.
+* Security issue repaired.
 
 = 1.3.1 =
-* TinyMCE shortcodes bug fixed.
+* TinyMCE shortcodes bug repaired.
 
 = 1.3 =
 * Security fixes.
-* 3.9 compatibilities fixed.
+* 3.9 compatibilities repaired.
 
 = 1.2.1 =
-* Calendar "is stuck" bug fixed.
+* Calendar "is stuck" bug repaired.
 
 = 1.2 =
-* Localhost bugs fixed.
+* Localhost bugs repaired.
 
 = 1.1 =
-* Access-Control-Allow-Origin Buster bug fixed.
+* Access-Control-Allow-Origin Buster bug repaired.
 * French Translation updated thanks to Asselin de Beauville Christophe - http://gegeek.net/
 * German Translation updated thanks to Dieter Pfenning - dieter.pfenning@winball.de
 * Polish Translation updated thanks to Kwasniewski Krzysztof - http://etechnologie.pl

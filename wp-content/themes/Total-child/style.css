@@ -12,10 +12,28 @@
 
 ------------------------------------------------------------------*/
 
+.polylang-switcher-shortcode li a {
+    display: block;
+    height: 3em;
+}
+
+
+.tc_prog_button {
+    color: #c95000;
+}
+
+.tc_prog_button:hover{
+    color: #b34800;
+}
+
 
 #top-bar-wrap {
   border-bottom: 0px solid #eee;
   font-size: 0.923em;
+}
+
+.googlemap iframe {
+  pointer-events:auto;
 }
 
 .local-scroll {

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Pinpoint Booking System
-Version: 2.1.3
+Version: 2.1.5
 Plugin URI: https://wordpress.org/plugins/booking-system/
 Description: Transform your WordPress website into a booking/reservation system. If you like this plugin, feel free to rate it five stars at <a href="https://wordpress.org/support/view/plugin-reviews/booking-system" target="_blank">Wordpress</a> in Reviews section. If you encounter any problems please do not give a low rating but <a href="https://wordpress.org/support/plugin/booking-system" target="_blank">visit</a> our <a href="https://wordpress.org/support/plugin/booking-system" target="_blank">Support</a> first so we can help you.
 Author: Dot on Paper
@@ -11,24 +11,34 @@ Author URI: http://www.dotonpaper.net
 /*
 Change log:
  
+        2.1.5 (2016-01-17)
+                
+                * Fatal error that appears when WooCommerce is not installed has been repaired.
+ 
+        2.1.4 (2016-01-16)
+                
+                * Compatibility with some WooCommerce themes has been repaired.
+                * The documentation link has changed.
+                * The shop's SSL certificate will validate when the licence is activated, bug repaired.
+ 
         2.1.3 (2015-12-18)
                 
                 * "Beautify" theme has been added.
-                * Reservations are added in WooCommerce cart if user is not logged in, bug fixed.
+                * Reservations are added in WooCommerce cart if user is not logged in, bug repaired.
               
         2.1.2 (2015-12-07)
  
                 * Add-ons' update class has been improved.
-                * The coupon code is not visible in JavaScript anymore, bug fixed.
+                * The coupon code is not visible in JavaScript anymore, bug repaired.
                 * WooCommerce functionalities have been changed. You can more easily attach Pinpoint to an WooCommerce product, variations are not needed anymore, availability is restored when an order is canceled and much more. Integration is much easier with multi vendor plugins types.
 
         2.1.1 (2015-09-10)
                 
                 * "Booking System" has been renamed "Pinpoint".
                 * API - List reservations added.
-                * Calendar can be selected/removed in WooCommerce products, bug fixed.
+                * Calendar can be selected/removed in WooCommerce products, bug repaired.
                 * Classes constructors have been modified to meet the PHP5 standards.
-                * Reservations list pagination display the correct reservations, bug fixed.
+                * Reservations list pagination display the correct reservations, bug repaired.
                 * Widgets constructor call has been modified to work in WordPress version 4.3.0 and higher.
 
         2.1 (2015-06-29)
@@ -36,8 +46,8 @@ Change log:
                 * "Add-ons" & "Themes" load data also via cURL.
                 * API - Beta version released.
                 * Reservations list pagination added.
-                * PayPal small bug fixed.
-                * Security bug fixed.
+                * PayPal small bug repaired.
+                * Security bug repaired.
                 * WooCommerce "Add to cart" text added in translation.
 
         2.0 (2015-03-28) 
@@ -188,28 +198,28 @@ Change log:
 	
 	1.4 (2014-08-14)
 	
-                * Security issue fixed.
+                * Security issue repaired.
 
         1.3.1 (2014-05-11)
 	
-                * TinyMCE shortcodes bug fixed.
+                * TinyMCE shortcodes bug repaired.
 
         1.3 (2014-05-06)
 	
                 * Security fixes.
-                * 3.9 compatibilities fixed.
+                * 3.9 compatibilities repaired.
  
         1.2.1 (2012-12-01)
 	
-                * Calendar "is stuck" bug fixed.
+                * Calendar "is stuck" bug repaired.
   
         1.2 (2012-08-29)
 	
-                * Localhost bugs fixed.
+                * Localhost bugs repaired.
 
         1.1 (2012-08-27)
 	
-                * Access-Control-Allow-Origin Buster bug fixed.
+                * Access-Control-Allow-Origin Buster bug repaired.
                 * French Translation updated thanks to Asselin de Beauville Christophe - http://gegeek.net/
                 * German Translation updated thanks to Dieter Pfenning - dieter.pfenning@winball.de
                 * Polish Translation updated thanks to Kwasniewski Krzysztof - http://etechnologie.pl

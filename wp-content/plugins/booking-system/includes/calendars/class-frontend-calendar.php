@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.5
 * File                    : includes/calendars/class-frontend-calendar.php
-* File Version            : 1.1.2
-* Created / Last Modified : 04 December 2015
+* File Version            : 1.1.4
+* Created / Last Modified : 17 January 2015
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -88,12 +88,13 @@
              * @return options JSON
              */
             function getJSON($atts){
+                global $woocommerce;
                 global $DOPBSP;
                 
                 $data = array();
                 
                 $language = $atts['lang'];
-                $woocommerce = isset($atts['woocommerce']) ? $atts['woocommerce']:'';
+                $woocommerce_enabled = isset($atts['woocommerce']) ? $atts['woocommerce']:'';
                 $woocommerce_add_to_cart = isset($atts['woocommerce_add_to_cart']) ? $atts['woocommerce_add_to_cart']:'';
                 $woocommerce_position = isset($atts['woocommerce_position']) ? $atts['woocommerce_position']:'';
                 $woocommerce_product_id = isset($atts['woocommerce_product_id']) ? $atts['woocommerce_product_id']:'';
@@ -101,8 +102,11 @@
                 $DOPBSP->classes->translation->set($language,
                                                    false);
                 
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,'payment');
+                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,
+                                                                                'calendar');
+                $settings_payment = $DOPBSP->classes->backend_settings->values(1,
+                                                                               'payment');
+                
                 /*
                  * JSON
                  */
@@ -204,9 +208,11 @@
                               'sidebar' => $DOPBSP->classes->frontend_calendar_sidebar->get($settings_calendar,
                                                                                             $woocommerce,
                                                                                             $woocommerce_position),
-                              'woocommerce' => array('data' => array('add_to_cart' => $woocommerce_add_to_cart == 'true' ? true:false,
-                                                                     'enabled' => $woocommerce == 'true' ? true:false,
-                                                                     'product_id' => $woocommerce_product_id),
+                              'woocommerce' => array('data' => array('addToCart' => $woocommerce_add_to_cart == 'true' ? true:false,
+                                                                     'cartURL' => in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) || DOPBSP_CONFIG_WOOCOMMERCE_ENABLE_CODE ? $woocommerce->cart->get_cart_url():'',
+                                                                     'enabled' => $woocommerce_enabled == 'true' ? true:false,
+                                                                     'productID' => $woocommerce_product_id,
+                                                                     'redirect' => get_option('woocommerce_cart_redirect_after_add') == 'yes' ? true:false),
                                                      'text' => array('addToCart' => $DOPBSP->text('WOOCOMMERCE_ADD_TO_CART'))));
                 
                 return json_encode($data);
