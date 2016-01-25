@@ -12,6 +12,89 @@
 
 ------------------------------------------------------------------*/
 
+
+/*------- Portfolio ----------*/
+
+.portfolio-entry-details {
+    background: none;
+    border: none;
+}
+
+.wp-caption {
+    border: none;
+}
+
+.vcex-pricing{
+    padding-right: 3em !important;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+
+.vcex-pricing > .vcex-pricing-header {
+    font-size: 30px !important;
+
+}
+
+.vcex-pricing > .vcex-pricing-content ul li{
+    line-height: 3em !important;
+    font-size: 28px !important;
+
+}
+
+.caseta-text{
+    font-size: 1.5em !important;
+    font-weight: 100 !important;
+}
+
+.caseta-text p{
+    line-height: 2em;
+}
+
+.noutati.titlu{
+    font-weight: 400;
+    float: left;
+    font-family: inherit;
+}
+
+
+.noutati.subtitlu{
+    font-size: 1.8em;
+    font-weight: 300;
+    float: left;
+    clear: both;
+    line-height: 1.5em;
+}
+
+
+.noutati.continut{
+    color: #555555;
+    float: left;
+    margin-top: 0.5em;
+    font-size: 1.5em;
+    clear: both;
+    line-height: 1.5em;
+}
+
+.noutati.data{
+    color: grey;
+    font-size: 1em;
+    float: right;
+    margin-top: 0.5em;
+    clear: both;
+}
+
+
+.tp-mask-wrap > #slide-8-layer-1.tp-caption.Photography-Menuitem.tp-resizeme.rs-hover-ready,
+.tp-mask-wrap > #slide-8-layer-2.tp-caption.Photography-Menuitem.tp-resizeme.rs-hover-ready,
+.tp-mask-wrap > #slide-8-layer-3.tp-caption.Photography-Menuitem.tp-resizeme.rs-hover-ready{
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.tp-mask-wrap > #slide-4-layer-1.tp-caption.Photography-Menuitem.tp-resizeme.rs-hover-ready{
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    /*padding: 0.5em !important;
+    line-height: 26px !important;*/
+}
+
 .polylang-switcher-shortcode li a {
     display: block;
     height: 3em;
