@@ -58,11 +58,12 @@
 
 
 .noutati.subtitlu{
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-weight: 300;
     float: left;
     clear: both;
     line-height: 1.5em;
+    border-bottom: 1px solid #DDDDDD;
 }
 
 
@@ -73,11 +74,12 @@
     font-size: 1.5em;
     clear: both;
     line-height: 1.5em;
+    font-weight: 200;
 }
 
 .noutati.data{
     color: grey;
-    font-size: 1em;
+    font-size: 1.1em;
     float: right;
     margin-top: 0.5em;
     clear: both;
@@ -107,6 +109,16 @@
 
 .tc_prog_button:hover{
     color: #b34800;
+}
+
+#footer-callout .theme-button{
+    font-sze: 1.3em;
+    padding: 1em 1em;
+    background-color: #c95000;
+}
+
+#footer-callout-left{
+    width: 65%;
 }
 
 .dopbsp-input-wrapper input[type="submit"]{
