@@ -15,10 +15,15 @@
 
 /*------- Portfolio ----------*/
 
+
 .portfolio-entry-details {
     background: none;
     border: none;
 }
+
+
+/*-----*/
+
 
 .wp-caption {
     border: none;
@@ -48,6 +53,23 @@
 
 .caseta-text p{
     line-height: 2em;
+    font-size: 1.3em;
+    padding-top: 0.5em;
+}
+
+.caseta-text.camera-doctor{
+    color: #CCCCCC;
+
+}
+
+.caseta-text.camera-doctor.titlu{
+    color: #AAAAAA;
+    font-size: 1.3em;
+    min-height: 3.3em;
+    background-color: grey;
+    padding-top: 0.1em;
+    padding-bottom: 1em;
+    font-weight: 400;
 }
 
 .noutati.titlu{
@@ -103,18 +125,20 @@
 }
 
 
-.tc_prog_button {
+/*.tc_prog_button {
     color: #c95000;
 }
 
 .tc_prog_button:hover{
     color: #b34800;
-}
+}*/
+
 
 #footer-callout .theme-button{
     font-sze: 1.3em;
     padding: 1em 1em;
-    background-color: #c95000;
+    /*background-color: #c95000;*/
+    background-color: #888888;
 }
 
 #footer-callout-left{
