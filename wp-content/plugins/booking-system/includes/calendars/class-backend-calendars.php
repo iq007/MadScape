@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/calendars/class-backend-calendars.php
-* File Version            : 1.1
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.1.2
+* Created / Last Modified : 19 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -43,11 +43,10 @@
                 global $wpdb;
                 global $DOPBSP;
                 
-                
                 $calendars = array();
                 $calendars_available = array();
                 
-                $calendars = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=1');
+                $calendars = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->calendars);
                 
                 /* 
                  * Create available calendars list.
@@ -106,6 +105,7 @@
                 global $DOPBSP;
                 
                 $html = array();
+                $user = get_userdata($calendar->user_id); // Get data about the user who created the calendar.
                 $reservations_no_pending = 0;
                 $reservations_no_approved = 0;
                 $reservations_no_rejected = 0;
@@ -113,7 +113,7 @@
                 
                 $DOPBSP->classes->backend_reservations->clean();
                 $reservations = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->reservations.' WHERE calendar_id=%d  AND status <> "expired"',
-                                                                  1));
+                                                                  $calendar->id));
                 
                 /*
                  * Count the number of reservations.
@@ -135,20 +135,19 @@
                     }
                 }
                 
-                array_push($html, '<li class="dopbsp-item" id="DOPBSP-calendar-ID-1" onclick="DOPBSPBackEndCalendar.init(1, '.$calendar->user_id.')">');
+                array_push($html, '<li class="dopbsp-item" id="DOPBSP-calendar-ID-'.$calendar->id.'" onclick="DOPBSPBackEndCalendar.init('.$calendar->id.', '.$calendar->user_id.')">');
                 array_push($html, ' <div class="dopbsp-header">');
                 
                 /*
                  * Display calendar ID.
                  */
-                array_push($html, '     <span class="dopbsp-id">ID: 1</span>');
+                array_push($html, '     <span class="dopbsp-id">ID: '.$calendar->id.'</span>');
                 
                 /*
                  * Display data about the user who created the calendar.
                  */
-                
                 array_push($html, '     <span class="dopbsp-header-item dopbsp-avatar">'.get_avatar($calendar->user_id, 17));
-                array_push($html, '         <span class="dopbsp-info">'.$DOPBSP->text('CALENDARS_CREATED_BY').': admin</span>');
+                array_push($html, '         <span class="dopbsp-info">'.$DOPBSP->text('CALENDARS_CREATED_BY').': '.$user->data->display_name.'</span>');
                 array_push($html, '         <br class="dopbsp-clear" />');
                 array_push($html, '     </span>');
                 

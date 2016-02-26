@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/calendars/class-backend-calendar-schedule.php
-* File Version            : 1.1.1
-* Created / Last Modified : 04 December 2015
+* File Version            : 1.1.2
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -36,10 +36,11 @@
                 
                 $schedule = array();
 
+                $calendar_id = $_POST['id'];
                 $year = $_POST['year'];
                 
                 $days = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->days.' WHERE calendar_id=%d AND year=%d',
-                                                          1, $year));
+                                                          $calendar_id, $year));
 
                 foreach ($days as $day):
                     $schedule[$day->day] = $day->data;
@@ -64,6 +65,7 @@
                 global $DOPBSP;
 
                 $schedule = json_decode(stripslashes(utf8_encode($_POST['schedule'])));
+                $id = $_POST['id'];
                 $hours_enabled = $_POST['hours_enabled'];
                 
                 $days = array();
@@ -81,7 +83,7 @@
                     $day_items = explode('-', $day);
                     
                     $control_data = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->days.' WHERE calendar_id=%d AND day="%s"',
-                                                                      1, $day));
+                                                                      $id, $day));
                         
                     if ($hours_enabled == 'true'){
                         foreach ($data->hours as $hour):
@@ -102,11 +104,11 @@
                         $wpdb->update($DOPBSP->tables->days, array('data' => json_encode($data),
                                                                    'price_min' => $price_min,
                                                                    'price_max' => $price_max), 
-                                                             array('calendar_id' => 1,
+                                                             array('calendar_id' => $id,
                                                                    'day' => $day));
                     }
                     else{
-                        array_push($query_insert_values, '(\'1_'.$day.'\', \'1\', \''.$day.'\', \''.$day_items[0].'\', \''.json_encode($data).'\', \''.$price_min.'\', \''.$price_max.'\')');
+                        array_push($query_insert_values, '(\''.$id.'_'.$day.'\', \''.$id.'\', \''.$day.'\', \''.$day_items[0].'\', \''.json_encode($data).'\', \''.$price_min.'\', \''.$price_max.'\')');
                     }
                     next($schedule);                        
                 }
@@ -116,9 +118,10 @@
                 }
                 
                 $this->clean();
-                $this->setMaxYear();
-                $this->setPrice();
-                $DOPBSP->classes->backend_calendar_availability->set($days);
+                $this->setMaxYear($id);
+                $this->setPrice($id);
+                $DOPBSP->classes->backend_calendar_availability->set($id,
+                                                                     $days);
                 
                 die();      
             }
@@ -137,7 +140,8 @@
                 
                 $reservation = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->reservations.' WHERE id=%d',
                                                              $reservation_id));
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                                'calendar');
                 
                 /*
                  * Get info data.
@@ -367,8 +371,8 @@
                                                                'day' => $day->day));
                     
                     if ($settings_calendar->days_details_from_hours == 'true'){
-                        $this->setDayFromHours($reservation->calendar_id, 
-                                               $day->day);
+                        $this->setDayFromHours($reservation->calendar_id,
+                                                             $day->day);
                     }
                 }
                 
@@ -391,7 +395,8 @@
                 
                 $reservation = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->reservations.' WHERE id=%d',
                                                              $reservation_id));
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                                'calendar');
                 $history = json_decode($reservation->days_hours_history);    
                 
                 /*
@@ -551,7 +556,7 @@
                                                                    'day' => $day->day));
                         
                         if ($settings_calendar->days_details_from_hours == 'true'){
-                            $this->setDayFromHours($reservation->calendar_id, 
+                            $this->setDayFromHours($reservation->calendar_id,
                                                    $day->day);
                         }
                     }
@@ -867,8 +872,10 @@
                                                     || $settings_calendar->hours_interval_enabled == 'true') 
                                             && $key < $end_hour) || 
                                     ($settings_calendar->hours_add_last_hour_to_total_price == 'true' 
-                                                    && $settings_calendar->hours_interval_enabled == 'false' 
-                                                    && $key <= $end_hour))
+                                            && $settings_calendar->hours_interval_enabled == 'false' 
+                                            && $key <= $end_hour) || 
+                                    ($start_hour == $end_hour
+                                            && $key <= $end_hour))
                             && ($hour->status != 'available'
                                     && $hour->status != 'special'
                                     || ($hour->available != '' && $no_items > $hour->available)

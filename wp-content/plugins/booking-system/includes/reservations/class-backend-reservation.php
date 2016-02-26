@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/reservations/class-backend-reservation.php
-* File Version            : 1.0.8
-* Created / Last Modified : 04 December 2015
+* File Version            : 1.0.9
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -23,6 +23,7 @@
             /*
              * Add reservation.
              * 
+             * @param calendar_id (integer): calendar ID
              * @param language (string): selected language
              * @param currency (string): currency sign
              * @param currency_code (string): currency code

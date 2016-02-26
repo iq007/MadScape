@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/emails/views-backend-email.php
-* File Version            : 1.0.8
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.9
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -34,12 +34,14 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $id = $args['id'];
                 $language = isset($args['language']) && $args['language'] != '' ? $args['language']:$DOPBSP->classes->backend_language->get();
                 $template = isset($args['template']) ? $args['template']:'book_admin';
                 
                 $email = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->emails.' WHERE id=%d',
-                                                       1));
-                $template_data = $DOPBSP->classes->backend_email->get($template);
+                                                       $id));
+                $template_data = $DOPBSP->classes->backend_email->get($id,
+                                                                      $template);
 ?>
                 <div class="dopbsp-inputs-wrapper dopbsp-last">
 <?php                    
@@ -49,7 +51,7 @@
                 $this->displayTextInput(array('id' => 'name',
                                               'label' => $DOPBSP->text('EMAILS_EMAIL_NAME'),
                                               'value' => $email->name,
-                                              'email_id' => 1,
+                                              'email_id' => $email->id,
                                               'template' => '',
                                               'help' => $DOPBSP->text('EMAILS_EMAIL_NAME_HELP')));
 ?>
@@ -99,7 +101,7 @@
                 $this->displayTextInput(array('id' => 'subject',
                                               'label' => $DOPBSP->text('EMAILS_EMAIL_SUBJECT'),
                                               'value' => $DOPBSP->classes->translation->decodeJSON($template_data->subject, $language),
-                                              'email_id' => 1,
+                                              'email_id' => $email->id,
                                               'template' => $template,
                                               'help' => '',
                                               'container_class' => '',
@@ -107,7 +109,7 @@
                 $this->displayTextarea(array('id' => 'message',
                                              'label' => $DOPBSP->text('EMAILS_EMAIL_MESSAGE'),
                                              'value' => $DOPBSP->classes->translation->decodeJSON($template_data->message, $language),
-                                             'email_id' => 1,
+                                             'email_id' => $email->id,
                                              'template' => $template,
                                              'container_class' => 'dopbsp-last',
                                              'input_class' => 'dopbsp-message'));
@@ -140,6 +142,7 @@
                 $id = $args['id'];
                 $label = $args['label'];
                 $value = $args['value'];
+                $email_id = $args['email_id'];
                 $template = $args['template'];
                 $help = isset($args['help']) ? $args['help']:'';
                 $container_class = isset($args['container_class']) ? $args['container_class']:'';
@@ -149,7 +152,7 @@
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-email-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <input type="text" name="DOPBSP-email-'.$id.'" id="DOPBSP-email-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndEmail.edit(\''.$template.'\', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndEmail.edit(\''.$template.'\', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndEmail.edit(\''.$template.'\', \'text\', \''.$id.'\', this.value, true)" />');
+                array_push($html, '     <input type="text" name="DOPBSP-email-'.$id.'" id="DOPBSP-email-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndEmail.edit('.$email_id.', \''.$template.'\', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndEmail.edit('.$email_id.', \''.$template.'\', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndEmail.edit('.$email_id.', \''.$template.'\', \'text\', \''.$id.'\', this.value, true)" />');
                 
                 if ($help != ''){
                     array_push($html, '     <a href="'.DOPBSP_CONFIG_HELP_DOCUMENTATION_URL.'" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help">'.$help.'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION').'</span></a>');
@@ -166,6 +169,7 @@
              *                      * id (integer): email field ID
              *                      * label (string): email label
              *                      * value (string): email current value
+             *                      * email_id (integer): email ID
              *                      * template (integer): email template
              *                      * container_class (string): container class
              *                      * input_class (string): input class
@@ -178,13 +182,14 @@
                 $id = $args['id'];
                 $label = $args['label'];
                 $value = $args['value'];
+                $email_id = $args['email_id'];
                 $template = $args['template'];
                 $container_class = isset($args['container_class']) ? $args['container_class']:'';
                 $input_class = isset($args['input_class']) ? $args['input_class']:'';
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-email-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <textarea name="DOPBSP-email-'.$id.'" id="DOPBSP-email-'.$id.'" cols="" rows="12" class="'.$input_class.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndEmail.edit(\''.$template.'\', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndEmail.edit(\''.$template.'\', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndEmail.edit(\''.$template.'\', \'text\', \''.$id.'\', this.value, true)">'.$value.'</textarea>');
+                array_push($html, '     <textarea name="DOPBSP-email-'.$id.'" id="DOPBSP-email-'.$id.'" cols="" rows="12" class="'.$input_class.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndEmail.edit('.$email_id.', \''.$template.'\', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndEmail.edit('.$email_id.', \''.$template.'\', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndEmail.edit('.$email_id.', \''.$template.'\', \'text\', \''.$id.'\', this.value, true)">'.$value.'</textarea>');
                 array_push($html, ' </div>');
 
                 echo implode('', $html);

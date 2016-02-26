@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/forms/class-backend-forms.php
-* File Version            : 1.0.7
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.8
+* Created / Last Modified : 15 February 2016
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
 * Description             : Back end forms PHP class.
@@ -41,7 +41,8 @@
                                     
                 $html = array();
                 
-                $form = $wpdb->get_row('SELECT * FROM '.$DOPBSP->tables->forms);
+                $forms = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->forms.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
+                                                           wp_get_current_user()->ID));
                 
                 /* 
                  * Create forms list HTML.
@@ -49,8 +50,10 @@
                 array_push($html, '<ul>');
                 
                 if ($wpdb->num_rows != 0){
-                    if ($form){
-                        array_push($html, $this->listItem($form));
+                    if ($forms){
+                        foreach ($forms as $form){
+                            array_push($html, $this->listItem($form));
+                        }
                     }
                 }
                 else{
@@ -76,13 +79,13 @@
                 $html = array();
                 $user = get_userdata($form->user_id); // Get data about the user who created the form.
                 
-                array_push($html, '<li class="dopbsp-item" id="DOPBSP-form-ID-1" onclick="DOPBSPBackEndForm.display()">');
+                array_push($html, '<li class="dopbsp-item" id="DOPBSP-form-ID-'.$form->id.'" onclick="DOPBSPBackEndForm.display('.$form->id.')">');
                 array_push($html, ' <div class="dopbsp-header">');
                 
                 /*
                  * Display form ID.
                  */
-                array_push($html, '     <span class="dopbsp-id">ID: 1</span>');
+                array_push($html, '     <span class="dopbsp-id">ID: '.$form->id.'</span>');
                 
                 /*
                  * Display data about the user who created the form.

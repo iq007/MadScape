@@ -151,7 +151,7 @@
                 global $post;
                 global $DOPBSP;
                 global $DOPBSPWooCommerce;
-                echo 'test';
+                
                 $product_id = $cart_item['product_id'];
                 
                 /*

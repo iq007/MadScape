@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.4
+* Version                 : 2.1.6
 * File                    : config.php
-* File Version            : 1.2.1
-* Created / Last Modified : 07 January 2016
+* File Version            : 1.2.2
+* Created / Last Modified : 19 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -74,6 +74,6 @@
     define('DOPBSP_CONFIG_VIEW_ADDONS', true); // Display add-ons.
     define('DOPBSP_CONFIG_VIEW_DOCUMENTATION', true); // Display documentation.
     define('DOPBSP_CONFIG_VIEW_THEMES', true); // Display themes.
-    define('DOPBSP_CONFIG_VIEW_PRO_TIPS', true); // Display pro tips.
+    define('DOPBSP_CONFIG_VIEW_PRO', true); // Display pro tips.
     
 // ***************************************************************************** End views display.

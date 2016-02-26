@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : views/views.php
-* File Version            : 1.0.7
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.8
+* Created / Last Modified : 16 January 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -45,7 +45,8 @@
                 
                 for ($i=0; $i<count($views); $i++){
                     if (class_exists($views[$i]['name'])){
-                        $this->$views[$i]['key'] = new $views[$i]['name']();
+                        $key = $views[$i]['key'];
+                        $this->$key = new $views[$i]['name']();
                     }
                 }
             }
@@ -231,28 +232,6 @@
                                                'name' => 'DOPBSPViewsBackEndRules'));
                 array_push($this->views, array('key' => 'backend_rule',
                                                'name' => 'DOPBSPViewsBackEndRule'));
-                
-                /*
-                 * Set search view classes.
-                 */
-                array_push($this->views, array('key' => 'backend_searches',
-                                               'name' => 'DOPBSPViewsBackEndSearches'));
-                array_push($this->views, array('key' => 'backend_search',
-                                               'name' => 'DOPBSPViewsBackEndSearch'));
-                array_push($this->views, array('key' => 'frontend_search',
-                                               'name' => 'DOPBSPViewsFrontEndSearch'));
-                array_push($this->views, array('key' => 'frontend_search_results',
-                                               'name' => 'DOPBSPViewsFrontEndSearchResults'));
-                array_push($this->views, array('key' => 'frontend_search_results_list',
-                                               'name' => 'DOPBSPViewsFrontEndSearchResultsList'));
-                array_push($this->views, array('key' => 'frontend_search_results_grid',
-                                               'name' => 'DOPBSPViewsFrontEndSearchResultsGrid'));
-                array_push($this->views, array('key' => 'frontend_search_sidebar',
-                                               'name' => 'DOPBSPViewsFrontEndSearchSidebar'));
-                array_push($this->views, array('key' => 'frontend_search_sort',
-                                               'name' => 'DOPBSPViewsFrontEndSearchSort'));
-                array_push($this->views, array('key' => 'frontend_search_view',
-                                               'name' => 'DOPBSPViewsFrontEndSearchView'));
                 
                 /*
                  * Set settings view classes.

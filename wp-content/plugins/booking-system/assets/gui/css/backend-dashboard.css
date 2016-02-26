@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : assets/gui/css/backend-dashboard.css
-* File Version            : 1.0.9
-* Created / Last Modified : 04 September 2015
+* File Version            : 1.1.1
+* Created / Last Modified : 19 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -18,8 +18,6 @@
 /*
  * ********************************************************** Begin get started.
  */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
-
 #DOPBSP-get-started{
     width: 30%;
 }
@@ -49,7 +47,7 @@
     overflow: hidden;
     padding: 10px 15px !important;
     text-decoration: none;
-    width: 300px;
+    width: 190px;
     -webkit-transition: background-color 600ms linear;
     -moz-transition: background-color 600ms linear;
     -o-transition: background-color 600ms linear;
@@ -92,33 +90,6 @@
 #DOPBSP-get-started ul li a:hover{
     background-color: #464646;
 }
-
-.DOPBSP-pro-tips ul li a .dopbsp-info{
-    background-color: #448aff;
-    border-radius: 5px;
-    color: #ffffff;
-    display: none;
-    font-family: 'Josefin Sans';
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 14px;
-    max-width: 50px;
-    margin: -23px 0px 0 146px;
-    padding: 6px !important;
-    padding-bottom: 4px !important;
-    position: absolute;
-    white-space: normal;
-    z-index: 1000000;
-}
-
-.DOPBSP-pro-tips ul li a .dopbsp-info .dopbsp-pro{
-    font-family: Tahoma;
-    font-weight: bold;
-}
-
-.DOPBSP-pro-tips ul li a:hover .dopbsp-info{
-    display: block;
-}
 /*
  * ************************************************************ End get started.
  */
@@ -155,7 +126,7 @@
     overflow: hidden;
     padding: 10px 15px !important;
     text-decoration: none;
-    width: 300px;
+    width: 190px;
     -webkit-transition: background-color 600ms linear;
     -moz-transition: background-color 600ms linear;
     -o-transition: background-color 600ms linear;

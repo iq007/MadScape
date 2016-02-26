@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : assets/gui/css/backend.css
 * File Version            : 1.2
-* Created / Last Modified : 04 September 2015
+* Created / Last Modified : 14 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -92,33 +92,6 @@
 .dopbsp-expired-color{
     color: #cccccc !important;
 }
-
-.DOPBSP-pro-tips ul li a .dopbsp-info{
-    background-color: #252525;
-    color: #ffffff;
-    display: none;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 20px;
-    max-width: 220px;
-    margin: 12px 0 0 -15px;
-    padding: 10px;
-    position: absolute;
-    white-space: normal;
-    z-index: 1000000;
-}
-
-.DOPBSP-pro-tips ul li a.dopbsp-help.dopbsp-right .dopbsp-info{
-    margin: 12px 0 0 -210px;
-}
-
-.DOPBSP-pro-tips ul li a .dopbsp-info.dopbsp-help{
-    padding: 20px 10px;
-}
-
-.DOPBSP-pro-tips ul li a:hover .dopbsp-info{
-    display: block;
-}
 /*
  * End colors
 */
@@ -126,19 +99,6 @@
 /*
  * ***************************************************************************** Begin header.
  */
-
-/*
- * PRO tips   
- */
-
-#DOPBSP-pro-tips-box{
-    background: #ffffff;
-    border: 1px solid #ff6300;
-    margin: 0 0 10px 0;
-    padding: 9px;
-    display: none;
-}
-
 .DOPBSP-admin h2{
     height: 0px !important;
     line-height: 0px !important;
@@ -171,10 +131,6 @@
 }
 
 .DOPBSP-admin .dopbsp-header h3 em.dopbsp-beta{
-    color: #ff6300;
-}
-
-em.dopbsp-beta{
     color: #ff6300;
 }
 
@@ -655,6 +611,11 @@ em.dopbsp-beta{
     background-position: -40px 0;
 }
 
+.DOPBSP-admin .dopbsp-main table.dopbsp-content-wrapper .dopbsp-column .dopbsp-column-header .dopbsp-button.dopbsp-duplicate{
+    background-image: url('../images/duplicate.png');
+    background-position: 11px 11px;
+}
+
 .DOPBSP-admin .dopbsp-main table.dopbsp-content-wrapper .dopbsp-column .dopbsp-column-header .dopbsp-button.dopbsp-calendar{
     background-image: url('../images/sprite.png');
     background-position: -80px 0;
@@ -721,49 +682,6 @@ em.dopbsp-beta{
 
 .DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-help{
     padding: 20px 10px;
-}
-
-.DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-info-blue{
-    background-color: #448aff;
-    border-radius: 5px;
-    color: #ffffff;
-    display: none;
-    font-family: 'Josefin Sans';
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 14px;
-    max-width: 200px;
-    margin: 8px 0px 0 55px;
-    padding: 6px !important;
-    padding-bottom: 4px !important;
-    position: absolute;
-    white-space: normal;
-    z-index: 1000000;
-}
-
-.DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-info-small{
-    margin: 3px 0px 0 42px !important;
-}
-
-.DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-info-blue:after,
-.DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-info-blue:before{
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    position: absolute;
-    pointer-events: none;
-    left: -9px;
-    top: 2px;
-    width: 0;
-}
-
-
-.DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-info-blue:before{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #4489ff transparent transparent;
 }
 
 .DOPBSP-admin .dopbsp-main .dopbsp-button:hover,
@@ -1681,7 +1599,6 @@ em.dopbsp-beta{
     float: right;
     margin: 5px 5px 5px 0;
 }
-
 
 .DOPBSP-admin .dopbsp-input-wrapper .dopbsp-input-list li.dopbsp-no-data{
     border: none;

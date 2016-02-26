@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/forms/views-backend-form.php
-* File Version            : 1.0.7
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.8
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -24,6 +24,7 @@
              * Returns form template.
              * 
              * @param args (array): function arguments
+             *                      * id (integer): form ID
              *                      * language (string): form language
              * 
              * @return form HTML
@@ -32,10 +33,11 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $id = $args['id'];
                 $language = isset($args['language']) && $args['language'] != '' ? $args['language']:$DOPBSP->classes->backend_language->get();
                 
                 $form = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->forms.' WHERE id=%d',
-                                                      1));
+                                                      $id));
 ?>
                 <div class="dopbsp-inputs-wrapper">
 <?php                    
@@ -45,7 +47,7 @@
                 $this->displayTextInput(array('id' => 'name',
                                               'label' => $DOPBSP->text('FORMS_FORM_NAME'),
                                               'value' => $form->name,
-                                              'form_id' => 1,
+                                              'form_id' => $form->id,
                                               'help' => $DOPBSP->text('FORMS_FORM_NAME_HELP')));
 ?>
                 
@@ -56,7 +58,7 @@
                         <label for="DOPBSP-form-language"><?php echo $DOPBSP->text('FORMS_FORM_LANGUAGE'); ?></label>
 <?php
                 echo $this->getLanguages('DOPBSP-form-language',
-                                         'DOPBSPBackEndForm.display(undefined, false)',
+                                         'DOPBSPBackEndForm.display('.$form->id.', undefined, false)',
                                          $language,
                                          'dopbsp-left');
 ?>
@@ -88,6 +90,7 @@
                 $id = $args['id'];
                 $label = $args['label'];
                 $value = $args['value'];
+                $form_id = $args['form_id'];
                 $help = $args['help'];
                 $container_class = isset($args['container_class']) ? $args['container_class']:'';
                     
@@ -95,7 +98,7 @@
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-form-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <input type="text" name="DOPBSP-form-'.$id.'" id="DOPBSP-form-'.$id.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndForm.edit(\'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndForm.edit(\'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndForm.edit(\'text\', \''.$id.'\', this.value, true)" />');
+                array_push($html, '     <input type="text" name="DOPBSP-form-'.$id.'" id="DOPBSP-form-'.$id.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndForm.edit('.$form_id.', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndForm.edit('.$form_id.', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndForm.edit('.$form_id.', \'text\', \''.$id.'\', this.value, true)" />');
                 array_push($html, '     <a href="'.DOPBSP_CONFIG_HELP_DOCUMENTATION_URL.'" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help">'.$help.'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION').'</span></a>');                        
                 array_push($html, ' </div>');
 

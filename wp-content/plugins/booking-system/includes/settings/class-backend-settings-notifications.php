@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/settings/class-backend-settings-notifications.php
-* File Version            : 1.0.4
-* Created / Last Modified : 04 September 2015
+* File Version            : 1.0.5
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -23,6 +23,8 @@
             
             /*
              * Display notifications settings.
+             * 
+             * @post id (integer): calendar ID
              * 
              * @return emails settings HTML
              */

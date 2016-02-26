@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/discounts/class-backend-discounts.php
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -42,7 +42,8 @@
                                     
                 $html = array();
                 
-                $discount = $wpdb->get_row('SELECT * FROM '.$DOPBSP->tables->discounts);
+                $discounts = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->discounts.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
+                                                               wp_get_current_user()->ID));
                 
                 /* 
                  * Create discounts list HTML.
@@ -50,8 +51,10 @@
                 array_push($html, '<ul>');
                 
                 if ($wpdb->num_rows != 0){
-                    if ($discount){
-                        array_push($html, $this->listItem($discount));
+                    if ($discounts){
+                        foreach ($discounts as $discount){
+                            array_push($html, $this->listItem($discount));
+                        }
                     }
                 }
                 else{

@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/calendars/class-backend-calendar.php
-* File Version            : 1.1
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.1.1
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -30,7 +30,10 @@
             function getOptions(){
                 global $DOPBSP;
                 
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
+                $id = $_POST['id'];
+                
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($id,  
+                                                                                'calendar');
 
                 $data = array('AddLastHourToTotalPrice' => $settings_calendar->hours_add_last_hour_to_total_price,
                               'AddtMonthViewText' => $DOPBSP->text('CALENDARS_CALENDAR_ADD_MONTH_VIEW'),
@@ -63,9 +66,9 @@
                               'HoursDefinitionsLabel' => $DOPBSP->text('CALENDARS_CALENDAR_FORM_HOURS_DEFINITIONS_LABEL'),
                               'HoursSetDefaultDataLabel' => $DOPBSP->text('CALENDARS_CALENDAR_FORM_HOURS_SET_DEFAULT_DATA_LABEL'),
                               'HoursIntervalEnabled' => $settings_calendar->hours_interval_enabled,
-                              'ID' => 1,
+                              'ID' => $id,
                               'InfoLabel' => $DOPBSP->text('CALENDARS_CALENDAR_FORM_HOURS_INFO_LABEL'),
-                              'MaxYear' => $DOPBSP->classes->backend_calendar->getMaxYear(),
+                              'MaxYear' => $DOPBSP->classes->backend_calendar->getMaxYear($id),
                               'MonthNames' => array($DOPBSP->text('MONTH_JANUARY'), 
                                                     $DOPBSP->text('MONTH_FEBRUARY'), 
                                                     $DOPBSP->text('MONTH_MARCH'),
@@ -112,15 +115,75 @@
                 global $DOPBSP;
                 
                 $field = $_POST['field'];
+                $id = $_POST['id'];
                 $value = $_POST['value'];
                 
                 /*
                  * Update calendar field.
                  */
                 $wpdb->update($DOPBSP->tables->calendars, array($field => $value), 
-                                                          array('id' => 1));
+                                                          array('id' => $id));
                 
                 die();
+            }
+
+            /*
+             * Delete calendar.
+             * 
+             * @post id (integer): calendar ID
+             * 
+             * @return number of calendars left
+             */
+            function delete(){
+                global $wpdb;
+                global $DOPBSP;
+
+                $id = $_POST['id'];
+                
+                /*
+                 * Delete calendar.
+                 */
+                $wpdb->delete($DOPBSP->tables->calendars, array('id' => $id));
+                
+                /*
+                 * Delete calendar schedule.
+                 */
+                $wpdb->delete($DOPBSP->tables->days, array('calendar_id' => $id));
+                
+                /*
+                 * Delete calendar reservations.
+                 */
+                $wpdb->delete($DOPBSP->tables->reservations, array('calendar_id' => $id));
+                
+                /*
+                 * Delete calendar settings.
+                 */
+                $wpdb->delete($DOPBSP->tables->settings_calendar, array('calendar_id' => $id));
+                $wpdb->delete($DOPBSP->tables->settings_notifications, array('calendar_id' => $id));
+                $wpdb->delete($DOPBSP->tables->settings_payment, array('calendar_id' => $id));
+                
+                /*
+                 * Delete users permissions.
+                 */
+                $users = get_users();
+                
+                foreach ($users as $user){
+                    if ($DOPBSP->classes->backend_settings_users->permission($user->ID, 'use-calendar', $id)){
+                        $DOPBSP->classes->backend_settings_users->set(array('calendar_id' => $id,
+                                                                            'id' => $user->ID,
+                                                                            'slug' => '',
+                                                                            'value' => 0));
+                    }
+                }
+                
+                /*
+                 * Count the number of remaining calendars.
+                 */
+                $calendars = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->calendars.' ORDER BY id DESC');
+                
+                echo $wpdb->num_rows;
+
+            	die();
             }
             
             /*
@@ -130,14 +193,14 @@
              * 
              * @return maximum available year
              */
-            function getMaxYear(){
+            function getMaxYear($id){
                 global $wpdb;
                 global $DOPBSP;
                 
                 $calendar = $wpdb->get_row($wpdb->prepare('SELECT max_year FROM '.$DOPBSP->tables->calendars.' WHERE id=%d',
-                                                          1));
+                                                          $id));
                 
-                return (int)($calendar->max_year == 0 ? $DOPBSP->classes->backend_settings->value(1, 'calendar', 'max_year'):$calendar->max_year);
+                return (int)($calendar->max_year == 0 ? $DOPBSP->classes->backend_settings->value($id, 'calendar', 'max_year'):$calendar->max_year);
             }
             
             /*
@@ -145,15 +208,15 @@
              * 
              * @post id (integer): calendar ID
              */
-            function setMaxYear(){
+            function setMaxYear($id){
                 global $wpdb;
                 global $DOPBSP;
                 
                 $max_year = $wpdb->get_row($wpdb->prepare('SELECT MAX(year) AS year FROM '.$DOPBSP->tables->days.' WHERE calendar_id=%d',
-                                                          1)); 
+                                                          $id)); 
 
                 $wpdb->update($DOPBSP->tables->calendars, array('max_year' => $max_year->year > 0 ? $max_year->year:date('Y')), 
-                                                          array('id' => 1));
+                                                          array('id' => $id));
             }
             
             /*
@@ -161,16 +224,16 @@
              * 
              * @post id (integer): calendar ID
              */
-            function setPrice(){
+            function setPrice($id){
                 global $wpdb;
                 global $DOPBSP;
                 
                 $calendar = $wpdb->get_row($wpdb->prepare('SELECT MIN(price_min) AS price_min, MAX(price_max) AS price_max FROM '.$DOPBSP->tables->days.' WHERE calendar_id=%d AND price_min<>0',
-                                                          1)); 
+                                                          $id)); 
                 
                 $wpdb->update($DOPBSP->tables->calendars, array('price_min' => $wpdb->num_rows == 0 ? 0:$calendar->price_min,
                                                                 'price_max' => $wpdb->num_rows == 0 ? 0:$calendar->price_max), 
-                                                          array('id' => 1));
+                                                          array('id' => $id));
             }
         }
     }

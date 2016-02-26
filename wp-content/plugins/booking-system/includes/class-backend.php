@@ -40,7 +40,6 @@
                 /*
                  * Add styles and scripts only on plugin pages.
                  */
-                
                 if ($this->validPage()){
                     add_action('admin_enqueue_scripts', array(&$this, 'addStyles'));
                     add_action('admin_enqueue_scripts', array(&$this, 'addScripts'));
@@ -89,6 +88,7 @@
                 wp_register_style('DOPBSP-css-backend-emails', $DOPBSP->paths->url.'assets/gui/css/backend-emails.css');
                 wp_register_style('DOPBSP-css-backend-extras', $DOPBSP->paths->url.'assets/gui/css/backend-extras.css');
                 wp_register_style('DOPBSP-css-backend-forms', $DOPBSP->paths->url.'assets/gui/css/backend-forms.css');
+                wp_register_style('DOPBSP-css-backend-locations', $DOPBSP->paths->url.'assets/gui/css/backend-locations.css');
                 wp_register_style('DOPBSP-css-backend-pro', $DOPBSP->paths->url.'assets/gui/css/backend-pro.css');
                 wp_register_style('DOPBSP-css-backend-reservations', $DOPBSP->paths->url.'assets/gui/css/backend-reservations.css');
                 wp_register_style('DOPBSP-css-backend-reservations-add', $DOPBSP->paths->url.'assets/gui/css/jquery.dop.backend.BSPReservationsAdd.css');
@@ -112,6 +112,7 @@
                 wp_enqueue_style('DOPBSP-css-backend-discounts');
                 wp_enqueue_style('DOPBSP-css-backend-extras');
                 wp_enqueue_style('DOPBSP-css-backend-forms');
+                wp_enqueue_style('DOPBSP-css-backend-locations');
                 wp_enqueue_style('DOPBSP-css-backend-pro');
                 wp_enqueue_style('DOPBSP-css-backend-reservations');
                 wp_enqueue_style('DOPBSP-css-backend-reservations-add');

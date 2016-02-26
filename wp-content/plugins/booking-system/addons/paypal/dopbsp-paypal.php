@@ -199,6 +199,7 @@
                 
                 if (isset($_GET['dopbsp_payment_gateway'])
                         && $_GET['dopbsp_payment_gateway'] == 'paypal'){
+                    $calendar_id = $_GET['dopbsp_calendar_id'];
                     $extra_url = $_GET['extra_url'];
                     $pay_action = $_GET['dopbsp_pay_action'];
                     $token = $_GET['dopbsp_token'] == '' ? $DOPBSP->classes->prototypes->getRandomString(64):$_GET['dopbsp_token'];
@@ -213,7 +214,7 @@
                     $page_url = (isset($_SERVER['HTTPS']) ? 'https://':'http://').$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
                     $page_url_pieces =  explode((strpos($page_url, '?dopbsp_pay_action') !== false ? '?':'&').'dopbsp_pay_action', $page_url.$extra_url);
 
-                    $this->set();
+                    $this->set($calendar_id);
                     
                     if ($pay_action == 'payed'){
                         /*
@@ -258,7 +259,7 @@
                             /*
                              * Redirect to success page.
                              */
-                            header('Location: '.($this->redirect != '' ? $this->redirect:$page_url_pieces[0].(strpos($page_url_pieces[0], '?') !== false ? '&':'?').'dopbsp_payment_success=paypal'));  die();
+                            header('Location: '.($this->redirect != '' ? $this->redirect:$page_url_pieces[0].(strpos($page_url_pieces[0], '?') !== false ? '&':'?').'dopbsp_payment_success=paypal')); die();
                         }
                         else{
                             /*
@@ -301,7 +302,7 @@
                  * Check if selected payment method is PayPal access.
                  */
                 if ($reservation->payment_method == 'paypal'){
-                    $this->set();
+                    $this->set($reservation->calendar_id);
                     
                     /*
                      * Check if selected refunds are enabled.
@@ -339,7 +340,8 @@
 
                         if ($ack == 'SUCCESS' 
                                 || $ack == 'SUCCESSWITHWARNING'){
-                            $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
+                            $settings_calendar = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                                            'calendar');
                             $wpdb->update($DOPBSP->tables->reservations, array('refund' => $refund_value,
                                                                                'payment_status' => $refund_value == $reservation->price_total ? 'refunded':'partially refunded'), 
                                                                          array('id' => $reservation->id));
@@ -365,11 +367,13 @@
             /*
              * Set PayPal options.
              * 
+             * @param calendar_id(integer): calendar ID
              */
-            function set(){
+            function set($calendar_id){
                 global $DOPBSP;
                 
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,'payment');
+                $settings_payment = $DOPBSP->classes->backend_settings->values($calendar_id, 
+                                                                               'payment');
                 
                 /*
                  * Set PayPal configuration.
@@ -400,13 +404,15 @@
             /*
              * Initialize PayPal express check out.
              * 
+             * @param calendar_id(integer): calendar ID
              * @param language(string): selected language
              * @param currency_code(string): ISO 4217 currency code
              * @param page_url(string): the page from were the payment is requested
              * 
              * @return error or success redirect link
              */
-            function expressCheckOut($language,
+            function expressCheckOut($calendar_id,
+                                     $language,
                                      $currency_code,
                                      $page_url){
                 global $DOPBSP;
@@ -424,7 +430,7 @@
                  * Set cancel & return links.
                  */
                 array_push($url_variables, 'dopbsp_payment_gateway=paypal');
-                array_push($url_variables, 'dopbsp_calendar_id=1');
+                array_push($url_variables, 'dopbsp_calendar_id='.$calendar_id);
                 array_push($url_variables, 'dopbsp_token='.$DOPBSP->vars->payment_token);
                 
                 $this->url_cancel = urlencode($page_url.(strpos($page_url, '?') !== false ? '&':'?').'dopbsp_pay_action=cancel&'.implode('&', $url_variables));
@@ -494,7 +500,7 @@
                     array_push($description, '...');
                     
                     $calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=%d', 
-                                                              1));
+                                                              $reservation->calendar_id));
                     
                     array_push($nvp_data, '&L_PAYMENTREQUEST_0_NAME'.$i.'='.urlencode($calendar->name.' - '.$DOPBSP->text('RESERVATIONS_RESERVATION_FRONT_END_TITLE').' #'.$reservation->id));
                     array_push($nvp_data, '&L_PAYMENTREQUEST_0_DESC'.$i.'='.urlencode(implode(' ', $description)));
@@ -530,6 +536,7 @@
              * @get dopbsp_pay_action (string): PayPal payment actions
              *                                  "cancel" the user canceled the transaction
              *                                  "payed" the user proceded with payment
+             * @get dopbsp_calendar_id (integer): calendar ID
              * @get dopbsp_token (string): cart token
              * @get PayerID (string): payer PayPal ID
              * @get token (string): PayPal transaction token

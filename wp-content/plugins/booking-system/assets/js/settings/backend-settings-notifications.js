@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/settings/backend-settings-notifications.js
-* File Version            : 1.0.7
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.8
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -35,7 +35,7 @@ var DOPBSPBackEndSettingsNotifications = new function(){
         DOPBSPBackEndSettings.toggle(id, 'notifications');
 
         $.post(ajaxurl, {action: 'dopbsp_settings_notifications_display',
-                         id: 1}, function(data){
+                         id: id}, function(data){
             DOPBSPBackEnd.toggleMessages('success', DOPBSPBackEnd.text('MESSAGES_LOADING_SUCCESS'));
             $('#DOPBSP-column2 .dopbsp-column-content').html(data);
         }).fail(function(data){
@@ -46,11 +46,13 @@ var DOPBSPBackEndSettingsNotifications = new function(){
     /*
      * Test notification method.
      * 
+     * @param id (Number): calendar ID
      */
-    this.test = function(){
+    this.test = function(id){
         DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('SETTINGS_NOTIFICATIONS_TEST_SENDING'));
         
         $.post(ajaxurl, {action: 'dopbsp_settings_notifications_test',
+                         id: id,
                          method: $('#DOPBSP-settings-notifications-test-method').val(),
                          email: $('#DOPBSP-settings-notifications-test-email').val()}, function(data){
             data = $.trim(data);

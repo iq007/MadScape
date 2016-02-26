@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/reservations/views-backend-reservation.php
-* File Version            : 1.0.8
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.9
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -33,9 +33,11 @@
                 $reservation = $args['reservation'];
                
                 $calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=%d', 
-                                                          1));
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,'payment');
+                                                          $reservation->calendar_id));
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                                'calendar');
+                $settings_payment = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                               'payment');
                 
                 $display_approve_button = false;
                 $display_reject_button = false;

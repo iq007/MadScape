@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/extras/views-backend-extra.php
-* File Version            : 1.0.7
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.8
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -24,6 +24,7 @@
              * Returns extra template.
              * 
              * @param args (array): function arguments
+             *                      * id (integer): extra ID
              *                      * language (string): extra language
              * 
              * @return extra HTML
@@ -32,10 +33,11 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $id = $args['id'];
                 $language = isset($args['language']) && $args['language'] != '' ? $args['language']:$DOPBSP->classes->backend_language->get();
                 
                 $extra = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->extras.' WHERE id=%d',
-                                                       1));
+                                                       $id));
 ?>
                 <div class="dopbsp-inputs-wrapper">
 <?php                    
@@ -96,7 +98,7 @@
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-extra-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <input type="text" name="DOPBSP-extra-'.$id.'" id="DOPBSP-extra-'.$id.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndExtra.edit(\'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndExtra.edit(\'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndExtra.edit(\'text\', \''.$id.'\', this.value, true)" />');
+                array_push($html, '     <input type="text" name="DOPBSP-extra-'.$id.'" id="DOPBSP-extra-'.$id.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndExtra.edit('.$extra_id.', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndExtra.edit('.$extra_id.', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndExtra.edit('.$extra_id.', \'text\', \''.$id.'\', this.value, true)" />');
                 array_push($html, '     <a href="'.DOPBSP_CONFIG_HELP_DOCUMENTATION_URL.'" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help">'.$help.'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION').'</span></a>');
                 array_push($html, ' </div>');
 

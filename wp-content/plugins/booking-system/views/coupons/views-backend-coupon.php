@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/coupons/views-backend-coupon.php
-* File Version            : 1.0.8
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.9
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -24,6 +24,7 @@
              * Returns coupon template.
              * 
              * @param args (array): function arguments
+             *                      * id (integer): coupon ID
              *                      * language (string): coupon language
              * 
              * @return coupon HTML
@@ -32,10 +33,11 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $id = $args['id'];
                 $language = isset($args['language']) && $args['language'] != '' ? $args['language']:$DOPBSP->classes->backend_language->get();
                 
                 $coupon = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->coupons.' WHERE id=%d',
-                                                        1));
+                                                        $id));
                 $hours = $DOPBSP->classes->prototypes->getHours();
 ?>
                 <div class="dopbsp-inputs-wrapper dopbsp-last">
@@ -57,7 +59,7 @@
                         <label for="DOPBSP-coupon-language"><?php echo $DOPBSP->text('COUPONS_COUPON_LANGUAGE'); ?></label>
 <?php
                 echo $this->getLanguages('DOPBSP-coupon-language',
-                                         'DOPBSPBackEndCoupon.display(undefined, false)',
+                                         'DOPBSPBackEndCoupon.display('.$coupon->id.', undefined, false)',
                                          $language,
                                          'dopbsp-left');
 ?>
@@ -212,6 +214,7 @@
                 $id = $args['id'];
                 $label = $args['label'];
                 $value = $args['value'];
+                $coupon_id = $args['coupon_id'];
                 $help = $args['help'];
                 $container_class = isset($args['container_class']) ? $args['container_class']:'';
                 $input_class = isset($args['input_class']) ? $args['input_class']:'';
@@ -221,10 +224,10 @@
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-coupon-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <input type="text" name="DOPBSP-coupon-'.$id.'" id="DOPBSP-coupon-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndCoupon.edit(\'text\', \''.$id.'\', this.value);}" onchange="DOPBSPBackEndCoupon.edit(\'text\', \''.$id.'\', this.value)" onpaste="DOPBSPBackEndCoupon.edit(\'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndCoupon.edit(\'text\', \''.$id.'\', this.value, true)" />');
+                array_push($html, '     <input type="text" name="DOPBSP-coupon-'.$id.'" id="DOPBSP-coupon-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndCoupon.edit('.$coupon_id.', \'text\', \''.$id.'\', this.value);}" onchange="DOPBSPBackEndCoupon.edit('.$coupon_id.', \'text\', \''.$id.'\', this.value)" onpaste="DOPBSPBackEndCoupon.edit('.$coupon_id.', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndCoupon.edit('.$coupon_id.', \'text\', \''.$id.'\', this.value, true)" />');
                 
                 if ($code_help != '') {
-                    array_push($html, '     <a href="javascript:void(0)" onclick="DOPBSPBackEndCoupon.generateCode();" target="_blank" class="dopbsp-button dopbsp-generate-code"><span class="dopbsp-info">'.$code_help.'</span></a>');
+                    array_push($html, '     <a href="javascript:void(0)" onclick="DOPBSPBackEndCoupon.generateCode('.$coupon_id.');" target="_blank" class="dopbsp-button dopbsp-generate-code"><span class="dopbsp-info">'.$code_help.'</span></a>');
                 }
                 array_push($html, '     <a href="'.DOPBSP_CONFIG_HELP_DOCUMENTATION_URL.'" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help">'.$help.'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION').'</span></a>');
                         
@@ -255,6 +258,7 @@
                 $id = $args['id'];
                 $label = $args['label'];
                 $value = $args['value'];
+                $coupon_id = $args['coupon_id'];
                 $help = $args['help'];
                 $options = $args['options'];
                 $options_values = $args['options_values'];
@@ -267,7 +271,7 @@
                 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-coupon-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <select name="DOPBSP-coupon-'.$id.'" id="DOPBSP-coupon-'.$id.'" class="dopbsp-left '.$input_class.'" onchange="DOPBSPBackEndCoupon.edit(\'select\', \''.$id.'\', this.value)">');
+                array_push($html, '     <select name="DOPBSP-coupon-'.$id.'" id="DOPBSP-coupon-'.$id.'" class="dopbsp-left '.$input_class.'" onchange="DOPBSPBackEndCoupon.edit('.$coupon_id.', \'select\', \''.$id.'\', this.value)">');
                 
                 for ($i=0; $i<count($options_data); $i++){
                     if ($value == $options_values_data[$i]){

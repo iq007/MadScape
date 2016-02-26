@@ -2,19 +2,44 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : assets/gui/css/backend-pro.css
-* File Version            : 1.0.8
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.1.1
+* Created / Last Modified : 20 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
 * Description             : Back end coupons stylesheet.
 */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
 
 /*
  * ***************************************************************************** Begin dashboard.
  */
+#DOPBSP-get-started ul li a .dopbsp-pro,
+#DOPBSP-more-actions ul li a .dopbsp-pro{
+    background-color: #448aff;
+    border-radius: 5px;
+    color: #ffffff;
+    display: block;
+    float: right;
+    font-family: 'Josefin Sans';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    margin: 0 -8px 0 0;
+    max-width: 50px;
+    padding: 6px 6px 2px 6px !important;
+    white-space: normal;
+    z-index: 1000000;
+}
+
+/*
+ * Buttons info.
+ */
+.DOPBSP-admin .dopbsp-main .dopbsp-button .dopbsp-info.dopbsp-pro{
+    background-color: #448aff;
+}
 
 /*
  * ***************************************************************************** Begin features.
@@ -25,8 +50,8 @@
 
 #DOPBSP-get-features-all .doptable.features.features{
     border-collapse: collapse;
-    border-top: none;
     border-right: none;
+    border-top: none;
     margin: 0 0 40px 0;
     table-layout: fixed;
     width: 100%;
@@ -360,7 +385,6 @@
 /*
  * ***************************************************************************** End features.
  */
-
 /*
  * ***************************************************************************** End pro.
  */

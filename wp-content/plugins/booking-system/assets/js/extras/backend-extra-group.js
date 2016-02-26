@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/extras/backend-extra-group.js
-* File Version            : 1.0.5
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.6
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -34,12 +34,15 @@ var DOPBSPBackEndExtraGroup = new function(){
     /*
      * Add extra group.
      * 
+     * @param extraId (Number): extra ID
      * @param language (String): extra current selected language
      */
-    this.add = function(language){
+    this.add = function(extraId,
+                        language){
         DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('EXTRAS_EXTRA_ADD_GROUP_ADDING'));
         
         $.post(ajaxurl, {action:'dopbsp_extra_group_add',
+                         extra_id: extraId,
                          position: $('#DOPBSP-extra-groups li.dopbsp-group-wrapper').size()+1,
                          language: language}, function(data){
             $('#DOPBSP-extra-groups').append(data);

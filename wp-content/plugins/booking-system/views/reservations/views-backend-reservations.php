@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/reservations/views-backend-reservations.php
-* File Version            : 1.1.8
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.1.9
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -56,6 +56,7 @@
                     <tr>
                         <td class="dopbsp-column" id="DOPBSP-column1">
                             <div class="dopbsp-column-header">
+                                <a href="<?php echo DOPBSP_CONFIG_HELP_DOCUMENTATION_URL; ?>" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help"><?php echo $DOPBSP->text('RESERVATIONS_HELP').'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION'); ?></span></a>                           
                                 <br class="dopbsp-clear" />
                             </div>
                             <div class="dopbsp-column-content">
@@ -335,7 +336,7 @@
                                                 'value' => isset($_COOKIE['DOPBSP_reservations_order']) && $_COOKIE['DOPBSP_reservations_order'] != '' ? $_COOKIE['DOPBSP_reservations_order']:'ASC',
                                                 'help' => $DOPBSP->text('RESERVATIONS_FILTERS_ORDER_HELP'),
                                                 'options' => $DOPBSP->text('RESERVATIONS_FILTERS_ORDER_ASCENDING').';;'.
-                                                                $DOPBSP->text('RESERVATIONS_FILTERS_ORDER_DESCENDING'),
+                                                             $DOPBSP->text('RESERVATIONS_FILTERS_ORDER_DESCENDING'),
                                                 'options_values' => 'ASC;;DESC'));
                 /*
                  * Order by.
@@ -345,12 +346,12 @@
                                                 'value' => isset($_COOKIE['DOPBSP_reservations_order_by']) && $_COOKIE['DOPBSP_reservations_order_by'] != '' ? $_COOKIE['DOPBSP_reservations_order_by']:'check_in',
                                                 'help' => $DOPBSP->text('RESERVATIONS_FILTERS_ORDER_BY_HELP'),
                                                 'options' => $DOPBSP->text('SEARCH_FRONT_END_CHECK_IN').';;'.
-                                                                $DOPBSP->text('SEARCH_FRONT_END_CHECK_OUT').';;'.
-                                                                $DOPBSP->text('SEARCH_FRONT_END_START_HOUR').';;'.
-                                                                $DOPBSP->text('SEARCH_FRONT_END_END_HOUR').';;'.
-                                                                'ID;;'.
-                                                                $DOPBSP->text('RESERVATIONS_RESERVATION_STATUS').';;'.
-                                                                $DOPBSP->text('RESERVATIONS_RESERVATION_DATE_CREATED'),
+                                                             $DOPBSP->text('SEARCH_FRONT_END_CHECK_OUT').';;'.
+                                                             $DOPBSP->text('SEARCH_FRONT_END_START_HOUR').';;'.
+                                                             $DOPBSP->text('SEARCH_FRONT_END_END_HOUR').';;'.
+                                                             'ID;;'.
+                                                             $DOPBSP->text('RESERVATIONS_RESERVATION_STATUS').';;'.
+                                                             $DOPBSP->text('RESERVATIONS_RESERVATION_DATE_CREATED'),
                                                 'options_values' => 'check_in;;check_out;;start_hour;;end_hour;;id;;status;;date_created',
                                                 'container_class' => 'dopbsp-last'));
 ?>      

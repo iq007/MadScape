@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/fees/views-backend-fee.php
-* File Version            : 1.0.9
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.1.0
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -24,6 +24,7 @@
              * Returns fee.
              * 
              * @param args (array): function arguments
+             *                      * id (integer): fee ID
              *                      * language (string): fee language
              * 
              * @return fee HTML
@@ -32,10 +33,11 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $id = $args['id'];
                 $language = isset($args['language']) && $args['language'] != '' ? $args['language']:$DOPBSP->classes->backend_language->get();
                 
                 $fee = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->fees.' WHERE id=%d',
-                                                     1));
+                                                     $id));
 ?>
                 <div class="dopbsp-inputs-wrapper dopbsp-last">
 <?php                    
@@ -174,7 +176,7 @@
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-fee-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <input type="text" name="DOPBSP-fee-'.$id.'" id="DOPBSP-fee-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndFee.edit(\'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndFee.edit(\'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndFee.edit(\'text\', \''.$id.'\', this.value, true)" />');
+                array_push($html, '     <input type="text" name="DOPBSP-fee-'.$id.'" id="DOPBSP-fee-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndFee.edit('.$fee_id.', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndFee.edit('.$fee_id.', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndFee.edit('.$fee_id.', \'text\', \''.$id.'\', this.value, true)" />');
                 array_push($html, '     <a href="'.DOPBSP_CONFIG_HELP_DOCUMENTATION_URL.'" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help">'.$help.'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION').'</span></a>');                        
                 array_push($html, ' </div>');
 
@@ -216,7 +218,7 @@
                 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-fee-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <select name="DOPBSP-fee-'.$id.'" id="DOPBSP-fee-'.$id.'" class="dopbsp-left '.$input_class.'" onchange="DOPBSPBackEndFee.edit(\'select\', \''.$id.'\', this.value)">');
+                array_push($html, '     <select name="DOPBSP-fee-'.$id.'" id="DOPBSP-fee-'.$id.'" class="dopbsp-left '.$input_class.'" onchange="DOPBSPBackEndFee.edit('.$fee_id.', \'select\', \''.$id.'\', this.value)">');
                 
                 for ($i=0; $i<count($options_data); $i++){
                     if ($value == $options_values_data[$i]){
@@ -263,7 +265,7 @@
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label class="dopbsp-for-switch">'.$label.'</label>');
                 array_push($html, '     <div class="dopbsp-switch">');
-                array_push($html, '         <input type="checkbox" name="DOPBSP-fee-'.$id.'-'.$fee_id.'" id="DOPBSP-fee-'.$id.'-'.$fee_id.'" class="dopbsp-switch-checkbox" onchange="DOPBSPBackEndFee.edit(\'switch\', \''.$id.'\')"'.($value == 'true' ? ' checked="checked"':'').' />');
+                array_push($html, '         <input type="checkbox" name="DOPBSP-fee-'.$id.'-'.$fee_id.'" id="DOPBSP-fee-'.$id.'-'.$fee_id.'" class="dopbsp-switch-checkbox" onchange="DOPBSPBackEndFee.edit('.$fee_id.', \'switch\', \''.$id.'\')"'.($value == 'true' ? ' checked="checked"':'').' />');
                 array_push($html, '         <label class="dopbsp-switch-label" for="DOPBSP-fee-'.$id.'-'.$fee_id.'">');
                 array_push($html, '             <div class="dopbsp-switch-inner"></div>');
                 array_push($html, '             <div class="dopbsp-switch-switch"></div>');

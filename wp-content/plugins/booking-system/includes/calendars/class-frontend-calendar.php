@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.5
+* Version                 : 2.1.6
 * File                    : includes/calendars/class-frontend-calendar.php
-* File Version            : 1.1.4
-* Created / Last Modified : 17 January 2015
+* File Version            : 1.1.5
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -30,12 +30,13 @@
                 global $DOPBSP;
                 
                 $html = array();
+                $id = $atts['id'];
                 
                 /*
                  * Do not display anything if the shortcode is invalid.
                  */
                 $calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=%d',
-                                                          1));
+                                                          $id));
                 
                 if ($wpdb->num_rows == 0){
                     return false;
@@ -54,21 +55,21 @@
                 /*
                  * Calendar HTML.
                  */
-                array_push($html, '<link rel="stylesheet" type="text/css" href="'.$DOPBSP->paths->url.'templates/'.$this->getTemplate().'/css/jquery.dop.frontend.BSPCalendar.css" />');
+                array_push($html, '<link rel="stylesheet" type="text/css" href="'.$DOPBSP->paths->url.'templates/'.$this->getTemplate($id).'/css/jquery.dop.frontend.BSPCalendar.css" />');
                 
                 array_push($html, '<script type="text/JavaScript">');
                 array_push($html, '    jQuery(document).ready(function(){');
-                array_push($html, '        jQuery("#DOPBSPCalendar1").DOPBSPCalendar('.$this->getJSON($atts).');');
+                array_push($html, '        jQuery("#DOPBSPCalendar'.$id.'").DOPBSPCalendar('.$this->getJSON($atts).');');
                 array_push($html, '    });');
                 array_push($html, '</script>');
                 
-                array_push($html, '<div class="DOPBSPCalendar-info-message" id="DOPBSPCalendar-info-message1">');
+                array_push($html, '<div class="DOPBSPCalendar-info-message" id="DOPBSPCalendar-info-message'.$id.'">');
                 array_push($html, ' <div class="dopbsp-icon"></div>');
                 array_push($html, ' <div class="dopbsp-text"></div>');
                 array_push($html, ' <div class="dopbsp-timer"></div>');
-                array_push($html, ' <a href="javascript:void(0)" onclick="jQuery(\'#DOPBSPCalendar-info-message1\').stop(true, true).fadeOut(300)" class="dopbsp-close"></a>');
+                array_push($html, ' <a href="javascript:void(0)" onclick="jQuery(\'#DOPBSPCalendar-info-message'.$id.'\').stop(true, true).fadeOut(300)" class="dopbsp-close"></a>');
                 array_push($html, '</div>');
-                array_push($html, '<div class="DOPBSPCalendar-wrapper notranslate" id="DOPBSPCalendar1"><a href="'.admin_url('admin-ajax.php').'"></a></div>');
+                array_push($html, '<div class="DOPBSPCalendar-wrapper notranslate" id="DOPBSPCalendar'.$id.'"><a href="'.admin_url('admin-ajax.php').'"></a></div>');
                 
 // HOOK (dopbsp_frontend_content_after_calendar) ******************************* Add content after calendar.
                 ob_start();
@@ -93,6 +94,7 @@
                 
                 $data = array();
                 
+                $id = $atts['id'];
                 $language = $atts['lang'];
                 $woocommerce_enabled = isset($atts['woocommerce']) ? $atts['woocommerce']:'';
                 $woocommerce_add_to_cart = isset($atts['woocommerce_add_to_cart']) ? $atts['woocommerce_add_to_cart']:'';
@@ -102,11 +104,10 @@
                 $DOPBSP->classes->translation->set($language,
                                                    false);
                 
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($id,  
                                                                                 'calendar');
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,
+                $settings_payment = $DOPBSP->classes->backend_settings->values($id,  
                                                                                'payment');
-                
                 /*
                  * JSON
                  */
@@ -115,7 +116,7 @@
                                                                   'language' => $language,
                                                                   'languages' => $DOPBSP->classes->languages->languages,
                                                                   'pluginURL' => $DOPBSP->paths->url,
-                                                                  'maxYear' => $DOPBSP->classes->backend_calendar->getMaxYear(),
+                                                                  'maxYear' => $DOPBSP->classes->backend_calendar->getMaxYear($id),
                                                                   'reinitialize' => false,
                                                                   'view' => $settings_calendar->view_only == 'true' ? true:false),
                                                   'text' => array('addMonth' => $DOPBSP->text('CALENDARS_CALENDAR_ADD_MONTH_VIEW'),
@@ -174,7 +175,7 @@
                                                                'interval' => $settings_calendar->hours_multiple_select == 'false' ? false:($settings_calendar->hours_interval_enabled == 'true' ? true:false),
                                                                'multipleSelect' => $settings_calendar->hours_multiple_select == 'true' ? true:false),
                                                'text' => array()),
-                              'ID' => 1,
+                              'ID' => $id,
                               'months' => array('data' => array('no' => $settings_calendar->months_no == 0 || is_nan($settings_calendar->months_no) ? 1:($settings_calendar->months_no > 6 ? 6:$settings_calendar->months_no)),
                                                 'text' => array('names' => array($DOPBSP->text('MONTH_JANUARY'), 
                                                                                  $DOPBSP->text('MONTH_FEBRUARY'),  
@@ -205,8 +206,9 @@
                               'reservation' => $DOPBSP->classes->frontend_reservations->get(),
                               'rules' => $DOPBSP->classes->frontend_rules->get($settings_calendar->rule,
                                                                                $language),
+                              'search' => $DOPBSP->classes->frontend_search->get(),
                               'sidebar' => $DOPBSP->classes->frontend_calendar_sidebar->get($settings_calendar,
-                                                                                            $woocommerce,
+                                                                                            $woocommerce_enabled,
                                                                                             $woocommerce_position),
                               'woocommerce' => array('data' => array('addToCart' => $woocommerce_add_to_cart == 'true' ? true:false,
                                                                      'cartURL' => in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) || DOPBSP_CONFIG_WOOCOMMERCE_ENABLE_CODE ? $woocommerce->cart->get_cart_url():'',
@@ -242,10 +244,11 @@
              * 
              * @return template name
              */
-            function getTemplate(){
+            function getTemplate($id){
                 global $DOPBSP;
                 
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($id,  
+                                                                                'calendar');
                 
                 return $settings_calendar->template;
             }

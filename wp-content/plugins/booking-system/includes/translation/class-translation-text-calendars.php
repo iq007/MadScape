@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/translation/class-translation-text-calendars.php
-* File Version            : 1.0.4
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.5
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -256,6 +256,9 @@
                 array_push($text, array('key' => 'CALENDARS_ADD_CALENDAR_SUBMIT',
                                         'parent' => 'PARENT_CALENDARS_ADD_CALENDAR',
                                         'text' => 'Add calendar'));
+                array_push($text, array('key' => 'CALENDARS_DUPLICATE_CALENDAR_SUBMIT',
+                                        'parent' => 'PARENT_CALENDARS_ADD_CALENDAR',
+                                        'text' => 'Duplicate calendar'));
                 array_push($text, array('key' => 'CALENDARS_ADD_CALENDAR_ADDING',
                                         'parent' => 'PARENT_CALENDARS_ADD_CALENDAR',
                                         'text' => 'Adding a new calendar ...'));

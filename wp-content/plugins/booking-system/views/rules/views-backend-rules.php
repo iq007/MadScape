@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : views/views-backend-rules.php
-* File Version            : 1.0.5
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 19 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -54,13 +54,8 @@
                     <tr>
                         <td class="dopbsp-column" id="DOPBSP-column1">
                             <div class="dopbsp-column-header">
-<?php 
-                if (isset($_GET['page']) && $DOPBSP->vars->pro_tips){ 
-?>                  
-                                <a href="?page=dopbsp-pro" class="dopbsp-button dopbsp-add"><span class="dopbsp-info dopbsp-info-blue dopbsp-help"><?php echo $DOPBSP->text('RULES_ADD_RULE_SUBMIT').' - '.$DOPBSP->text('ONLY_IN_PRO_MESSAGE_ONLY'); ?> <span class="dopbsp-pro"><?php echo $DOPBSP->text('ONLY_IN_PRO_MESSAGE_PRO'); ?></span></span></a>
-<?php
-                }
-?>                           
+                                <a href="javascript:DOPBSPBackEndRule.add()" class="dopbsp-button dopbsp-add"><span class="dopbsp-info"><?php echo $DOPBSP->text('RULES_ADD_RULE_SUBMIT'); ?></span></a>
+				<a href="<?php echo DOPBSP_CONFIG_HELP_DOCUMENTATION_URL; ?>" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help"><?php echo $DOPBSP->text('RULES_HELP').'<br /><br />'.$DOPBSP->text('RULES_ADD_RULE_HELP').'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION'); ?></span></a>
                                 <br class="dopbsp-clear" />
                             </div>
                             <div class="dopbsp-column-content">&nbsp;</div>

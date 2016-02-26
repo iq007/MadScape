@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/coupons/class-backend-coupons.php
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -42,7 +42,8 @@
                                     
                 $html = array();
                 
-                $coupon = $wpdb->get_row('SELECT * FROM '.$DOPBSP->tables->coupons);
+                $coupons = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->coupons.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
+                                                             wp_get_current_user()->ID));
                 
                 /* 
                  * Create coupons list HTML.
@@ -50,8 +51,10 @@
                 array_push($html, '<ul>');
                 
                 if ($wpdb->num_rows != 0){
-                    if ($coupon){
-                        array_push($html, $this->listItem($coupon));
+                    if ($coupons){
+                        foreach ($coupons as $coupon){
+                            array_push($html, $this->listItem($coupon));
+                        }
                     }
                 }
                 else{
@@ -77,13 +80,13 @@
                 $html = array();
                 $user = get_userdata($coupon->user_id); // Get data about the user who created the coupons.
                 
-                array_push($html, '<li class="dopbsp-item" id="DOPBSP-coupon-ID-1" onclick="DOPBSPBackEndCoupon.display()">');
+                array_push($html, '<li class="dopbsp-item" id="DOPBSP-coupon-ID-'.$coupon->id.'" onclick="DOPBSPBackEndCoupon.display('.$coupon->id.')">');
                 array_push($html, ' <div class="dopbsp-header">');
                 
                 /*
                  * Display coupon ID.
                  */
-                array_push($html, '     <span class="dopbsp-id">ID: 1</span>');
+                array_push($html, '     <span class="dopbsp-id">ID: '.$coupon->id.'</span>');
                 
                 /*
                  * Display data about the user who created the coupon.

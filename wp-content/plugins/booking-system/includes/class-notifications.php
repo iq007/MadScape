@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/class-email.php
-* File Version            : 1.0.8
-* Created / Last Modified : 10 February 2015
+* File Version            : 1.0.9
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -560,10 +560,12 @@
             function test(){
                 global $DOPBSP;
                 
+                $id = $_POST['id'];
                 $method = $_POST['method'];
                 $email = $_POST['email'];
                 
-                $settings_notifications = $DOPBSP->classes->backend_settings->values(1,'notifications');
+                $settings_notifications = $DOPBSP->classes->backend_settings->values($id,  
+                                                                                     'notifications');
                 
                 $email_reply = $settings_notifications->email_reply == '' ? $settings_notifications->email:$settings_notifications->email_reply;
                 $email_name = $settings_notifications->email_name == '' ? $settings_notifications->email_reply:$settings_notifications->email_name;

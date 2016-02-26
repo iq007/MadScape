@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/views-backend-rules.php
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -24,6 +24,7 @@
              * Returns rule template.
              * 
              * @param args (array): function arguments
+             *                      * id (integer): rule ID
              *                      * language (string): rule language
              * 
              * @return rule HTML
@@ -32,8 +33,10 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $id = $args['id'];
+                
                 $rule = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->rules.' WHERE id=%d',
-                                                      1));
+                                                      $id));
 ?>
                 <div class="dopbsp-inputs-wrapper dopbsp-last">
 <?php                    
@@ -102,7 +105,7 @@
 
                 array_push($html, ' <div class="dopbsp-input-wrapper '.$container_class.'">');
                 array_push($html, '     <label for="DOPBSP-rule-'.$id.'">'.$label.'</label>');
-                array_push($html, '     <input type="text" name="DOPBSP-rule-'.$id.'" id="DOPBSP-rule-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndRule.edit(\'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndRule.edit(\'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndRule.edit(\'text\', \''.$id.'\', this.value, true)" />');
+                array_push($html, '     <input type="text" name="DOPBSP-rule-'.$id.'" id="DOPBSP-rule-'.$id.'" class="'.$input_class.'" value="'.$value.'" onkeyup="if ((event.keyCode||event.which) !== 9){DOPBSPBackEndRule.edit('.$rule_id.', \'text\', \''.$id.'\', this.value);}" onpaste="DOPBSPBackEndRule.edit('.$rule_id.', \'text\', \''.$id.'\', this.value)" onblur="DOPBSPBackEndRule.edit('.$rule_id.', \'text\', \''.$id.'\', this.value, true)" />');
                 array_push($html, '     <a href="'.DOPBSP_CONFIG_HELP_DOCUMENTATION_URL.'" target="_blank" class="dopbsp-button dopbsp-help"><span class="dopbsp-info dopbsp-help">'.$help.'<br /><br />'.$DOPBSP->text('HELP_VIEW_DOCUMENTATION').'</span></a>');
                 array_push($html, ' </div>');
 

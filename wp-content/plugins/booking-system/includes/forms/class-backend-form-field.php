@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/forms/class-backend-form-field.php
-* File Version            : 1.0.4
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.5
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -23,6 +23,7 @@
             /*
              * Add form field.
              * 
+             * @post form_id (integer): form ID
              * @post type (string): field type
              * @post position (integer): field position
              * @post language (string): current field language
@@ -33,6 +34,7 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $form_id = $_POST['form_id'];
                 $type = $_POST['type'];
                 $position = $_POST['position'];
                 $language = $_POST['language'];
@@ -52,7 +54,7 @@
                         $key = 'FORMS_FORM_ADD_FIELD_TEXTAREA_LABEL';
                         break;
                 }
-                $wpdb->insert($DOPBSP->tables->forms_fields, array('form_id' => 1,
+                $wpdb->insert($DOPBSP->tables->forms_fields, array('form_id' => $form_id,
                                                                    'type' => $type,
                                                                    'position' => $position,
                                                                    'allowed_characters' => '',

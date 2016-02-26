@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.7
 * File                    : includes/class-widget.php
-* File Version            : 1.0.4
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.6
+* Created / Last Modified : 22 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -80,17 +80,17 @@
                 <label for="<?php echo $this->get_field_id('id')?>"><?php echo $DOPBSP->text('WIDGET_ID_LABEL'); ?></label>
                 <select class="widefat" id="<?php echo $this->get_field_id('id')?>" name="<?php echo $this->get_field_name('id')?>">
 <?php
-                $calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=%d ORDER BY id DESC',
-                                                               1));
+	    $calendars = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->calendars.' ORDER BY id DESC');
 
             if ($wpdb->num_rows != 0){
-                
-                if (esc_attr($id) == $calendar->id){
-                    echo '<option value="'.$calendar->id.'" selected="selected">'.$calendar->id.' - '.$calendar->name.'</option>';
-
-                }
-                else{
-                    echo '<option value="'.$calendar->id.'">'.$calendar->id.' - '.$calendar->name.'</option>';
+                foreach ($calendars as $calendar) {
+                    if (esc_attr($id) == $calendar->id){
+                        echo '<option value="'.$calendar->id.'" selected="selected">'.$calendar->id.' - '.$calendar->name.'</option>';
+                        
+                    }
+                    else{
+                        echo '<option value="'.$calendar->id.'">'.$calendar->id.' - '.$calendar->name.'</option>';
+                    }
                 }
             }
             else{

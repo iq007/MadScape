@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/reservations/class-backend-reservation.php
-* File Version            : 1.1.4
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.1.5
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -37,11 +37,15 @@
                 $reservation = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->reservations.' WHERE id=%d',
                                                              $reservation_id));
                 $calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=%d',
-                                                          1));
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
-                $settings_notifications = $DOPBSP->classes->backend_settings->values(1,'notifications');
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,'payment');
-                $translation = $DOPBSP->classes->backend_email->get($template);
+                                                          $reservation->calendar_id));
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                                'calendar');
+                $settings_notifications = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                                     'notifications');
+                $settings_payment = $DOPBSP->classes->backend_settings->values($reservation->calendar_id,  
+                                                                               'payment');
+                $translation = $DOPBSP->classes->backend_email->get((int)$settings_notifications->templates,
+                                                                    $template);
                 $admin_emails = explode(';', $settings_notifications->email);
                 
                 $DOPBSP->classes->translation->set($reservation->language,
@@ -191,7 +195,7 @@
                  * Calendar ID.
                  */
                 array_push($info, $this->getInfo($DOPBSP->text('RESERVATIONS_RESERVATION_CALENDAR_ID'),
-                                                 1));
+                                                 $reservation->calendar_id));
                 
                 /*
                  * Calendar name.

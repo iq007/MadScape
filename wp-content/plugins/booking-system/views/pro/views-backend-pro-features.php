@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : views/pro/views-backend-pro-features.php
-* File Version            : 1.0.7
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.8
+* Created / Last Modified : 19 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -60,7 +60,7 @@ View the list, compare standard and pro versions, and decide which is best suite
                         <p>            <a href="https://wordpress.org/plugins/booking-system/" target="_blank" class="download">Download it</a>
                                 </p></td>
                         <td>
-                        <h6>44$</h6>
+                        <h6>$50</h6>
                         <p>            <a href="http://wordpressbooking.systems/redirect/?action=buy-from-features" target="_blank" class="buy">Buy Now</a>
                                 </p></td>
                         </tr>

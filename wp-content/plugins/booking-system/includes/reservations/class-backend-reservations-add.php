@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/reservations/class-backend-reservations-add.php
-* File Version            : 1.1
-* Created / Last Modified : 04 December 2015
+* File Version            : 1.1.1
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -23,6 +23,7 @@
             /*
              * Get calendar options in JSON format.
              * 
+             * @post calendar_id (integer): calendar ID
              * 
              * @return options JSON
              */
@@ -31,10 +32,13 @@
                 
                 $data = array();
                 
+                $id = $_POST['calendar_id'];
                 $language =  $DOPBSP->classes->backend_language->get();
                 
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,'payment');
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($id,  
+                                                                                'calendar');
+                $settings_payment = $DOPBSP->classes->backend_settings->values($id,  
+                                                                               'payment');
                 
                 /*
                  * JSON data.
@@ -44,7 +48,7 @@
                                                                   'language' => $language,
                                                                   'languages' => $DOPBSP->classes->languages->languages,
                                                                   'pluginURL' => $DOPBSP->paths->url,
-                                                                  'maxYear' => $DOPBSP->classes->backend_calendar->getMaxYear(),
+                                                                  'maxYear' => $DOPBSP->classes->backend_calendar->getMaxYear($id),
                                                                   'reinitialize' => false,
                                                                   'view' => $settings_calendar->view_only == 'true' ? true:false),
                                                   'text' => array('addMonth' => $DOPBSP->text('CALENDARS_CALENDAR_ADD_MONTH_VIEW'),
@@ -55,6 +59,9 @@
                                                                   'previousMonth' => $DOPBSP->text('CALENDARS_CALENDAR_PREVIOUS_MONTH'),
                                                                   'removeMonth' => $DOPBSP->text('CALENDARS_CALENDAR_REMOVE_MONTH_VIEW'),
                                                                   'unavailable' => $DOPBSP->text('CALENDARS_CALENDAR_UNAVAILABLE_TEXT'))), 
+                              'cart' => array('data' => array('enabled' => false),
+                                              'text' => array('isEmpty' => $DOPBSP->text('CART_IS_EMPTY'),
+                                                              'title' => $DOPBSP->text('CART_TITLE'))),
                               'coupons' => $DOPBSP->classes->frontend_coupons->get($settings_calendar->coupon,
                                                                                    $language),
                               'currency' => array('data' => array('code' => $settings_calendar->currency,
@@ -100,7 +107,7 @@
                                                                'interval' => $settings_calendar->hours_multiple_select == 'false' ? false:($settings_calendar->hours_interval_enabled == 'true' ? true:false),
                                                                'multipleSelect' => $settings_calendar->hours_multiple_select == 'true' ? true:false),
                                                'text' => array()),
-                              'ID' => 1,
+                              'ID' => $id,
                               'months' => array('data' => array('no' => 3),
                                                 'text' => array('names' => array($DOPBSP->text('MONTH_JANUARY'), 
                                                                                  $DOPBSP->text('MONTH_FEBRUARY'),  
@@ -131,9 +138,16 @@
                               'reservation' => $DOPBSP->classes->frontend_reservations->get(),
                               'rules' => $DOPBSP->classes->frontend_rules->get($settings_calendar->rule,
                                                                                $language),
+                              'search' => $DOPBSP->classes->frontend_search->get(),
                               'sidebar' => $DOPBSP->classes->frontend_calendar_sidebar->get($settings_calendar,
                                                                                             'false',
-                                                                                            ''));
+                                                                                            ''),
+                              'woocommerce' => array('data' => array('add_to_cart' => false,
+                                                                     'enabled' => false,
+                                                                     'product_id' => 0),
+                                                     'text' => array('none' => $DOPBSP->text('WOOCOMMERCE_PRODUCT_NONE'),
+                                                                     'reservation' => $DOPBSP->text('WOOCOMMERCE_PRODUCT_RESERVATION'),
+                                                                     'addToCart' => $DOPBSP->text('WOOCOMMERCE_ADD_TO_CART'))));
                 
                 echo json_encode($data);
                 

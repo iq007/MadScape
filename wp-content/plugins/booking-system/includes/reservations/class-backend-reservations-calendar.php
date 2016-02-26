@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/reservations/class-backend-reservations.php
-* File Version            : 1.1.3
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.1.4
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -23,6 +23,7 @@
             /*
              * Get calendar options in JSON format.
              * 
+             * @post calendar_id (integer): calendar ID
              * 
              * @return options JSON
              */
@@ -31,10 +32,13 @@
                 
                 $data = array();
                 
+                $id = $_POST['calendar_id'];
                 $language =  $DOPBSP->classes->backend_language->get();
                 
-                $settings_calendar = $DOPBSP->classes->backend_settings->values(1,'calendar');
-                $settings_payment = $DOPBSP->classes->backend_settings->values(1,'payment');
+                $settings_calendar = $DOPBSP->classes->backend_settings->values($id,  
+                                                                                'calendar');
+                $settings_payment = $DOPBSP->classes->backend_settings->values($id,  
+                                                                               'payment');
                 
                 /*
                  * JSON data.
@@ -44,7 +48,7 @@
                                                                   'language' => $language,
                                                                   'languages' => $DOPBSP->classes->languages->languages,
                                                                   'pluginURL' => $DOPBSP->paths->url,
-                                                                  'maxYear' => $DOPBSP->classes->backend_calendar->getMaxYear(),
+                                                                  'maxYear' => $DOPBSP->classes->backend_calendar->getMaxYear($id),
                                                                   'reinitialize' => false,
                                                                   'view' => $settings_calendar->view_only == 'true' ? true:false),
                                                   'text' => array('addMonth' => $DOPBSP->text('CALENDARS_CALENDAR_ADD_MONTH_VIEW'),
@@ -99,7 +103,7 @@
                                                                'interval' => $settings_calendar->hours_multiple_select == 'false' ? false:($settings_calendar->hours_interval_enabled == 'true' ? true:false),
                                                                'multipleSelect' => $settings_calendar->hours_multiple_select == 'true' ? true:false),
                                                'text' => array()),
-                              'ID' => 1,
+                              'ID' => $id,
                               'months' => array('data' => array('no' => 1),
                                                 'text' => array('names' => array($DOPBSP->text('MONTH_JANUARY'), 
                                                                                  $DOPBSP->text('MONTH_FEBRUARY'),  
@@ -130,6 +134,7 @@
                               'reservation' => $DOPBSP->classes->frontend_reservations->get(),
                               'rules' => $DOPBSP->classes->frontend_rules->get($settings_calendar->rule,
                                                                                $language),
+                              'search' => $DOPBSP->classes->frontend_search->get(),
                               'sidebar' => $DOPBSP->classes->frontend_calendar_sidebar->get($settings_calendar,
                                                                                             'false',
                                                                                             ''));
@@ -146,8 +151,10 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $calendar_id = $_POST['calendar_id'];
+                
                 $reservations = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->reservations.' WHERE calendar_id=%d AND (token="" OR (token<>"" AND (payment_method="none" OR payment_method="default"))) AND status<>"expired" ORDER BY check_in ASC, start_hour ASC',
-                                                                  1));
+                                                                  $calendar_id));
                 echo json_encode($reservations);
                 
             	die();      

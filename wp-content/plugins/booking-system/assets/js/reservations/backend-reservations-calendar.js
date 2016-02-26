@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/reservations/backend-reservations-calendar.js
-* File Version            : 1.0.8
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.9
+* Created / Last Modified : 19 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -66,7 +66,7 @@ var DOPBSPBackEndReservationsCalendar = new function(){
         $('#DOPBSP-column2 .dopbsp-column-content').html('<div id="DOPBSP-reservations-calendar"></div>');
         
         $.post(ajaxurl, {action: 'dopbsp_reservations_calendar_get_json',
-                         calendar_id: $('#DOPBSP-calendar-ID').val()}, function(data){console.log(data);
+                         calendar_id: $('#DOPBSP-calendar-ID').val()}, function(data){
             var json = JSON.parse($.trim(data));
             
             /*

@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/fees/class-backend-fee.php
-* File Version            : 1.0.2
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.3
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -23,8 +23,25 @@
             }
             
             /*
+             * Add a fee.
+             */
+            function add(){
+                global $wpdb;
+                global $DOPBSP;
+                
+                $wpdb->insert($DOPBSP->tables->fees, array('user_id' => wp_get_current_user()->ID,
+                                                           'name' => $DOPBSP->text('FEES_ADD_FEE_NAME'),
+                                                           'translation' => $DOPBSP->classes->translation->encodeJSON('FEES_ADD_FEE_LABEL'))); 
+                
+                echo $DOPBSP->classes->backend_fees->display();
+
+            	die();
+            }
+            
+            /*
              * Prints out the fee.
              * 
+             * @post id (integer): fee ID
              * @post language (string): fee current editing language
              * 
              * @return fee HTML
@@ -32,9 +49,11 @@
             function display(){
                 global $DOPBSP;
                 
+                $id = $_POST['id'];
                 $language = $_POST['language'];
                 
-                $DOPBSP->views->backend_fee->template(array('language' => $language));
+                $DOPBSP->views->backend_fee->template(array('id' => $id,
+                                                    'language' => $language));
                 
                 die();
             }
@@ -42,6 +61,7 @@
             /*
              * Edit fee fields.
              * 
+             * @post id (integer): fee ID
              * @post field (string): fee field
              * @post value (string): fee new value
              * @post language (string): fee selected language
@@ -50,6 +70,7 @@
                 global $wpdb;  
                 global $DOPBSP;
                 
+                $id = $_POST['id'];
                 $field = $_POST['field'];
                 $value = $_POST['value'];
                 $language = $_POST['language'];
@@ -60,7 +81,7 @@
                     $value = utf8_encode($value);
                     
                     $fee_data = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->fees.' WHERE id=%d', 
-                                                              1));
+                                                              $id));
                     
                     $translation = json_decode($fee_data->translation);
                     $translation->$language = $value;
@@ -70,8 +91,32 @@
                 }
                         
                 $wpdb->update($DOPBSP->tables->fees, array($field => $value), 
-                                                     array('id' =>1));
+                                                     array('id' =>$id));
                 
+            	die();
+            }
+            
+            /*
+             * Delete fee.
+             * 
+             * @post id (integer): fee ID
+             * 
+             * @return number of fees left
+             */
+            function delete(){
+                global $wpdb;
+                global $DOPBSP;
+                
+                $id = $_POST['id'];
+
+                /*
+                 * Delete fee.
+                 */
+                $wpdb->delete($DOPBSP->tables->fees, array('id' => $id));
+                $fees = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->fees.' ORDER BY id DESC');
+                
+                echo $wpdb->num_rows;
+
             	die();
             }
         }

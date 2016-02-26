@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : includes/fees/class-backend-fees.php
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -42,7 +42,8 @@
                                     
                 $html = array();
                 
-                $fee = $wpdb->get_row('SELECT * FROM '.$DOPBSP->tables->fees);
+                $fees = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->fees.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
+                                                          wp_get_current_user()->ID));
                 
                 /* 
                  * Create fees list HTML.
@@ -50,8 +51,10 @@
                 array_push($html, '<ul>');
                 
                 if ($wpdb->num_rows != 0){
-                    if ($fee){
-                        array_push($html, $this->listItem($fee));
+                    if ($fees){
+                        foreach ($fees as $fee){
+                            array_push($html, $this->listItem($fee));
+                        }
                     }
                 }
                 else{
@@ -77,13 +80,13 @@
                 $html = array();
                 $user = get_userdata($fee->user_id); // Get data about the user who created the fees.
                 
-                array_push($html, '<li class="dopbsp-item" id="DOPBSP-fee-ID-1" onclick="DOPBSPBackEndFee.display()">');
+                array_push($html, '<li class="dopbsp-item" id="DOPBSP-fee-ID-'.$fee->id.'" onclick="DOPBSPBackEndFee.display('.$fee->id.')">');
                 array_push($html, ' <div class="dopbsp-header">');
                 
                 /*
                  * Display fee ID.
                  */
-                array_push($html, '     <span class="dopbsp-id">ID: 1</span>');
+                array_push($html, '     <span class="dopbsp-id">ID: '.$fee->id.'</span>');
                 
                 /*
                  * Display data about the user who created the fee.

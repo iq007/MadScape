@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/translation/class-translation-text-search.php
-* File Version            : 1.1.1
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.1.2
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -49,6 +49,7 @@
                 array_push($text, array('key' => 'SEARCHES_TITLE',
                                         'parent' => 'PARENT_SEARCHES',
                                         'text' => 'Search'));
+                
                 array_push($text, array('key' => 'SEARCHES_CREATED_BY',
                                         'parent' => 'PARENT_SEARCHES',
                                         'text' => 'Created by'));

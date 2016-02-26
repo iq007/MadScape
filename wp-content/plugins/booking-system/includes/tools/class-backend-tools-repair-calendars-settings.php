@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/tools/class-backend-tools-repair-calendars-settings.php
-* File Version            : 1.0.6
-* Created / Last Modified : 07 September 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -45,7 +45,7 @@
                 /*
                  * Rename calendar settings table.
                  */
-//                $DOPBSP->classes->database->updateRename();
+                $DOPBSP->classes->database->updateRename();
                 
                 $calendars_list = array();
                 
@@ -87,9 +87,9 @@
                 
                 if ($id != 0){
                     $calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->calendars.' WHERE id=%d',
-                                                              1));
+                                                              $id));
                 
-                    array_push($html, ' <td>ID: 1 - '.$calendar->name.'</td>');
+                    array_push($html, ' <td>ID: '.$id.' - '.$calendar->name.'</td>');
                 }
                 else{
                     array_push($html, ' <td>'.$DOPBSP->text('SETTINGS_GENERAL_TITLE').'</td>');
@@ -100,17 +100,17 @@
                      * Update calendar settings.
                      */
                     $settings_calendar = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->settings_calendar.' WHERE calendar_id=%d AND unique_key=""',
-                                                                       1));
+                                                                       $id));
                     $default_calendar = $DOPBSP->classes->backend_settings->default_calendar;
                     
                     foreach ($default_calendar as $key => $default){
                         $value_data = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->settings_calendar.' WHERE calendar_id=%d AND unique_key="%s"',
-                                                                    1, $key));
+                                                                    $id, $key));
                         
                         if ($wpdb->num_rows == 0
                                 && isset($settings_calendar->$key)
                                 && $settings_calendar->$key != $default){
-                            $wpdb->insert($DOPBSP->tables->settings_calendar, array('calendar_id' => 1,
+                            $wpdb->insert($DOPBSP->tables->settings_calendar, array('calendar_id' => $id,
                                                                                     'unique_key' => $key,
                                                                                     'value' => $settings_calendar->$key));
                         }
@@ -120,17 +120,17 @@
                      * Update notifications settings.
                      */
                     $settings_notifications = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->settings_notifications.' WHERE calendar_id=%d AND unique_key=""',
-                                                                            1));
+                                                                            $id));
                     $default_notifications = $DOPBSP->classes->backend_settings->default_notifications;
                     
                     foreach ($default_notifications as $key => $default){
                         $value_data = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->settings_notifications.' WHERE calendar_id=%d AND unique_key="%s"',
-                                                                    1, $key));
+                                                                    $id, $key));
                         
                         if ($wpdb->num_rows == 0
                                 && isset($settings_notifications->$key)
                                 && $settings_notifications->$key != $default){
-                            $wpdb->insert($DOPBSP->tables->settings_notifications, array('calendar_id' => 1,
+                            $wpdb->insert($DOPBSP->tables->settings_notifications, array('calendar_id' => $id,
                                                                                          'unique_key' => $key,
                                                                                          'value' => $settings_calendar->$key));
                         }
@@ -140,17 +140,17 @@
                      * Update payment settings.
                      */
                     $settings_payment = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->settings_payment.' WHERE calendar_id=%d AND unique_key=""',
-                                                                      1));
+                                                                      $id));
                     $default_payment = $DOPBSP->classes->backend_settings->default_payment;
                     
                     foreach ($default_payment as $key => $default){
                         $value_data = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->settings_payment.' WHERE calendar_id=%d AND unique_key="%s"',
-                                                                    1, $key));
+                                                                    $id, $key));
                         
                         if ($wpdb->num_rows == 0
                                 && isset($settings_payment->$key)
                                 && $settings_payment->$key != $default){
-                            $wpdb->insert($DOPBSP->tables->settings_payment, array('calendar_id' => 1,
+                            $wpdb->insert($DOPBSP->tables->settings_payment, array('calendar_id' => $id,
                                                                                    'unique_key' => $key,
                                                                                    'value' => $settings_calendar->$key));
                         }

@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/translation/class-translation-text-settings.php
-* File Version            : 1.1.9
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.2.0
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -91,6 +91,7 @@
                 
                 return $text;
             }
+            
             /*
              * Calendar settings text.
              * 
@@ -1385,7 +1386,7 @@
                  */
                 array_push($text, array('key' => 'SETTINGS_USERS_PERMISSIONS',
                                         'parent' => 'PARENT_SETTINGS_USERS',
-                                        'text' => 'Set users permissions to use the booking system'));
+                                        'text' => 'Set users permissions to use the booking system.'));
                 array_push($text, array('key' => 'SETTINGS_USERS_PERMISSIONS_ADMINISTRATORS_LABEL',
                                         'parent' => 'PARENT_SETTINGS_USERS',
                                         'text' => 'Allow %s users to view all the calendars from all the users and/or individually add/edit them.'));

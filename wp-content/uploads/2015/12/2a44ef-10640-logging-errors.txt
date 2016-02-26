@@ -1,0 +1,16 @@
+2015-10-02T13:35:04
+Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (400) Bad Request. ---> System.Net.WebException: The remote server returned an error: (400) Bad Request.
+   at System.Net.HttpWebRequest.GetResponse()
+   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.ExecuteSync[T](RESTCommand`1 cmd, IRetryPolicy policy, OperationContext operationContext)
+   --- End of inner exception stack trace ---
+   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.ExecuteSync[T](RESTCommand`1 cmd, IRetryPolicy policy, OperationContext operationContext)
+   at Microsoft.WindowsAzure.Storage.Table.CloudTable.Exists(Boolean primaryOnly, TableRequestOptions requestOptions, OperationContext operationContext)
+   at Microsoft.WindowsAzure.Storage.Table.CloudTable.CreateIfNotExists(TableRequestOptions requestOptions, OperationContext operationContext)
+   at Microsoft.WindowsAzure.WebSites.Diagnostics.AzureTableTraceListener.ConsumeBuffer()
+Request Information
+RequestID:fbe39fb5-0002-0001-2317-fdb62e000000
+RequestDate:Fri, 02 Oct 2015 13:35:04 GMT
+StatusMessage:Bad Request
+ErrorCode:InvalidInput
+
+

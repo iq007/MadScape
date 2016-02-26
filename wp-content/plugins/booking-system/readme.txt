@@ -98,6 +98,27 @@ Click [here](http://help.dotonpaper.net/booking-system-wordpress-plugin.html#faq
 View [demo](http://wordpressbooking.systems/) here.
 
 == Changelog ==
+ 
+= 2.1.7 =
+* Email templates content is saved correctly for each language, bug repaired.    
+* Minimum booking period for hours is correctly validated, bug repaired.
+* The discount is calculated correctly for different rules with same time lapse, bug repaired.
+* The discount is calculated correctly for hour intervals, bug repaired.
+* Widget bug has been repaired. 
+ 
+= 2.1.6 =
+* "Add coupon" function added. Create an unlimited number of coupons.
+* "Add discount" function added. Create an unlimited number of discount rules.
+* "Add email templates" function added. Create an unlimited number of email templates.
+* "Add extra" function added. Create an unlimited number of extras items.
+* "Add form" function added. Create an unlimited number of forms.
+* "Add rule" function added. Create an unlimited number of rules.
+* "Add tax or fee" function added. Create an unlimited number of taxes and/or fees.
+* Availability is set correctly and the reservation is saved after what a payment is made with PayPal, bug repaired.
+* Only administrators can manage the booking system.
+* The word "test" is no longer visible with WooCommerce, bug repaired.
+* Some updates have been done to the code to meet the PHP7 standards.
+* Validation for hours' availability has been improved.
 
 = 2.1.5 =
 * Fatal error that appears when WooCommerce is not installed has been repaired.
@@ -304,6 +325,27 @@ View [demo](http://wordpressbooking.systems/) here.
 * Initial release of Booking System (WordPress Plugin).
 
 == Upgrade Notice ==
+ 
+= 2.1.7 =
+* Email templates content is saved correctly for each language, bug repaired.    
+* Minimum booking period for hours is correctly validated, bug repaired.
+* The discount is calculated correctly for different rules with same time lapse, bug repaired.
+* The discount is calculated correctly for hour intervals, bug repaired.
+* Widget bug has been repaired. 
+ 
+= 2.1.6 =
+* "Add coupon" function added. Create an unlimited number of coupons.
+* "Add discount" function added. Create an unlimited number of discount rules.
+* "Add email templates" function added. Create an unlimited number of email templates.
+* "Add extra" function added. Create an unlimited number of extras items.
+* "Add form" function added. Create an unlimited number of forms.
+* "Add rule" function added. Create an unlimited number of rules.
+* "Add tax or fee" function added. Create an unlimited number of taxes and/or fees.
+* Availability is set correctly and the reservation is saved after what a payment is made with PayPal, bug repaired.
+* Only administrators can manage the booking system.
+* The word "test" is no longer visible with WooCommerce, bug repaired.
+* Some updates have been done to the code to meet the PHP7 standards.
+* Validation for hours' availability has been improved.
 
 = 2.1.5 =
 * Fatal error that appears when WooCommerce is not installed has been repaired.

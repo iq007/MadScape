@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/extras/class-backend-extra-group.php
-* File Version            : 1.0.4
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.5
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -33,15 +33,16 @@
                 global $wpdb;
                 global $DOPBSP;
                 
+                $extra_id = $_POST['extra_id'];
                 $position = $_POST['position'];
                 $language = $_POST['language'];
                 
-                $wpdb->insert($DOPBSP->tables->extras_groups, array('extra_id' => 1,
+                $wpdb->insert($DOPBSP->tables->extras_groups, array('extra_id' => $extra_id,
                                                                     'position' => $position,
                                                                     'translation' => $DOPBSP->classes->translation->encodeJSON('EXTRAS_EXTRA_ADD_GROUP_LABEL')));
                 $id = $wpdb->insert_id;
                 $group = $wpdb->get_row($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->extras_groups.' WHERE id=%d',
-                                                       1));
+                                                       $id));
                 
                 $DOPBSP->views->backend_extra_group->template(array('group' =>$group,
                                                             'language' => $language));

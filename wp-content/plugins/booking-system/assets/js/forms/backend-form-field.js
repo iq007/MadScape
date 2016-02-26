@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/forms/backend-form-field.js
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -34,14 +34,17 @@ var DOPBSPBackEndFormField = new function(){
     /*
      * Add form field.
      * 
+     * @param formId (Number): form ID
      * @param type (String): form field type
      * @param language (String): form current selected language
      */
-    this.add = function(type,
+    this.add = function(formId,
+                        type,
                         language){
         DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('FORMS_FORM_ADD_FIELD_ADDING'));
         
         $.post(ajaxurl, {action:'dopbsp_form_field_add',
+                         form_id: formId,
                          type: type,
                          position: $('#DOPBSP-form-fields li.dopbsp-field-wrapper').size()+1,
                          language: language}, function(data){

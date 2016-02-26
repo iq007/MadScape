@@ -1,16 +1,15 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/fees/backend-fee.js
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
 * Description             : Back end fee JavaScript class.
 */
-
 
 var DOPBSPBackEndFee = new function(){
     'use strict';
@@ -35,10 +34,12 @@ var DOPBSPBackEndFee = new function(){
     /*
      * Display fee.
      * 
+     * @param id (Number): fee ID
      * @param language (String): fee current editing language
      * @param clearFee (Boolean): clear fee extra data diplay
      */
-    this.display = function(language,
+    this.display = function(id,
+                            language,
                             clearFee){
         var HTML = new Array();
         
@@ -52,13 +53,16 @@ var DOPBSPBackEndFee = new function(){
         DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('MESSAGES_LOADING'));
         
         $('#DOPBSP-column1 .dopbsp-column-content li').removeClass('dopbsp-selected');
-        $('#DOPBSP-fee-ID-1').addClass('dopbsp-selected');
-        $('#DOPBSP-fee-ID').val(1);
+        $('#DOPBSP-fee-ID-'+id).addClass('dopbsp-selected');
+        $('#DOPBSP-fee-ID').val(id);
         
         $.post(ajaxurl, {action: 'dopbsp_fee_display', 
+                         id: id,
                          language: language}, function(data){
+            HTML.push('<a href="javascript:DOPBSPBackEnd.confirmation(\'FEES_DELETE_FEE_CONFIRMATION\', \'DOPBSPBackEndFee.delete('+id+')\')" class="dopbsp-button dopbsp-delete"><span class="dopbsp-info">'+DOPBSPBackEnd.text('FEES_DELETE_FEE_SUBMIT')+'</span></a>');
             HTML.push('<a href="'+DOPBSP_CONFIG_HELP_DOCUMENTATION_URL+'" target="_blank" class="dopbsp-button dopbsp-help">');
             HTML.push(' <span class="dopbsp-info dopbsp-help">');
+            HTML.push(DOPBSPBackEnd.text('FEES_FEE_HELP')+'<br /><br />');
             HTML.push(DOPBSPBackEnd.text('HELP_VIEW_DOCUMENTATION'));
             HTML.push(' </span>');
             HTML.push('</a>');
@@ -87,14 +91,31 @@ var DOPBSPBackEndFee = new function(){
     };
 
     /*
+     * Add fee.
+     */
+    this.add = function(){
+        DOPBSPBackEnd.clearColumns(2);
+        DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('FEES_ADD_FEE_ADDING'));
+
+        $.post(ajaxurl, {action: 'dopbsp_fee_add'}, function(data){
+            $('#DOPBSP-column1 .dopbsp-column-content').html(data);
+            DOPBSPBackEnd.toggleMessages('success', DOPBSPBackEnd.text('FEES_ADD_FEE_SUCCESS'));
+        }).fail(function(data){
+            DOPBSPBackEnd.toggleMessages('error', data.status+': '+data.statusText);
+        });
+    };
+
+    /*
      * Edit fee.
      * 
+     * @param id (Number): fee ID
      * @param type (String): field type
      * @param field (String): group field
      * @param value (String): group value
      * @param onBlur (Boolean): true if function has been called on blur event
      */
-    this.edit = function(type, 
+    this.edit = function(id, 
+                         type, 
                          field,
                          value, 
                          onBlur){
@@ -105,13 +126,13 @@ var DOPBSPBackEndFee = new function(){
         
         switch (field){
             case 'name':
-                $('#DOPBSP-fee-ID-1 .dopbsp-name').html(value === '' ? '&nbsp;':value);
+                $('#DOPBSP-fee-ID-'+id+' .dopbsp-name').html(value === '' ? '&nbsp;':value);
                 break;
         }
         
         switch (type){
             case 'switch':
-                value = $('#DOPBSP-fee-'+field+'-1').is(':checked') ? 'true':'false';
+                value = $('#DOPBSP-fee-'+field+'-'+id).is(':checked') ? 'true':'false';
                 break;
         }
         
@@ -123,6 +144,7 @@ var DOPBSPBackEndFee = new function(){
             }
             
             $.post(ajaxurl, {action: 'dopbsp_fee_edit',
+                             id: id,
                              field: field,
                              value: value,
                              language: $('#DOPBSP-fee-language').val()}, function(data){
@@ -140,6 +162,7 @@ var DOPBSPBackEndFee = new function(){
                 clearTimeout(this.ajaxRequestTimeout);
 
                 this.ajaxRequestInProgress = $.post(ajaxurl, {action: 'dopbsp_fee_edit',
+                                                              id: id,
                                                               field: field,
                                                               value: value,
                                                               language: $('#DOPBSP-fee-language').val()}, function(data){
@@ -149,6 +172,34 @@ var DOPBSPBackEndFee = new function(){
                 });
             }, 600);
         }
+    };
+
+
+    /*
+     * Delete fee.
+     * 
+     * @param id (Number): fee ID
+     */
+    this.delete = function(id){
+        DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('FEES_DELETE_FEE_DELETING'));
+
+        $.post(ajaxurl, {action: 'dopbsp_fee_delete', 
+                         id: id}, function(data){
+            DOPBSPBackEnd.clearColumns(2);
+
+            $('#DOPBSP-fee-ID-'+id).stop(true, true)
+                                   .animate({'opacity':0}, 
+                                   600, function(){
+                $(this).remove();
+
+                if (data === '0'){
+                    $('#DOPBSP-column1 .dopbsp-column-content').html('<ul><li class="dopbsp-no-data">'+DOPBSPBackEnd.text('FEES_NO_FEES')+'</li></ul>');
+                }
+                DOPBSPBackEnd.toggleMessages('success', DOPBSPBackEnd.text('FEES_DELETE_FEE_SUCCESS'));
+            });
+        }).fail(function(data){
+            DOPBSPBackEnd.toggleMessages('error', data.status+': '+data.statusText);
+        });
     };
 
     return this.__construct();

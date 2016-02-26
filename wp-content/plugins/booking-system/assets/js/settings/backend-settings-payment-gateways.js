@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/settings/backend-settings-payment-gateways.js
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -35,7 +35,7 @@ var DOPBSPBackEndSettingsPaymentGateways = new function(){
         DOPBSPBackEndSettings.toggle(id, 'payments');
 
         $.post(ajaxurl, {action: 'dopbsp_settings_payment_gateways_display',
-                         id: 1}, function(data){
+                         id: id}, function(data){
             DOPBSPBackEnd.toggleMessages('success', DOPBSPBackEnd.text('MESSAGES_LOADING_SUCCESS'));
             $('#DOPBSP-column2 .dopbsp-column-content').html(data);
         }).fail(function(data){

@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.3
+* Version                 : 2.1.6
 * File                    : includes/class-database.php
-* File Version            : 1.2
-* Created / Last Modified : 17 December 2015
+* File Version            : 1.2.1
+* Created / Last Modified : 15 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -228,7 +228,7 @@
                                             KEY price_max (price_max)
                                         );";
                     
-                    $sql_days_available = "CREATE TABLE " . $DOPBSP->tables->days_available." (
+                    $sql_days_available = "CREATE TABLE ".$DOPBSP->tables->days_available." (
                                             unique_key VARCHAR(32) COLLATE ".$this->db_collation." NOT NULL,
                                             day VARCHAR(16) DEFAULT '".$this->db_config->days_available['day']."' COLLATE ".$this->db_collation." NOT NULL,
                                             hour VARCHAR(6) DEFAULT '".$this->db_config->days_available['hour']."' COLLATE ".$this->db_collation." NOT NULL,
@@ -238,7 +238,7 @@
                                             KEY hour (hour)
                                         );";
                     
-                    $sql_days_unavailable = "CREATE TABLE " . $DOPBSP->tables->days_unavailable." (
+                    $sql_days_unavailable = "CREATE TABLE ".$DOPBSP->tables->days_unavailable." (
                                             unique_key VARCHAR(32) COLLATE ".$this->db_collation." NOT NULL,
                                             day VARCHAR(16) DEFAULT '".$this->db_config->days_unavailable['day']."' COLLATE ".$this->db_collation." NOT NULL,
                                             hour VARCHAR(6) DEFAULT '".$this->db_config->days_unavailable['hour']."' COLLATE ".$this->db_collation." NOT NULL,
@@ -663,26 +663,6 @@
                 $this->setEmails();
                 
                 /*
-                 * Add Rule
-                 */
-                $this->setRule();
-                
-                /*
-                 * Add Discount
-                 */
-                $this->setDiscount();
-                
-                /*
-                 * Add Fee
-                 */
-                $this->setFee();
-                
-                /*
-                 * Add Coupon
-                 */
-                $this->setCoupon();
-
-                /*
                  * Extras data.
                  */
                 $this->setExtras();
@@ -793,95 +773,6 @@
                                                                                  'subject' => $DOPBSP->classes->translation->encodeJSON('EMAILS_DEFAULT_'.strtoupper($pg_id).'_USER_SUBJECT'),
                                                                                  'message' => $DOPBSP->classes->backend_email->defaultTemplate('EMAILS_DEFAULT_'.strtoupper($pg_id).'_USER')));
                     }
-                }
-            }
-            
-            /*
-             * Add rule if not exist.
-             */
-            function setRule(){
-                global $wpdb;
-                global $DOPBSP;
-                
-                /*
-                 * Update rules data.
-                 */
-                $rules = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->rules.' where id=1');
-                
-                if ($wpdb->num_rows == 0){
-                    /*
-                     * Add Rule.
-                     */
-                    $wpdb->insert($DOPBSP->tables->rules, array('id' => 1,
-                                                                'user_id' => wp_get_current_user()->ID,
-                                                                'name' => $DOPBSP->text('RULES_ADD_RULE_NAME')));
-                }
-            }
-            
-            /*
-             * Add discount if not exist.
-             */
-            function setDiscount(){
-                global $wpdb;
-                global $DOPBSP;
-                
-                /*
-                 * Update discount data.
-                 */
-                $rules = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->discounts.' where id=1');
-                
-                if ($wpdb->num_rows == 0){
-                    /*
-                     * Add Discount.
-                     */
-                    $wpdb->insert($DOPBSP->tables->discounts, array('id' => 1,
-                                                                    'user_id' => wp_get_current_user()->ID,
-                                                                    'name' => $DOPBSP->text('DISCOUNTS_ADD_DISCOUNT_NAME')));
-                }
-            }
-            
-            /*
-             * Add fee if not exist.
-             */
-            function setFee(){
-                global $wpdb;
-                global $DOPBSP;
-                
-                /*
-                 * Update fee data.
-                 */
-                $rules = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->fees.' where id=1');
-                
-                if ($wpdb->num_rows == 0){
-                    /*
-                     * Add fee.
-                     */
-                    $wpdb->insert($DOPBSP->tables->fees, array('id' => 1,
-                                                               'name' => $DOPBSP->text('FEES_ADD_FEE_NAME'),
-                                                               'translation' => $DOPBSP->classes->translation->encodeJSON('FEES_ADD_FEE_LABEL')));
-                }
-            }
-            
-            /*
-             * Add coupon if not exist.
-             */
-            function setCoupon(){
-                global $wpdb;
-                global $DOPBSP;
-                
-                /*
-                 * Update coupon data.
-                 */
-                $coupons = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->coupons.' where id=1');
-                
-                if ($wpdb->num_rows == 0){
-                    /*
-                     * Add coupon.
-                     */
-                    $wpdb->insert($DOPBSP->tables->coupons, array('id' => 1,
-                                                                  'user_id' => wp_get_current_user()->ID,
-                                                                  'name' => $DOPBSP->text('COUPONS_ADD_COUPON_NAME'),
-                                                                  'translation' => $DOPBSP->classes->translation->encodeJSON('COUPONS_ADD_COUPON_LABEL')));
                 }
             }
             
@@ -1796,16 +1687,6 @@
                                           'name' => '',
                                           'time_lapse_min' => 0,
                                           'time_lapse_max' => 0);
-                
-                /*
-                 * Search
-                 */
-                $db_config->searches = array('user_id' => 0,
-                                             'name' => '',
-                                             'calendars_excluded' => '',
-                                             'currency' => 'USD',
-                                             'currency_position' => 'before',
-                                             'hours_enabled' => 'false');
                 
                 /*
                  * Settings

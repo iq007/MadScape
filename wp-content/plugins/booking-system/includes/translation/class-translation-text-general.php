@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.1
+* Version                 : 2.1.6
 * File                    : includes/translation/class-translation-text-general.php
-* File Version            : 1.0.4
-* Created / Last Modified : 26 August 2015
+* File Version            : 1.0.6
+* Created / Last Modified : 20 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -37,28 +37,6 @@
                                         'text' => 'Pinpoint Booking System'));
                 
                 /*
-                 * PRO
-                 */
-                array_push($text, array('key' => 'PARENT_PRO_VERSION',
-                                        'parent' => '',
-                                        'text' => 'PRO Version'));
-                array_push($text, array('key' => 'LOCATIONS_TITLE',
-                                        'parent' => 'PARENT_PRO_VERSION',
-                                        'text' => 'Locations'));
-                array_push($text, array('key' => 'ONLY_IN_PRO_TITLE',
-                                        'parent' => 'PARENT_PRO_VERSION',
-                                        'text' => 'only in PRO'));
-                array_push($text, array('key' => 'ONLY_IN_PRO_MESSAGE',
-                                        'parent' => 'PARENT_PRO_VERSION',
-                                        'text' => 'This feature exist only in PRO version.'));
-                array_push($text, array('key' => 'ONLY_IN_PRO_MESSAGE_ONLY',
-                                        'parent' => 'PARENT_PRO_VERSION',
-                                        'text' => 'only'));
-                array_push($text, array('key' => 'ONLY_IN_PRO_MESSAGE_PRO',
-                                        'parent' => 'PARENT_PRO_VERSION',
-                                        'text' => 'PRO'));
-                
-                /*
                  * Messages
                  */
                 array_push($text, array('key' => 'PARENT_MESSAGES',
@@ -84,6 +62,25 @@
                 array_push($text, array('key' => 'MESSAGES_CONFIRMATION_NO',
                                         'parent' => 'PARENT_MESSAGES',
                                         'text' => 'No'));
+                
+                /*
+                 * PRO
+                 */
+                array_push($text, array('key' => 'MESSAGES_PRO_TITLE',
+                                        'parent' => 'PARENT_MESSAGES',
+                                        'text' => 'PRO'));
+                array_push($text, array('key' => 'MESSAGES_PRO_INFO',
+                                        'parent' => 'PARENT_PRO_VERSION',
+                                        'text' => 'only in PRO'));
+                array_push($text, array('key' => 'MESSAGES_PRO_TEXT',
+                                        'parent' => 'PARENT_PRO_VERSION',
+                                        'text' => 'This feature is only available in PRO version.'));
+                array_push($text, array('key' => 'MESSAGES_PRO_REMOVE_TEXT1',
+                                        'parent' => 'PARENT_PRO_VERSION',
+                                        'text' => 'Permanently remove any reference to Pinpoint Booking System PRO version by clicking the close button. This action cannot be undone.'));
+                array_push($text, array('key' => 'MESSAGES_PRO_REMOVE_TEXT2',
+                                        'parent' => 'PARENT_PRO_VERSION',
+                                        'text' => 'You can also remove any information about PRO version if you set the constant %s value to %s in file %s.'));
                 
                 /*
                  * Months & week days

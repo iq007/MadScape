@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : views/views-backend.php
-* File Version            : 1.1.7
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.2.0
+* Created / Last Modified : 20 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -36,14 +36,17 @@
                                   ($subtitle != '' ? ' - </span>'.$subtitle:'</span>').
                                   ($status != '' ? '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$status:'');
                 
-                if (DOPBSP_CONFIG_VIEW_PRO_TIPS) {
+                if ($DOPBSP->vars->view_pro){
 ?>
                 <!--
                     PRO tips box.
                 -->
-                <div id="DOPBSP-pro-tips-box">
-                    <div class="dopbsp-message"><?php echo $DOPBSP->text('ONLY_IN_PRO_MESSAGE'); ?></div>
-                    <a href="javascript:DOPBSPBackEnd.closePROtips()" class="dopbsp-close"></a>
+		<div id="DOPBSP-pro-remove" class="updated notice dopbsp-notice is-dismissible">
+		    <p>
+			<?php echo $DOPBSP->text('MESSAGES_PRO_REMOVE_TEXT1'); ?>
+			<br />
+			<?php printf($DOPBSP->text('MESSAGES_PRO_REMOVE_TEXT2'), '<strong>DOPBSP_CONFIG_VIEW_PRO</strong>', '<strong>false</strong>', '<em>dopbsp-config.php</em>'); ?>
+		    </p>
                 </div>
 <?php  
                 }
@@ -159,9 +162,6 @@
                         case 'dopbsp-rules':
                             $DOPBSP_curr_page = 'Rules';
                             break;
-                        case 'dopbsp-search':
-                            $DOPBSP_curr_page = 'Search';
-                            break;
                         case 'dopbsp-settings':
                             $DOPBSP_curr_page = 'Settings';
                             break;
@@ -205,12 +205,13 @@
 ?>          
             <script type="text/JavaScript">
                 var DOPBSP_DEVELOPMENT_MODE = <?php echo DOPBSP_DEVELOPMENT_MODE ? 'true':'false'; ?>,
+                DOPBSP_CONFIG_HELP_DOCUMENTATION_URL = '<?php echo DOPBSP_CONFIG_HELP_DOCUMENTATION_URL; ?>',
                 DOPBSP_curr_page = '<?php echo $DOPBSP_curr_page; ?>',
                 DOPBSP_user_ID = <?php echo wp_get_current_user()->ID; ?>,
                 DOPBSP_user_role = '<?php echo $DOPBSP_user_role; ?>',
                 DOPBSP_plugin_url = '<?php echo $DOPBSP->paths->url; ?>',
                 DOPBSP_translation_text = new Array(),
-                DOPBSP_CONFIG_HELP_DOCUMENTATION_URL = '<?php echo DOPBSP_CONFIG_HELP_DOCUMENTATION_URL; ?>';
+		DOPBSP_view_pro = <?php echo $DOPBSP->vars->view_pro ? 'true':'false'; ?>;
                 
 <?php
                 $language = $DOPBSP->classes->backend_language->get();

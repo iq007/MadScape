@@ -1,16 +1,15 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.6
 * File                    : assets/js/coupons/backend-coupon.js
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 16 February 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
 * Description             : Back end coupon JavaScript class.
 */
-
 
 var DOPBSPBackEndCoupon = new function(){
     'use strict';
@@ -35,10 +34,12 @@ var DOPBSPBackEndCoupon = new function(){
     /*
      * Display coupon.
      * 
+     * @param id (Number): coupon ID
      * @param language (String): coupon current editing language
      * @param clearCoupon (Boolean): clear coupon extra data diplay
      */
-    this.display = function(language,
+    this.display = function(id,
+                            language,
                             clearCoupon){
         var HTML = new Array();
         
@@ -52,11 +53,19 @@ var DOPBSPBackEndCoupon = new function(){
         DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('MESSAGES_LOADING'));
         
         $('#DOPBSP-column1 .dopbsp-column-content li').removeClass('dopbsp-selected');
-        $('#DOPBSP-coupon-ID-1').addClass('dopbsp-selected');
-        $('#DOPBSP-coupon-ID').val(1);
+        $('#DOPBSP-coupon-ID-'+id).addClass('dopbsp-selected');
+        $('#DOPBSP-coupon-ID').val(id);
         
         $.post(ajaxurl, {action: 'dopbsp_coupon_display', 
+                         id: id,
                          language: language}, function(data){
+            HTML.push('<a href="javascript:DOPBSPBackEnd.confirmation(\'COUPONS_DELETE_COUPON_CONFIRMATION\', \'DOPBSPBackEndCoupon.delete('+id+')\')" class="dopbsp-button dopbsp-delete"><span class="dopbsp-info">'+DOPBSPBackEnd.text('COUPONS_DELETE_COUPON_SUBMIT')+'</span></a>');
+            HTML.push('<a href="'+DOPBSP_CONFIG_HELP_DOCUMENTATION_URL+'" target="_blank" class="dopbsp-button dopbsp-help">');
+            HTML.push(' <span class="dopbsp-info dopbsp-help">');
+            HTML.push(DOPBSPBackEnd.text('COUPONS_COUPON_HELP')+'<br /><br />');
+            HTML.push(DOPBSPBackEnd.text('HELP_VIEW_DOCUMENTATION'));
+            HTML.push(' </span>');
+            HTML.push('</a>');
             
             $('#DOPBSP-column2 .dopbsp-column-header').html(HTML.join(''));
             $('#DOPBSP-column2 .dopbsp-column-content').html(data);
@@ -180,16 +189,33 @@ var DOPBSPBackEndCoupon = new function(){
             DOPPrototypes.cleanInput($(this), '0123456789.', '', '0');
         });
     };
-    
+
+    /*
+     * Add coupon.
+     */
+    this.add = function(){
+        DOPBSPBackEnd.clearColumns(2);
+        DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('COUPONS_ADD_COUPON_ADDING'));
+
+        $.post(ajaxurl, {action: 'dopbsp_coupon_add'}, function(data){
+            $('#DOPBSP-column1 .dopbsp-column-content').html(data);
+            DOPBSPBackEnd.toggleMessages('success', DOPBSPBackEnd.text('COUPONS_ADD_COUPON_SUCCESS'));
+        }).fail(function(data){
+            DOPBSPBackEnd.toggleMessages('error', data.status+': '+data.statusText);
+        });
+    };
+
     /*
      * Edit coupon.
      * 
+     * @param id (Number): coupon ID
      * @param type (String): field type
      * @param field (String): coupon field
      * @param value (String): coupon field value
      * @param onBlur (Boolean): true if function has been called on blur event
      */
-    this.edit = function(type, 
+    this.edit = function(id, 
+                         type, 
                          field,
                          value, 
                          onBlur){
@@ -200,7 +226,7 @@ var DOPBSPBackEndCoupon = new function(){
         
         switch (field){
             case 'name':
-                $('#DOPBSP-coupon-ID-1 .dopbsp-name').html(value === '' ? '&nbsp;':value);
+                $('#DOPBSP-coupon-ID-'+id+' .dopbsp-name').html(value === '' ? '&nbsp;':value);
                 break;
         }
         
@@ -212,6 +238,7 @@ var DOPBSPBackEndCoupon = new function(){
             }
             
             $.post(ajaxurl, {action: 'dopbsp_coupon_edit',
+                             id: id,
                              field: field,
                              value: value,
                              language: $('#DOPBSP-coupon-language').val()}, function(data){
@@ -229,6 +256,7 @@ var DOPBSPBackEndCoupon = new function(){
                 clearTimeout(this.ajaxRequestTimeout);
 
                 this.ajaxRequestInProgress = $.post(ajaxurl, {action: 'dopbsp_coupon_edit',
+                                                              id: id,
                                                               field: field,
                                                               value: value,
                                                               language: $('#DOPBSP-coupon-language').val()}, function(data){
@@ -239,16 +267,45 @@ var DOPBSPBackEndCoupon = new function(){
             }, 600);
         }
     };
+
+    /*
+     * Delete coupon.
+     * 
+     * @param id (Number): coupon ID
+     */
+    this.delete = function(id){
+        DOPBSPBackEnd.toggleMessages('active', DOPBSPBackEnd.text('COUPONS_DELETE_COUPON_DELETING'));
+
+        $.post(ajaxurl, {action: 'dopbsp_coupon_delete', 
+                         id: id}, function(data){
+            DOPBSPBackEnd.clearColumns(2);
+
+            $('#DOPBSP-coupon-ID-'+id).stop(true, true)
+                                      .animate({'opacity':0}, 
+                                      600, function(){
+                $(this).remove();
+
+                if (data === '0'){
+                    $('#DOPBSP-column1 .dopbsp-column-content').html('<ul><li class="dopbsp-no-data">'+DOPBSPBackEnd.text('COUPONS_NO_COUPONS')+'</li></ul>');
+                }
+                DOPBSPBackEnd.toggleMessages('success', DOPBSPBackEnd.text('COUPONS_DELETE_COUPON_SUCCESS'));
+            });
+        }).fail(function(data){
+            DOPBSPBackEnd.toggleMessages('error', data.status+': '+data.statusText);
+        });
+    };
     
     /*
      * Generate coupon code.
      * 
+     * @param id (Number): coupon ID
      */
-    this.generateCode = function(){
+    this.generateCode = function(id){
         var code = DOPPrototypes.getRandomString(16);
         
         $('#DOPBSP-coupon-code').val(code);
-        DOPBSPBackEndCoupon.edit('text',
+        DOPBSPBackEndCoupon.edit(id,
+                          'text',
                           'code',
                           code);
     };
