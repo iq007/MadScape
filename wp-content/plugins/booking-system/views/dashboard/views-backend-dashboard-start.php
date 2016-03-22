@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : views/dashboard/views-backend-dashboard-start.php
-* File Version            : 1.0.9
-* Created / Last Modified : 19 February 2016
+* File Version            : 1.2.0
+* Created / Last Modified : 15 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -54,23 +54,6 @@
                             </a>    
                         </li>
 <?php
-    if (DOPBSP_DEVELOPMENT_MODE){
-?>
-                        <li>
-                            <a href="<?php echo admin_url('admin.php?page=dopbsp-events'); ?>">
-                                <span class="dopbsp-icon dopbsp-events"></span>
-                                <?php echo $DOPBSP->text('DASHBOARD_GET_STARTED_EVENTS').' <em>('.$DOPBSP->text('SOON').')</em>'; ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo admin_url('admin.php?page=dopbsp-staff'); ?>">
-                                <span class="dopbsp-icon dopbsp-staff"></span>
-                                <?php echo $DOPBSP->text('DASHBOARD_GET_STARTED_STAFF').' <em>('.$DOPBSP->text('SOON').')</em>'; ?>
-                            </a>
-                        </li>
-<?php
-    }
-    
     if ($DOPBSP->vars->view_pro){
 ?>
                         <li>

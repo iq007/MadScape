@@ -2,14 +2,14 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : includes/coupons/class-backend-coupons.php
 * File Version            : 1.0.7
-* Created / Last Modified : 15 February 2016
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
-* Description             : Back end coupons PHP class.
+* Description             : Back end coupons PHP class. The file is different than PRO version.
 */
 
     if (!class_exists('DOPBSPBackEndCoupons')){
@@ -42,8 +42,7 @@
                                     
                 $html = array();
                 
-                $coupons = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->coupons.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
-                                                             wp_get_current_user()->ID));
+                $coupons = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->coupons.' ORDER BY id DESC');
                 
                 /* 
                  * Create coupons list HTML.

@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : views/views.php
-* File Version            : 1.0.8
-* Created / Last Modified : 16 January 2016
+* File Version            : 1.1.0
+* Created / Last Modified : 15 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -132,12 +132,6 @@
                                                'name' => 'DOPBSPViewsBackEndEmail'));
                 
                 /*
-                 * Set events view classes.
-                 */
-                array_push($this->views, array('key' => 'backend_events',
-                                               'name' => 'DOPBSPViewsBackEndEvents'));
-                
-                /*
                  * Set extras view classes.
                  */
                 array_push($this->views, array('key' => 'backend_extras',
@@ -186,6 +180,14 @@
                                                'name' => 'DOPBSPViewsBackEndLocations'));
                 array_push($this->views, array('key' => 'backend_location',
                                                'name' => 'DOPBSPViewsBackEndLocation'));
+                
+                /*
+                 * Set models view classes.
+                 */
+                array_push($this->views, array('key' => 'backend_models',
+                                               'name' => 'DOPBSPViewsBackEndModels'));
+                array_push($this->views, array('key' => 'backend_model',
+                                               'name' => 'DOPBSPViewsBackEndModel'));
                 
                 /*
                  * Set PRO view classes.
@@ -252,13 +254,6 @@
                                                'name' => 'DOPBSPViewsBackEndSettingsSearch'));
                 array_push($this->views, array('key' => 'backend_settings_users',
                                                'name' => 'DOPBSPViewsBackEndSettingsUsers'));
-                
-                
-                /*
-                 * Set staff view classes.
-                 */
-                array_push($this->views, array('key' => 'backend_staff',
-                                               'name' => 'DOPBSPViewsBackEndStaff'));
                 
                 /*
                  * Set templates view classes.

@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : assets/js/emails/backend-email.js
-* File Version            : 1.0.7
-* Created / Last Modified : 16 February 2016
+* File Version            : 1.0.8
+* Created / Last Modified : 14 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -103,9 +103,9 @@ var DOPBSPBackEndEmail = new function(){
      * 
      * @param id (Number): email ID
      * @param template (String): email template
-     * @param type (String): email field type
-     * @param field (String): email field
-     * @param value (String): email field value
+     * @param type (String): field type
+     * @param field (String): field name
+     * @param value (String): field value
      * @param onBlur (Boolean): true if function has been called on blur event
      */
     this.edit = function(id, 

@@ -2,14 +2,14 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : includes/fees/class-backend-fees.php
-* File Version            : 1.0.7
-* Created / Last Modified : 15 February 2016
+* File Version            : 1.0.8
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
-* Description             : Back end fees PHP class.
+* Description             : Back end fees PHP class. The file is different than PRO version.
 */
 
     if (!class_exists('DOPBSPBackEndFees')){
@@ -42,8 +42,7 @@
                                     
                 $html = array();
                 
-                $fees = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->fees.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
-                                                          wp_get_current_user()->ID));
+                $fees = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->fees.' ORDER BY id DESC');
                 
                 /* 
                  * Create fees list HTML.

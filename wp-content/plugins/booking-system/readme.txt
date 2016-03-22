@@ -98,6 +98,11 @@ Click [here](http://help.dotonpaper.net/booking-system-wordpress-plugin.html#faq
 View [demo](http://wordpressbooking.systems/) here.
 
 == Changelog ==
+
+= 2.1.8 =
+* Database is no longer accidentally deleted when you update from FREE to PRO version.
+* Reservations are created and the period is booked when a deposit is made via WooCommerce, bug repaired.
+* Users that are not administrators can be permitted to use the booking system.
  
 = 2.1.7 =
 * Email templates content is saved correctly for each language, bug repaired.    
@@ -325,6 +330,11 @@ View [demo](http://wordpressbooking.systems/) here.
 * Initial release of Booking System (WordPress Plugin).
 
 == Upgrade Notice ==
+
+= 2.1.8 =
+* Database is no longer accidentally deleted when you update from FREE to PRO version.
+* Reservations are created and the period is booked when a deposit is made via WooCommerce, bug repaired.
+* Users that are not administrators can be permitted to use the booking system.
  
 = 2.1.7 =
 * Email templates content is saved correctly for each language, bug repaired.    

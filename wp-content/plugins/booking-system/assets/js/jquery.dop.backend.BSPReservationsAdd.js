@@ -1,6 +1,6 @@
 
 /*
-* Title                   : Pinpoint Booking System WordPress Plugin (PRO)
+* Title                   : Pinpoint Booking System WordPress Plugin
 * Version                 : 2.1.2
 * File                    : assets/js/jquery.dop.backend.BSPReservationsAdd.js
 * File Version            : 1.2.5

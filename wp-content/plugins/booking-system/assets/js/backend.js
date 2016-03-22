@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : assets/js/backend.js
-* File Version            : 1.1.3
-* Created / Last Modified : 16 February 2016
+* File Version            : 1.1.5
+* Created / Last Modified : 15 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -52,9 +52,6 @@ var DOPBSPBackEnd = new function(){
                     case 'Emails':
                         DOPBSPBackEndEmails.display();
                         break;
-                    case 'Events':
-                        DOPBSPBackEndEvents.display();
-                        break;
                     case 'Extras':
                         DOPBSPBackEndExtras.display();
                         break;
@@ -66,6 +63,9 @@ var DOPBSPBackEnd = new function(){
                         break;
                     case 'Locations':
                         DOPBSPBackEndLocations.init();
+                        break;
+                    case 'Models':
+                        DOPBSPBackEndModels.display();
                         break;
                     case 'PRO':
                         DOPBSPBackEndPRO.display();
@@ -80,9 +80,6 @@ var DOPBSPBackEnd = new function(){
                         DOPBSPBackEndRules.display();
                         break;
                     case 'Settings':
-                        break;
-                    case 'Staff':
-                        DOPBSPBackEndStaff.display();
                         break;
                     case 'Templates':
                         DOPBSPBackEndTemplates.display();

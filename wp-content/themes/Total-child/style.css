@@ -11,6 +11,13 @@
  Text Domain: total
 
 ------------------------------------------------------------------*/
+#top-bar-content a{
+    font-size: 1.5em;
+}
+
+#top-bar-content span{
+    font-size: 1.5em;
+}
 
 
 /*------- Portfolio ----------*/
@@ -40,6 +47,10 @@
     font-size: 1em;
     padding-top: 0.5em;
 
+}
+
+.caseta-text-jos{
+    padding-top: 2em;
 }
 
 /*.caseta-text.camera-doctor{
@@ -182,27 +193,39 @@
     display: none !important;
 }
 
+
 .slider_button_programeaza {
-    line-height: 2.5em;
-    bottom: 0px;
-    right: 0px;
-    color: #EEEEEE;
-    border: solid 1px #AAAAAA;
-    -webkit-transition: all 600ms ease-out; /* Safari */
-    -o-transition: all 600ms ease-out;
-    transition: all 600ms ease-out;
-    max-width: 80%;
-    padding: 2em;
-}
+        line-height: 1.5em;
+        font-size: 0.5em;
+        bottom: 0px;
+        right: 0px;
+        color: #EEEEEE;
+        border: solid 1px #AAAAAA;
+        -webkit-transition: all 600ms ease-out; /* Safari */
+        -o-transition: all 600ms ease-out;
+        transition: all 600ms ease-out;
+        max-width: 80%;
+        padding: 1em;
+    }
 
 .slider_button_programeaza:hover{
-    max-width: 80%;
-    padding: 2em;
-    text-decoration: none;
-    background-color: #000;
-    opacity: 0.6;
+        text-decoration: none;
+        background-color: #000;
+        opacity: 0.6;
+
+    }
+
+
+
+@media (min-width:500px) {
+    .slider_button_programeaza {
+        line-height: 2.5em;
+        font-size: 1em;
+        padding: 2em;
+    }
 
 }
+
 
 
 .polylang-switcher-shortcode li a {
@@ -210,6 +233,9 @@
     height: 3em;
 }
 
+.wpb_gmaps_widget.vc_map_responsive .wpb_map_wraper.scrolloff iframe{
+    pointer-events: none;
+}
 
 /*.tc_prog_button {
     color: #c95000;

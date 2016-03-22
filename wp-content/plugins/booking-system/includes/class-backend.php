@@ -2,14 +2,14 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.8
 * File                    : includes/class-backend.php
-* File Version            : 1.3.6
-* Created / Last Modified : 04 December 2015
+* File Version            : 1.3.9
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
-* Description             : Back end PHP class.
+* Description             : Back end PHP class. The file is different than PRO version.
 */
 
     if (!class_exists('DOPBSPBackEnd')){
@@ -251,11 +251,6 @@
                 wp_register_script('DOPBSP-js-backend-email', $DOPBSP->paths->url.'assets/js/emails/backend-email.js', array('jquery'), false, true);
                 
                 /*
-                 * Events
-                 */
-                wp_register_script('DOPBSP-js-backend-events', $DOPBSP->paths->url.'assets/js/events/backend-events.js', array('jquery'), false, true);
-                
-                /*
                  * Extras
                  */
                 wp_register_script('DOPBSP-js-backend-extras', $DOPBSP->paths->url.'assets/js/extras/backend-extras.js', array('jquery'), false, true);
@@ -287,6 +282,12 @@
                  */
                 wp_register_script('DOPBSP-js-backend-languages', $DOPBSP->paths->url.'assets/js/languages/backend-languages.js', array('jquery'), false, true);
                 wp_register_script('DOPBSP-js-backend-language', $DOPBSP->paths->url.'assets/js/languages/backend-language.js', array('jquery'), false, true);
+                
+                /*
+                 * Models.
+                 */
+                wp_register_script('DOPBSP-js-backend-models', $DOPBSP->paths->url.'assets/js/models/backend-models.js', array('jquery'), false, true);
+                wp_register_script('DOPBSP-js-backend-model', $DOPBSP->paths->url.'assets/js/models/backend-model.js', array('jquery'), false, true);
                 
                 /*
                  * PRO
@@ -324,11 +325,7 @@
                 wp_register_script('DOPBSP-js-backend-settings-notifications', $DOPBSP->paths->url.'assets/js/settings/backend-settings-notifications.js', array('jquery'), false, true);
                 wp_register_script('DOPBSP-js-backend-settings-payment-gateways', $DOPBSP->paths->url.'assets/js/settings/backend-settings-payment-gateways.js', array('jquery'), false, true);
                 wp_register_script('DOPBSP-js-backend-settings-licences', $DOPBSP->paths->url.'assets/js/settings/backend-settings-licences.js', array('jquery'), false, true);
-                
-                /*
-                 * Staff
-                 */
-                wp_register_script('DOPBSP-js-backend-staff', $DOPBSP->paths->url.'assets/js/staff/backend-staff.js', array('jquery'), false, true);
+                wp_register_script('DOPBSP-js-backend-settings-users', $DOPBSP->paths->url.'assets/js/settings/backend-settings-users.js', array('jquery'), false, true);
                 
                 /*
                  * Templates
@@ -445,11 +442,6 @@
                 wp_enqueue_script('DOPBSP-js-backend-email');
                 
                 /*
-                 * Events
-                 */
-                wp_enqueue_script('DOPBSP-js-backend-events');
-                
-                /*
                  * Extras
                  */
                 wp_enqueue_script('DOPBSP-js-backend-extras');
@@ -481,6 +473,12 @@
                  */
                 wp_enqueue_script('DOPBSP-js-backend-languages');
                 wp_enqueue_script('DOPBSP-js-backend-language');
+                
+                /*
+                 * Models
+                 */
+                wp_enqueue_script('DOPBSP-js-backend-models');
+                wp_enqueue_script('DOPBSP-js-backend-model');
                 
                 /*
                  * PRO
@@ -518,11 +516,7 @@
                 wp_enqueue_script('DOPBSP-js-backend-settings-licences');
                 wp_enqueue_script('DOPBSP-js-backend-settings-notifications');
                 wp_enqueue_script('DOPBSP-js-backend-settings-payment-gateways');
-                
-                /*
-                 * Staff
-                 */
-                wp_enqueue_script('DOPBSP-js-backend-staff');
+                wp_enqueue_script('DOPBSP-js-backend-settings-users');
                 
                 /*
                  * Templates
@@ -585,16 +579,15 @@
                         || $_GET['page'] == 'dopbsp-coupons'
                         || $_GET['page'] == 'dopbsp-discounts'
                         || $_GET['page'] == 'dopbsp-emails'
-                        || $_GET['page'] == 'dopbsp-events'
                         || $_GET['page'] == 'dopbsp-extras'
                         || $_GET['page'] == 'dopbsp-fees'
                         || $_GET['page'] == 'dopbsp-forms'
+                        || $_GET['page'] == 'dopbsp-models'
                         || $_GET['page'] == 'dopbsp-pro'
                         || $_GET['page'] == 'dopbsp-reservations'
                         || $_GET['page'] == 'dopbsp-reviews'
                         || $_GET['page'] == 'dopbsp-rules'
                         || $_GET['page'] == 'dopbsp-settings'
-                        || $_GET['page'] == 'dopbsp-staff'
                         || $_GET['page'] == 'dopbsp-templates'
                         || $_GET['page'] == 'dopbsp-themes'
                         || $_GET['page'] == 'dopbsp-tools'

@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : config.php
-* File Version            : 1.2.2
-* Created / Last Modified : 19 February 2016
+* File Version            : 1.2.4
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -16,7 +16,7 @@
 
     define('DOPBSP_CONFIG_INIT_DATABASE', false); // Set to "true" if you want to update database structure at each action.
     define('DOPBSP_CONFIG_REPAIR_TRANSLATION_DATABASE', false); // Set to "true" to repair translation database. All your previous translation will be replace.
-    define('DOPBSP_CONFIG_DELETE_DATA_ON_DELETE', true);  // Set to "true" if you want to delete all data when you delete the plugin from admin.
+    define('DOPBSP_CONFIG_DELETE_DATA_ON_DELETE', false);  // Set to "true" if you want to delete all data when you delete the plugin from admin.
     define('DOPBSP_CONFIG_WOOCOMMERCE_ENABLE_CODE', false);  // Set to "true" if you want WooCommerce code to be enabled, even if WooComemrce is not installed/detected.
     define('DOPBSP_CONFIG_API_KEY', 'D0PBSPAP1');  // Set API Key
     
@@ -41,6 +41,13 @@
     define('DOPBSP_CONFIG_USERS_PERMISSIONS_EDITORS', 0); // Set to "1" to allow editors to create calendars by default. "0" to not allow.
     define('DOPBSP_CONFIG_USERS_PERMISSIONS_SUBSCRIBERS', 0); // Set to "1" to allow subscribers to create calendars by default. "0" to not allow.
     define('DOPBSP_CONFIG_USERS_PERMISSIONS_OTHERS', 0); // Set to "1" to allow other user roles to create calendars by default. "0" to not allow.
+    
+    define('DOPBSP_CONFIG_USERS_PERMISSIONS_CUSTOM_POSTS_ADMINISTRATORS', 1); // Set to "1" to allow administrator to create custom posts by default. "0" to not allow.
+    define('DOPBSP_CONFIG_USERS_PERMISSIONS_CUSTOM_POSTS_AUTHORS', 1); // Set to "1" to allow authors to create custom posts by default. "0" to not allow.
+    define('DOPBSP_CONFIG_USERS_PERMISSIONS_CUSTOM_POSTS_CONTRIBUTORS', 1); // Set to "1" to allow contributors to create custom posts by default. "0" to not allow.
+    define('DOPBSP_CONFIG_USERS_PERMISSIONS_CUSTOM_POSTS_EDITORS', 1); // Set to "1" to allow editors to create custom posts by default. "0" to not allow.
+    define('DOPBSP_CONFIG_USERS_PERMISSIONS_CUSTOM_POSTS_SUBSCRIBERS', 1); // Set to "1" to allow subscribers to create custom posts by default. "0" to not allow.
+    define('DOPBSP_CONFIG_USERS_PERMISSIONS_CUSTOM_POSTS_OTHERS', 1); // Set to "1" to allow other user roles to create custom posts by default. "0" to not allow.
 
 // ***************************************************************************** End users permissions defaults.
     

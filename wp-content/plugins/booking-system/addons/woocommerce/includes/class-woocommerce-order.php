@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.8
 * File                    : addons/woocommerce/includes/class-woocommerce-cart.php
-* File Version            : 1.0
-* Created / Last Modified : 04 December 2015
+* File Version            : 1.0.1
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -37,6 +37,11 @@
                  * Add reservetions to booking system after some delayed payments have been completed.
                  */
                 add_action('woocommerce_order_status_completed', array(&$this, 'book'));
+                
+                /*
+                 * Add reservetions to booking system after a deposit has been made.
+                 */
+                add_action('woocommerce_order_status_partially-paid', array(&$this, 'book'));
                 
                 /*
                  * Cancel reservetions from booking system if order is cancelled.

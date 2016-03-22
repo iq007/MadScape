@@ -42,3 +42,23 @@ function check_if_in_view() {
         }
     });
 }
+
+
+jQuery(document).ready(function () {
+
+    // you want to enable the pointer events only on click;
+    $gmap = jQuery('.wpb_gmaps_widget.vc_map_responsive .wpb_map_wraper');
+
+    $gmap.on('click', function () {
+        $gmap.removeClass('scrolloff'); // set the pointer events true on click
+    });
+
+
+    $gmap.addClass('scrolloff'); // set the pointer events to none on doc ready
+
+    // you want to disable pointer events when the mouse leave the canvas area;
+
+    $gmap.mouseleave(function () {
+        $gmap.addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
+    });
+});

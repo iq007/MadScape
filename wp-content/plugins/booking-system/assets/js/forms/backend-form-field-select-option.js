@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.8
 * File                    : assets/js/forms/backend-form-field-select-option.js
-* File Version            : 1.0.5
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.6
+* Created / Last Modified : 14 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -60,8 +60,8 @@ var DOPBSPBackEndFormFieldSelectOption = new function(){
      * 
      * @param id (Number): select option ID
      * @param type (String): field type
-     * @param field (String): select option field
-     * @param value (String): select option value
+     * @param field (String): field name
+     * @param value (String): field value
      * @param onBlur (Boolean): true if function has been called on blur event
      */
     this.edit = function(id, 

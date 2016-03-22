@@ -2,14 +2,14 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.8
 * File                    : includes/emails/class-backend-emails.php
-* File Version            : 1.0.6
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.7
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
-* Description             : Back end emails PHP class.
+* Description             : Back end emails PHP class. The file is different than PRO version.
 */
 
     if (!class_exists('DOPBSPBackEndEmails')){
@@ -42,8 +42,7 @@
                                     
                 $html = array();
                 
-                $emails = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->emails.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
-                                                            wp_get_current_user()->ID));
+                $emails = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->emails.' ORDER BY id DESC');
                 
                 /* 
                  * Create emails list HTML.

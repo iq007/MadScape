@@ -2,10 +2,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : includes/class-database.php
-* File Version            : 1.2.1
-* Created / Last Modified : 15 February 2016
+* File Version            : 1.2.2
+* Created / Last Modified : 14 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -17,7 +17,7 @@
             /*
              * Private variables.
              */
-            private $db_version = 2.189;
+            private $db_version = 2.190;
             private $db_version_api_keys = 1.0;
             private $db_version_calendars = 1.0;
             private $db_version_coupons = 1.0;
@@ -37,6 +37,7 @@
             private $db_version_forms_fields = 1.0;
             private $db_version_forms_select_options = 1.0;
             private $db_version_languages = 1.0;
+            private $db_version_models = 1.0;
             private $db_version_reservations = 1.002;
             private $db_version_rules = 1.0;
             private $db_version_settings = 1.0;
@@ -86,6 +87,7 @@
                     update_option('DOPBSP_db_version_forms_fields', '0.1');
                     update_option('DOPBSP_db_version_forms_select_options', '0.1');
                     update_option('DOPBSP_db_version_languages', '0.1');
+                    update_option('DOPBSP_db_version_models', '0.1');
                     update_option('DOPBSP_db_version_reservations', '0.1');
                     update_option('DOPBSP_db_version_rules', '0.1');
                     update_option('DOPBSP_db_version_settings', '0.1');
@@ -142,6 +144,7 @@
                     $current_db_version_forms_fields = get_option('DOPBSP_db_version_forms_fields');
                     $current_db_version_forms_select_options = get_option('DOPBSP_db_version_forms_select_options');
                     $current_db_version_languages = get_option('DOPBSP_db_version_languages');
+                    $current_db_version_models = get_option('DOPBSP_db_version_models');
                     $current_db_version_reservations = get_option('DOPBSP_db_version_reservations');
                     $current_db_version_rules = get_option('DOPBSP_db_version_rules');
                     $current_db_version_settings = get_option('DOPBSP_db_version_settings');
@@ -416,6 +419,21 @@
                                             KEY code (code),
                                             KEY enabled (enabled)
                                         );";
+                    
+                    /*
+                     * Models table.
+                     */
+                    $sql_models = "CREATE TABLE ".$DOPBSP->tables->models." (
+                                            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+                                            user_id BIGINT UNSIGNED DEFAULT ".$this->db_config->models['user_id']." NOT NULL,
+                                            name VARCHAR(128) DEFAULT '".$this->db_config->models['name']."' COLLATE ".$this->db_collation." NOT NULL,
+                                            enabled VARCHAR(6) DEFAULT '".$this->db_config->models['enabled']."' COLLATE ".$this->db_collation." NOT NULL,
+				            multiple_calendars VARCHAR(6) DEFAULT '".$this->db_config->models['multiple_calendars']."' COLLATE ".$this->db_collation." NOT NULL,
+                                            translation TEXT COLLATE ".$this->db_collation." NOT NULL,
+                                            translation_calendar TEXT COLLATE ".$this->db_collation." NOT NULL,
+                                            UNIQUE KEY id (id),
+                                            KEY user_id (user_id)
+                                        );";
 
                     /*
                      * Reservations table.
@@ -561,6 +579,7 @@
                     $this->db_version_forms_fields != $current_db_version_forms_fields ? dbDelta($sql_forms_fields):'';
                     $this->db_version_forms_select_options != $current_db_version_forms_select_options ? dbDelta($sql_forms_select_options):'';
                     $this->db_version_languages != $current_db_version_languages ? dbDelta($sql_languages):'';
+                    $this->db_version_models != $current_db_version_models ? dbDelta($sql_models):'';
                     $this->db_version_reservations != $current_db_version_reservations ? dbDelta($sql_reservations):'';
                     $this->db_version_rules != $current_db_version_rules ? dbDelta($sql_rules):'';
                     $this->db_version_settings != $current_db_version_settings ? dbDelta($sql_settings):'';
@@ -619,6 +638,8 @@
                                                                      update_option('DOPBSP_db_version_forms_select_options', $this->db_version_forms_select_options);
                     $current_db_version_languages == '' ? add_option('DOPBSP_db_version_languages', $this->db_version_languages):
                                                           update_option('DOPBSP_db_version_languages', $this->db_version_languages);
+                    $current_db_version_models == '' ? add_option('DOPBSP_db_version_models', $this->db_version_models):
+                                                       update_option('DOPBSP_db_version_models', $this->db_version_models);
                     $current_db_version_reservations == '' ? add_option('DOPBSP_db_version_reservations', $this->db_version_reservations):
                                                              update_option('DOPBSP_db_version_reservations', $this->db_version_reservations);
                     $current_db_version_rules == '' ? add_option('DOPBSP_db_version_rules', $this->db_version_rules):
@@ -1638,6 +1659,16 @@
                                               'address_alt_en' => '',
                                               'coordinates' => '',
                                               'calendars' => '');
+                
+                /*
+                 * Models
+                 */
+                $db_config->models = array('user_id' => 0,
+                                           'name' => '',
+					   'enabled' => 'true',
+					   'multiple_calendars' => 'false',
+					   'translation' => '',
+					   'translation_calendar' => '');
                 
                 /*
                  * Reservations

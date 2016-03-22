@@ -2,13 +2,14 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : includes/forms/class-backend-forms.php
-* File Version            : 1.0.8
-* Created / Last Modified : 15 February 2016
+* File Version            : 1.0.9
+* Created / Last Modified : 17 March 2016
+* Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
-* Description             : Back end forms PHP class.
+* Description             : Back end forms PHP class. The file is different than PRO version.
 */
 
     if (!class_exists('DOPBSPBackEndForms')){
@@ -41,8 +42,7 @@
                                     
                 $html = array();
                 
-                $forms = $wpdb->get_results($wpdb->prepare('SELECT * FROM '.$DOPBSP->tables->forms.' WHERE user_id=%d OR user_id=0 ORDER BY id DESC',
-                                                           wp_get_current_user()->ID));
+                $forms = $wpdb->get_results('SELECT * FROM '.$DOPBSP->tables->forms.' ORDER BY id DESC');
                 
                 /* 
                  * Create forms list HTML.

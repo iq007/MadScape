@@ -1,13 +1,13 @@
 <?php
 
 /*
-* Title                   : Pinpoint Booking System WordPress Plugin (PRO)
-* Version                 : 2.1.6
+* Title                   : Pinpoint Booking System WordPress Plugin
+* Version                 : 2.1.8
 * File                    : includes/translation/class-translation-text-locations.php
-* File Version            : 1.0
-* Created / Last Modified : 19 February 2016
+* File Version            : 1.0.1
+* Created / Last Modified : 17 March 2016
 * Author                  : Dot on Paper
-* Copyright               : © 2012 Dot on Paper
+* Copyright               : © 2016 Dot on Paper
 * Website                 : http://www.dotonpaper.net
 * Description             : Locations translation text PHP class.
 */

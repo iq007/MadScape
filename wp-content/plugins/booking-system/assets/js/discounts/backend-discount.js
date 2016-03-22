@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.6
+* Version                 : 2.1.8
 * File                    : assets/js/discounts/backend-discount.js
-* File Version            : 1.0.8
-* Created / Last Modified : 16 February 2016
+* File Version            : 1.0.9
+* Created / Last Modified : 14 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -103,8 +103,8 @@ var DOPBSPBackEndDiscount = new function(){
      * 
      * @param id (Number): discount ID
      * @param type (String): field type
-     * @param field (String): item field
-     * @param value (String): item value
+     * @param field (String): field name
+     * @param value (String): field value
      * @param onBlur (Boolean): true if function has been called on blur event
      */
     this.edit = function(id, 

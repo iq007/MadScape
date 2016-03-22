@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Pinpoint Booking System
-Version: 2.1.7
+Version: 2.1.8
 Plugin URI: https://wordpress.org/plugins/booking-system/
 Description: Transform your WordPress website into a booking/reservation system. If you like this plugin, feel free to rate it five stars at <a href="https://wordpress.org/support/view/plugin-reviews/booking-system" target="_blank">Wordpress</a> in Reviews section. If you encounter any problems please do not give a low rating but <a href="https://wordpress.org/support/plugin/booking-system" target="_blank">visit</a> our <a href="https://wordpress.org/support/plugin/booking-system" target="_blank">Support</a> first so we can help you.
 Author: Dot on Paper
@@ -10,6 +10,12 @@ Author URI: http://www.dotonpaper.net
 
 /*
 Change log:
+ 
+        2.1.8 (2016-03-17)
+		
+		* Database is no longer accidentally deleted when you update from FREE to PRO version.
+		* Reservations are created and the period is booked when a deposit is made via WooCommerce, bug repaired.
+		* Users that are not administrators can be permitted to use the booking system.
  
         2.1.7 (2016-02-23)
 		
@@ -260,7 +266,7 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
     /*
      * Constants
      */
-    define('DOPBSP_DEVELOPMENT_MODE', $_SERVER['SERVER_NAME'] == 'dopstudios.net' ? false:false);
+    define('DOPBSP_DEVELOPMENT_MODE', $_SERVER['SERVER_NAME'] == 'dopstudios.net' ? true:false);
     define('DOPBSP_REPAIR_DATABASE_TEXT', isset($_POST['dopbsp_repair_database_text']) ? true:false);
     
     DOPBSPErrorsHandler::start();
@@ -313,8 +319,6 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'views/emails/views-backend-emails.php';
         include_once 'views/emails/views-backend-email.php';
 
-        include_once 'views/events/views-backend-events.php';
-
         include_once 'views/extras/views-backend-extras.php';
         include_once 'views/extras/views-backend-extra.php';
         include_once 'views/extras/views-backend-extra-groups.php';
@@ -331,6 +335,9 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'views/forms/views-backend-form-field-select-option.php';
         
         include_once 'views/languages/views-backend-languages.php';
+
+        include_once 'views/models/views-backend-models.php';
+        include_once 'views/models/views-backend-model.php';
 
         include_once 'views/pro/views-backend-pro.php';
         include_once 'views/pro/views-backend-pro-features.php';
@@ -351,14 +358,13 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'views/rules/views-backend-rules.php';
         include_once 'views/rules/views-backend-rule.php';
 
-        include_once 'views/settings/views-backend-settings.php';   
-        include_once 'views/settings/views-backend-settings-general.php';
+        include_once 'views/settings/views-backend-settings.php';
         include_once 'views/settings/views-backend-settings-calendar.php';
+        include_once 'views/settings/views-backend-settings-general.php';
+        include_once 'views/settings/views-backend-settings-licences.php';
         include_once 'views/settings/views-backend-settings-notifications.php';
         include_once 'views/settings/views-backend-settings-payment-gateways.php';
-        include_once 'views/settings/views-backend-settings-licences.php';
-
-        include_once 'views/staff/views-backend-staff.php';
+        include_once 'views/settings/views-backend-settings-users.php';
 
         include_once 'views/templates/views-backend-templates.php';
 
@@ -414,8 +420,6 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'includes/emails/class-backend-emails.php';
         include_once 'includes/emails/class-backend-email.php';
 
-        include_once 'includes/events/class-backend-events.php';
-
         include_once 'includes/extras/class-backend-extras.php';
         include_once 'includes/extras/class-backend-extra.php';
         include_once 'includes/extras/class-backend-extra-groups.php';
@@ -439,6 +443,9 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'includes/languages/class-languages.php';
         include_once 'includes/languages/class-backend-languages.php';
         include_once 'includes/languages/class-backend-language.php';
+	
+        include_once 'includes/models/class-backend-models.php';
+        include_once 'includes/models/class-backend-model.php';
 
         include_once 'includes/class-notifications.php';
 
@@ -467,13 +474,12 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'includes/search/class-frontend-search.php';
 
         include_once 'includes/settings/class-backend-settings.php';
-        include_once 'includes/settings/class-backend-settings-general.php';
         include_once 'includes/settings/class-backend-settings-calendar.php';
+        include_once 'includes/settings/class-backend-settings-general.php';
+        include_once 'includes/settings/class-backend-settings-licences.php';
         include_once 'includes/settings/class-backend-settings-notifications.php';
         include_once 'includes/settings/class-backend-settings-payment-gateways.php';
-        include_once 'includes/settings/class-backend-settings-licences.php';
-
-        include_once 'includes/staff/class-backend-staff.php';
+        include_once 'includes/settings/class-backend-settings-users.php';
 
         include_once 'includes/shortcodes/class-backend-shortcodes.php';
 
@@ -493,20 +499,19 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
         include_once 'includes/translation/class-translation-text-dashboard.php';
         include_once 'includes/translation/class-translation-text-discounts.php';
         include_once 'includes/translation/class-translation-text-emails.php';
-        include_once 'includes/translation/class-translation-text-events.php';
         include_once 'includes/translation/class-translation-text-extras.php';
         include_once 'includes/translation/class-translation-text-forms.php';
         include_once 'includes/translation/class-translation-text-fees.php';
         include_once 'includes/translation/class-translation-text-general.php';
         include_once 'includes/translation/class-translation-text-languages.php';
         include_once 'includes/translation/class-translation-text-locations.php';
+        include_once 'includes/translation/class-translation-text-models.php';
         include_once 'includes/translation/class-translation-text-order.php';
         include_once 'includes/translation/class-translation-text-reservations.php';
         include_once 'includes/translation/class-translation-text-reviews.php';
         include_once 'includes/translation/class-translation-text-rules.php';
         include_once 'includes/translation/class-translation-text-search.php';
         include_once 'includes/translation/class-translation-text-settings.php';
-        include_once 'includes/translation/class-translation-text-staff.php';
         include_once 'includes/translation/class-translation-text-templates.php';
         include_once 'includes/translation/class-translation-text-themes.php';
         include_once 'includes/translation/class-translation-text-tools.php';
@@ -698,6 +703,11 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                  * Languages tables.
                  */
                 $this->tables->languages = $wpdb->prefix.'dopbsp_languages';
+                
+                /*
+                 * Models table.
+                 */
+                $this->tables->models = $wpdb->prefix.'dopbsp_models';
 
                 /*
                  * Reservations table.
@@ -763,20 +773,19 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                 class_exists('DOPBSPTranslationTextDashboard') ? new DOPBSPTranslationTextDashboard():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextDiscounts') ? new DOPBSPTranslationTextDiscounts():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextEmails') ? new DOPBSPTranslationTextEmails():'Class does not exist!';
-                class_exists('DOPBSPTranslationTextEvents') ? new DOPBSPTranslationTextEvents():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextExtras') ? new DOPBSPTranslationTextExtras():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextFees') ? new DOPBSPTranslationTextFees():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextForms') ? new DOPBSPTranslationTextForms():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextGeneral') ? new DOPBSPTranslationTextGeneral():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextLanguages') ? new DOPBSPTranslationTextLanguages():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextLocations') ? new DOPBSPTranslationTextLocations():'Class does not exist!';
+                class_exists('DOPBSPTranslationTextModels') ? new DOPBSPTranslationTextModels():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextOrder') ? new DOPBSPTranslationTextOrder():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextReservations') ? new DOPBSPTranslationTextReservations():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextReviews') ? new DOPBSPTranslationTextReviews():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextRules') ? new DOPBSPTranslationTextRules():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextSearch') ? new DOPBSPTranslationTextSearch():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextSettings') ? new DOPBSPTranslationTextSettings():'Class does not exist!';
-                class_exists('DOPBSPTranslationTextStaff') ? new DOPBSPTranslationTextStaff():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextTemplates') ? new DOPBSPTranslationTextTemplates():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextThemes') ? new DOPBSPTranslationTextThemes():'Class does not exist!';
                 class_exists('DOPBSPTranslationTextTools') ? new DOPBSPTranslationTextTools():'Class does not exist!';
@@ -864,11 +873,6 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                 $this->classes->backend_email = class_exists('DOPBSPBackEndEmail') ? new DOPBSPBackEndEmail():'Class does not exist!';
 
                 /*
-                 * Initialize events classes.
-                 */
-                $this->classes->backend_events = class_exists('DOPBSPBackEndEvents') ? new DOPBSPBackEndEvents():'Class does not exist!';
-
-                /*
                  * Initialize extras classes.
                  */
                 $this->classes->backend_extras = class_exists('DOPBSPBackEndExtras') ? new DOPBSPBackEndExtras():'Class does not exist!';
@@ -902,6 +906,12 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                  */
                 $this->classes->backend_languages = class_exists('DOPBSPBackEndLanguages') ? new DOPBSPBackEndLanguages():'Class does not exist!';
                 $this->classes->backend_language = class_exists('DOPBSPBackEndLanguage') ? new DOPBSPBackEndLanguage():'Class does not exist!';
+
+                /*
+                 * Initialize models classes.
+                 */
+                $this->classes->backend_models = class_exists('DOPBSPBackEndModels') ? new DOPBSPBackEndModels():'Class does not exist!';
+                $this->classes->backend_model = class_exists('DOPBSPBackEndModel') ? new DOPBSPBackEndModel():'Class does not exist!';
 
                 /*
                  * Initialize order classes.
@@ -955,21 +965,17 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                  * Initialize settings classes.
                  */
                 $this->classes->backend_settings = class_exists('DOPBSPBackEndSettings') ? new DOPBSPBackEndSettings():'Class does not exist!';
-                $this->classes->backend_settings_general = class_exists('DOPBSPBackEndSettingsGeneral') ? new DOPBSPBackEndSettingsGeneral():'Class does not exist!';
                 $this->classes->backend_settings_calendar = class_exists('DOPBSPBackEndSettingsCalendar') ? new DOPBSPBackEndSettingsCalendar():'Class does not exist!';
+                $this->classes->backend_settings_general = class_exists('DOPBSPBackEndSettingsGeneral') ? new DOPBSPBackEndSettingsGeneral():'Class does not exist!';
                 $this->classes->backend_settings_licences = class_exists('DOPBSPBackEndSettingsLicences') ? new DOPBSPBackEndSettingsLicences():'Class does not exist!';
                 $this->classes->backend_settings_notifications = class_exists('DOPBSPBackEndSettingsNotifications') ? new DOPBSPBackEndSettingsNotifications():'Class does not exist!';
                 $this->classes->backend_settings_payment_gateways = class_exists('DOPBSPBackEndSettingsPaymentGateways') ? new DOPBSPBackEndSettingsPaymentGateways():'Class does not exist!';
+                $this->classes->backend_settings_users = class_exists('DOPBSPBackEndSettingsUsers') ? new DOPBSPBackEndSettingsUsers():'Class does not exist!';
                 
                 /*
                  * Initialize shortcodes classes.
                  */
                 $this->classes->backend_shortcodes = class_exists('DOPBSPBackEndShortcodes') ? new DOPBSPBackEndShortcodes():'Class does not exist!';
-
-                /*
-                 * Initialize staff classes.
-                 */
-                $this->classes->backend_staff = class_exists('DOPBSPBackEndStaff') ? new DOPBSPBackEndStaff():'Class does not exist!';
 
                 /*
                  * Initialize templates classes.
@@ -1024,7 +1030,14 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                         $this->vars->role_action = $user_roles[0];
                         break;
                 }
-		$this->vars->role_action = 'manage_options';
+                
+                if (!isset($this->classes->backend_settings_users)){
+                    return false;
+                }
+                
+                if (!$this->classes->backend_settings_users->permission(wp_get_current_user()->ID, 'use-booking-system')){
+                    return false;
+                }
                 
                 /*
                  * PRO
@@ -1050,6 +1063,7 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                     add_submenu_page('dopbsp', $this->text('FORMS_TITLE'), $this->text('FORMS_TITLE'), $this->vars->role_action, 'dopbsp-forms', array(&$this->classes->backend_forms, 'view'));
                     add_submenu_page('dopbsp', $this->text('EMAILS_TITLE'), $this->text('EMAILS_TITLE'), $this->vars->role_action, 'dopbsp-emails', array(&$this->classes->backend_emails, 'view'));
                     add_submenu_page('dopbsp', $this->text('TRANSLATION_TITLE', 'Translation'), $this->text('TRANSLATION_TITLE', 'Translation'), 'manage_options', 'dopbsp-translation', array(&$this->classes->translation, 'view'));
+                        DOPBSP_DEVELOPMENT_MODE ? add_submenu_page('dopbsp', $this->text('MODELS_TITLE'), $this->text('MODELS_TITLE'), 'manage_options', 'dopbsp-models', array(&$this->classes->backend_models, 'view')):'';
                     add_submenu_page('dopbsp', $this->text('SETTINGS_TITLE'), $this->text('SETTINGS_TITLE'), 'manage_options', 'dopbsp-settings', array(&$this->classes->backend_settings, 'view'));
                     add_submenu_page('dopbsp', $this->text('TOOLS_TITLE', 'Tools'), $this->text('TOOLS_TITLE', 'Tools'), 'manage_options', 'dopbsp-tools', array(&$this->classes->backend_tools, 'view'));
                     DOPBSP_CONFIG_VIEW_ADDONS ? add_submenu_page('dopbsp', $this->text('ADDONS_TITLE'), $this->text('ADDONS_TITLE'), 'manage_options', 'dopbsp-addons', array(&$this->classes->backend_addons, 'view')):'';
@@ -1179,6 +1193,15 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                 add_action('wp_ajax_dopbsp_language_enable', array(&$this->classes->backend_language, 'enable'));  
             
                 /*
+                 * Models back end AJAX requests.
+                 */
+                add_action('wp_ajax_dopbsp_models_display', array(&$this->classes->backend_models, 'display'));
+                add_action('wp_ajax_dopbsp_model_display', array(&$this->classes->backend_model, 'display'));
+                add_action('wp_ajax_dopbsp_model_add', array(&$this->classes->backend_model, 'add'));
+                add_action('wp_ajax_dopbsp_model_edit', array(&$this->classes->backend_model, 'edit'));
+                add_action('wp_ajax_dopbsp_model_delete', array(&$this->classes->backend_model, 'delete'));
+            
+                /*
                  * PRO back end AJAX requests.
                  */
                 add_action('wp_ajax_dopbsp_pro_remove', array(&$this->classes->backend_pro, 'remove'));
@@ -1211,8 +1234,8 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                 /*
                  * Settings back end AJAX requests.
                  */
-                add_action('wp_ajax_dopbsp_settings_general_display', array(&$this->classes->backend_settings_general, 'display'));
                 add_action('wp_ajax_dopbsp_settings_calendar_display', array(&$this->classes->backend_settings_calendar, 'display'));
+                add_action('wp_ajax_dopbsp_settings_general_display', array(&$this->classes->backend_settings_general, 'display'));
                 add_action('wp_ajax_dopbsp_settings_licences_display', array(&$this->classes->backend_settings_licences, 'display'));
                 add_action('wp_ajax_dopbsp_settings_licences_activate', array(&$this->classes->backend_settings_licences, 'activate'));
                 add_action('wp_ajax_dopbsp_settings_licences_deactivate', array(&$this->classes->backend_settings_licences, 'deactivate'));
@@ -1220,6 +1243,15 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
                 add_action('wp_ajax_dopbsp_settings_notifications_test', array(&$this->classes->notifications, 'test'));
                 add_action('wp_ajax_dopbsp_settings_payment_gateways_display', array(&$this->classes->backend_settings_payment_gateways, 'display'));
                 add_action('wp_ajax_dopbsp_settings_set', array(&$this->classes->backend_settings, 'set'));
+                
+                /*
+                 * Settings users permissions back end AJAX requests.
+                 */
+                add_action('wp_ajax_dopbsp_settings_users_display', array(&$this->classes->backend_settings_users, 'display'));
+                add_action('wp_ajax_dopbsp_settings_users_get', array(&$this->classes->backend_settings_users, 'get'));
+                add_action('wp_ajax_dopbsp_settings_users_set', array(&$this->classes->backend_settings_users, 'set'));
+                add_action('wp_ajax_dopbsp_settings_users_display_calendar', array(&$this->classes->backend_settings_users, 'displayCalendar'));
+                add_action('wp_ajax_dopbsp_settings_users_set_calendar', array(&$this->classes->backend_settings_users, 'setCalendar'));
                 
                 /*
                  * Themes back end AJAX requests.
@@ -1311,101 +1343,103 @@ Installation: Upload the folder dopbsp from the zip file to "wp-content/plugins/
     /*
      * Delete all plugin data if you uninstall it. IMPORTANT! The function needs to be in this file.
      */
-    function DOPBSPUninstall(){
-        if (DOPBSP_CONFIG_DELETE_DATA_ON_DELETE){
-            global $wpdb;
-            global $wp_roles;
+    if (function_exists('DOPBSPUninstall')){
+	function DOPBSPUninstall(){
+	    if (DOPBSP_CONFIG_DELETE_DATA_ON_DELETE){
+		global $wpdb;
+		global $wp_roles;
 
-            /*
-             * Delete database tables.
-             */
-            $tables = $wpdb->get_results('SHOW TABLES');
+		/*
+		 * Delete database tables.
+		 */
+		$tables = $wpdb->get_results('SHOW TABLES');
 
-            foreach ($tables as $table){
-                $object_name = 'Tables_in_'.DB_NAME;
-                $table_name = $table->$object_name;
+		foreach ($tables as $table){
+		    $object_name = 'Tables_in_'.DB_NAME;
+		    $table_name = $table->$object_name;
 
-                if (strrpos($table_name, 'dopbsp_') !== false){
-                    $wpdb->query('DROP TABLE IF EXISTS '.$table_name);
-                }
-            }
-            
-            /*
-             * Delete options.
-             */
-            delete_option('DOPBSP_db_version');
-            delete_option('DOPBSP_db_version_api_keys');
-            delete_option('DOPBSP_db_version_calendars');
-            delete_option('DOPBSP_db_version_coupons');
-            delete_option('DOPBSP_db_version_days');
-            delete_option('DOPBSP_db_version_days_available');
-            delete_option('DOPBSP_db_version_days_unavailable');
-            delete_option('DOPBSP_db_version_discounts');
-            delete_option('DOPBSP_db_version_discounts_items');
-            delete_option('DOPBSP_db_version_discounts_items_rules');
-            delete_option('DOPBSP_db_version_emails');
-            delete_option('DOPBSP_db_version_emails_translation');
-            delete_option('DOPBSP_db_version_extras');
-            delete_option('DOPBSP_db_version_extras_groups');
-            delete_option('DOPBSP_db_version_extras_groups_items');
-            delete_option('DOPBSP_db_version_fees');
-            delete_option('DOPBSP_db_version_forms');
-            delete_option('DOPBSP_db_version_forms_fields');
-            delete_option('DOPBSP_db_version_forms_select_options');
-            delete_option('DOPBSP_db_version_languages');
-            delete_option('DOPBSP_db_version_locations');
-            delete_option('DOPBSP_db_version_reservations');
-            delete_option('DOPBSP_db_version_rules');
-            delete_option('DOPBSP_db_version_searches');
-            delete_option('DOPBSP_db_version_settings');
-            delete_option('DOPBSP_db_version_settings_calendar');
-            delete_option('DOPBSP_db_version_settings_notifications');
-            delete_option('DOPBSP_db_version_settings_payment');
-            delete_option('DOPBSP_db_version_settings_search');
-            delete_option('DOPBSP_db_version_translation');
-            delete_option('DOPBSP_db_version_woocommerce'); // This needs to be here.
-            delete_option('DOPBSP_view_pro');
+		    if (strrpos($table_name, 'dopbsp_') !== false){
+			$wpdb->query('DROP TABLE IF EXISTS '.$table_name);
+		    }
+		}
 
-            /*
-             * Delete user options.
-             */
-            $roles = $wp_roles->get_names();
+		/*
+		 * Delete options.
+		 */
+		delete_option('DOPBSP_db_version');
+		delete_option('DOPBSP_db_version_api_keys');
+		delete_option('DOPBSP_db_version_calendars');
+		delete_option('DOPBSP_db_version_coupons');
+		delete_option('DOPBSP_db_version_days');
+		delete_option('DOPBSP_db_version_days_available');
+		delete_option('DOPBSP_db_version_days_unavailable');
+		delete_option('DOPBSP_db_version_discounts');
+		delete_option('DOPBSP_db_version_discounts_items');
+		delete_option('DOPBSP_db_version_discounts_items_rules');
+		delete_option('DOPBSP_db_version_emails');
+		delete_option('DOPBSP_db_version_emails_translation');
+		delete_option('DOPBSP_db_version_extras');
+		delete_option('DOPBSP_db_version_extras_groups');
+		delete_option('DOPBSP_db_version_extras_groups_items');
+		delete_option('DOPBSP_db_version_fees');
+		delete_option('DOPBSP_db_version_forms');
+		delete_option('DOPBSP_db_version_forms_fields');
+		delete_option('DOPBSP_db_version_forms_select_options');
+		delete_option('DOPBSP_db_version_languages');
+		delete_option('DOPBSP_db_version_locations');
+		delete_option('DOPBSP_db_version_reservations');
+		delete_option('DOPBSP_db_version_rules');
+		delete_option('DOPBSP_db_version_searches');
+		delete_option('DOPBSP_db_version_settings');
+		delete_option('DOPBSP_db_version_settings_calendar');
+		delete_option('DOPBSP_db_version_settings_notifications');
+		delete_option('DOPBSP_db_version_settings_payment');
+		delete_option('DOPBSP_db_version_settings_search');
+		delete_option('DOPBSP_db_version_translation');
+		delete_option('DOPBSP_db_version_woocommerce'); // This needs to be here.
+		delete_option('DOPBSP_view_pro');
 
-            while ($data = current($roles)){
-                delete_option('DOPBSP_users_permissions_'.key($roles));
-                delete_option('DOPBSP_users_permissions_custom_posts_'.key($roles));
-                next($roles);                        
-            }
-            
-            /*
-             * Delete user meta.
-             */
-            $users = get_users(array('blog_id' => $GLOBALS['blog_id'],
-                                     'count_total' => false,
-                                     'exclude' => array(),
-                                     'fields' => 'all',
-                                     'include' => array(),
-                                     'meta_compare' => '',
-                                     'meta_key' => '',
-                                     'meta_query' => array(),
-                                     'meta_value' => '',
-                                     'number' => '',
-                                     'offset' => '',
-                                     'order' => 'ASC',
-                                     'orderby' => 'login',
-                                     'role' => '',
-                                     'search' => '',
-                                     'who' => ''));
+		/*
+		 * Delete user options.
+		 */
+		$roles = $wp_roles->get_names();
+
+		while ($data = current($roles)){
+		    delete_option('DOPBSP_users_permissions_'.key($roles));
+		    delete_option('DOPBSP_users_permissions_custom_posts_'.key($roles));
+		    next($roles);                        
+		}
+
+		/*
+		 * Delete user meta.
+		 */
+		$users = get_users(array('blog_id' => $GLOBALS['blog_id'],
+					 'count_total' => false,
+					 'exclude' => array(),
+					 'fields' => 'all',
+					 'include' => array(),
+					 'meta_compare' => '',
+					 'meta_key' => '',
+					 'meta_query' => array(),
+					 'meta_value' => '',
+					 'number' => '',
+					 'offset' => '',
+					 'order' => 'ASC',
+					 'orderby' => 'login',
+					 'role' => '',
+					 'search' => '',
+					 'who' => ''));
 
 
-            foreach ($users as $user){
-                delete_user_meta($user->ID, 'DOPBSP_permissions_calendars');
-                delete_user_meta($user->ID, 'DOPBSP_backend_language');
-                delete_user_meta($user->ID, 'DOPBSP_permissions_view');
-                delete_user_meta($user->ID, 'DOPBSP_permissions_use');
-                delete_user_meta($user->ID, 'DOPBSP_permissions_custom_posts');
-            }
-        }
+		foreach ($users as $user){
+		    delete_user_meta($user->ID, 'DOPBSP_permissions_calendars');
+		    delete_user_meta($user->ID, 'DOPBSP_backend_language');
+		    delete_user_meta($user->ID, 'DOPBSP_permissions_view');
+		    delete_user_meta($user->ID, 'DOPBSP_permissions_use');
+		    delete_user_meta($user->ID, 'DOPBSP_permissions_custom_posts');
+		}
+	    }
+	}
     }
           
     /*

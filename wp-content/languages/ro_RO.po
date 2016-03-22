@@ -1,14 +1,14 @@
-# Translation of Development in Romanian
-# This file is distributed under the same license as the Development package.
+# Translation of Development (4.4.x) in Romanian
+# This file is distributed under the same license as the Development (4.4.x) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2015-12-05 00:59:09+0000\n"
+"PO-Revision-Date: 2016-02-24 11:09:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
 "X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Development\n"
+"Project-Id-Version: Development (4.4.x)\n"
 
 #. translators: 'rtl' or 'ltr'. This sets the text direction for WordPress.
 #: wp-includes/locale.php:201
@@ -46,11 +46,11 @@ msgid "https://codex.wordpress.org/Debugging_a_WordPress_Network"
 msgstr "https://codex.wordpress.org/Debugging_a_WordPress_Network"
 
 #. translators: %s: Codex URL
-#: wp-includes/functions.php:3784
+#: wp-includes/functions.php:3789
 msgid "Please see <a href=\"%s\">Debugging in WordPress</a> for more information."
 msgstr "Te rog vezi <a href=\"%s\">Depanarea în WordPress</a> (en) pentru mai multe informații."
 
-#: wp-includes/functions.php:3785
+#: wp-includes/functions.php:3790
 msgid "https://codex.wordpress.org/Debugging_in_WordPress"
 msgstr "https://codex.wordpress.org/Debugging_in_WordPress"
 
@@ -135,13 +135,13 @@ msgctxt "genitive"
 msgid "December"
 msgstr "Decembrie"
 
-#: wp-includes/taxonomy.php:1578 wp-includes/taxonomy.php:1660
+#: wp-includes/taxonomy.php:1584 wp-includes/taxonomy.php:1666
 msgid "Term meta cannot be added to terms that are shared between taxonomies."
 msgstr "Metadata termenului nu poate fi adăugată termenilor partajați de mai multe taxonomii."
 
 #. translators: If months in your language require a genitive case, translate
 #. this to 'on'. Do not translate into your own language.
-#: wp-includes/functions.php:178
+#: wp-includes/functions.php:183
 msgctxt "decline months names: on or off"
 msgid "off"
 msgstr "off"
@@ -343,19 +343,19 @@ msgstr "N-am putut salva în baza de date cheia de resetare a parolei."
 msgid "<strong>ERROR</strong>: Invalid username."
 msgstr "<strong>EROARE</strong>: Nume de utilizator invalid."
 
-#: wp-includes/taxonomy.php:538
+#: wp-includes/taxonomy.php:541
 msgid "Tags list navigation"
 msgstr "Navigare listă de etichete"
 
-#: wp-includes/taxonomy.php:538
+#: wp-includes/taxonomy.php:541
 msgid "Categories list navigation"
 msgstr "Navigare listă de categorii"
 
-#: wp-includes/taxonomy.php:539
+#: wp-includes/taxonomy.php:542
 msgid "Tags list"
 msgstr "Listă etichete"
 
-#: wp-includes/taxonomy.php:539
+#: wp-includes/taxonomy.php:542
 msgid "Categories list"
 msgstr "Listă categorii"
 
@@ -482,7 +482,7 @@ msgid "Post Type Archive"
 msgstr "Arhivă tip articol"
 
 #. translators: playlist item title
-#: wp-includes/media.php:1749 wp-includes/media.php:1764
+#: wp-includes/media.php:1777 wp-includes/media.php:1792
 msgctxt "playlist item title"
 msgid "&#8220;%s&#8221;"
 msgstr "&#8222;%s&#8221;"
@@ -613,7 +613,7 @@ msgstr "Comentarii mai noi"
 msgid "Older comments"
 msgstr "Comentarii mai vechi"
 
-#: wp-includes/general-template.php:1950
+#: wp-includes/general-template.php:1946
 msgid "Posts published on %s"
 msgstr "Postări publicate în %s"
 
@@ -672,7 +672,7 @@ msgctxt "adjective"
 msgid "Trash"
 msgstr "Gunoi"
 
-#: wp-includes/comment-template.php:2110
+#: wp-includes/comment-template.php:2171
 msgid "<a href=\"%1$s\" aria-label=\"Logged in as %2$s. Edit your profile.\">Logged in as %2$s</a>. <a href=\"%3$s\">Log out?</a>"
 msgstr "<a href=\"%1$s\" aria-label=\"Autentificat ca %2$s. Editează-ți profilul.\">Autentificat ca %2$s</a>. <a href=\"%3$s\">Deautentificare?</a>"
 
@@ -753,7 +753,7 @@ msgstr "Comută secțiunea: %s"
 #. Asian characters), enter 'characters_excluding_spaces' or
 #. 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate
 #. into your own language.
-#: wp-includes/formatting.php:2960 wp-includes/script-loader.php:419
+#: wp-includes/formatting.php:2964 wp-includes/script-loader.php:419
 msgctxt "Word count type. Do not translate!"
 msgid "words"
 msgstr "words"
@@ -812,7 +812,7 @@ msgstr "Niciun element"
 msgid "Menu options"
 msgstr "Opțiuni meniu"
 
-#: wp-login.php:732
+#: wp-login.php:731
 msgid "Registration confirmation will be emailed to you."
 msgstr "Confirmarea înregistrării îți va fi trimisă pe email."
 
@@ -864,15 +864,15 @@ msgstr "Ascunde imaginea antet"
 msgid "Expand Sidebar"
 msgstr "Extinde bara laterală"
 
-#: wp-includes/class-wp-customize-manager.php:1829
+#: wp-includes/class-wp-customize-manager.php:1831
 msgid "The Site Icon is used as a browser and app icon for your site. Icons must be square, and at least 512px wide and tall."
 msgstr "Iconul sitului este folosit ca un icon de aplicație sau de pagină în navigator. Iconurile trebuie să fie pătrate de cel puțin 512px."
 
-#: wp-includes/class-wp-customize-manager.php:1828
+#: wp-includes/class-wp-customize-manager.php:1830
 msgid "Site Icon"
 msgstr "Icon sit"
 
-#: wp-includes/class-wp-customize-manager.php:1795
+#: wp-includes/class-wp-customize-manager.php:1797
 msgid "Site Identity"
 msgstr "Identitate sit"
 
@@ -897,7 +897,7 @@ msgstr "Eroare în baza de date WordPress:"
 msgid "Your password reset link appears to be invalid. Please request a new link below."
 msgstr "Legătura pentru resetarea parolei tale pare să fie invalidă. Te rog cere una nouă mai jos."
 
-#: wp-includes/pluggable.php:1780
+#: wp-includes/pluggable.php:1789
 msgid "To set your password, visit the following address:"
 msgstr "Pentru a-ți seta parola, vizitează următoarea adresă:"
 
@@ -930,7 +930,7 @@ msgctxt "HTML tag"
 msgid "Preformatted"
 msgstr "Preformatat"
 
-#: wp-includes/functions.php:3619
+#: wp-includes/functions.php:3624
 msgid "The called constructor method for %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr "Metoda apelată a constructorului pentru %1$s este <strong>abandonată</strong> de la versiunea %2$s! Folosește în schimb %3$s."
 
@@ -1088,7 +1088,7 @@ msgstr "Actualizare eșuată: %s"
 msgid "Inserted text"
 msgstr "Text inserat"
 
-#: wp-includes/taxonomy.php:537
+#: wp-includes/taxonomy.php:540
 msgid "No tags"
 msgstr "Fără etichete"
 
@@ -1439,7 +1439,7 @@ msgstr "Eroare XML: %1$s la linia %2$s"
 msgid "<span>Active:</span> %s"
 msgstr "<span>Activ:</span> %s"
 
-#: wp-login.php:781 wp-login.php:785
+#: wp-login.php:780 wp-login.php:784
 msgid "https://codex.wordpress.org/Cookies"
 msgstr "https://codex.wordpress.org/Cookies"
 
@@ -1516,7 +1516,7 @@ msgstr[0] "%1$s răspuns la %2$s"
 msgstr[1] "%1$s răspunsuri la %2$s"
 msgstr[2] "%1$s de răspunsuri la %2$s"
 
-#: wp-includes/taxonomy.php:3965
+#: wp-includes/taxonomy.php:3971
 msgid "Could not split shared term."
 msgstr "Nu pot separa termenul partajat."
 
@@ -1636,7 +1636,7 @@ msgstr ""
 "\n"
 "--Echipa @ SITE_NAME"
 
-#: wp-includes/media.php:3315
+#: wp-includes/media.php:3343
 msgid "Drag and drop to reorder media files."
 msgstr "Trage și plasează pentru a reordona fișierele media."
 
@@ -1656,23 +1656,23 @@ msgid "Post type names must be between 1 and 20 characters in length."
 msgstr "Numele tipului de articol trebuie să aibă între 1 și 20 caractere în lungime."
 
 #. translators: 1: website name, 2: website IP, 3: website hostname
-#: wp-includes/pluggable.php:1466 wp-includes/pluggable.php:1476
-#: wp-includes/pluggable.php:1619 wp-includes/pluggable.php:1627
+#: wp-includes/pluggable.php:1475 wp-includes/pluggable.php:1485
+#: wp-includes/pluggable.php:1628 wp-includes/pluggable.php:1636
 msgid "Website: %1$s (IP: %2$s, %3$s)"
 msgstr "Sit Web: %1$s (IP: %2$s, %3$s)"
 
 #. translators: 1: comment author, 2: author IP, 3: author domain
-#: wp-includes/pluggable.php:1486 wp-includes/pluggable.php:1634
+#: wp-includes/pluggable.php:1495 wp-includes/pluggable.php:1643
 msgid "Author: %1$s (IP: %2$s, %3$s)"
 msgstr "Autor: %1$s (IP: %2$s, %3$s)"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1456
+#: wp-includes/comment-template.php:1480
 msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "1 comentariu<span class=\"screen-reader-text\"> pentru %s</span>"
 
 #. translators: 1: Number of comments 2: post title
-#: wp-includes/comment-template.php:1461
+#: wp-includes/comment-template.php:1485
 msgid "%1$s Comment<span class=\"screen-reader-text\"> on %2$s</span>"
 msgid_plural "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
 msgstr[0] "%1$s comentariu<span class=\"screen-reader-text\"> pentru %2$s</span>"
@@ -1680,12 +1680,12 @@ msgstr[1] "%1$s comentarii<span class=\"screen-reader-text\"> pentru %2$s</span>
 msgstr[2] "%1$s de comentarii<span class=\"screen-reader-text\"> pentru %2$s</span>"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1467
+#: wp-includes/comment-template.php:1491
 msgid "Comments Off<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Comentariile sunt închise<span class=\"screen-reader-text\"> pentru %s</span>"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1451
+#: wp-includes/comment-template.php:1475
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Niciun comentariu<span class=\"screen-reader-text\"> despre %s</span>"
 
@@ -1741,7 +1741,7 @@ msgctxt "next post"
 msgid "Next"
 msgstr "Următorul"
 
-#: wp-includes/taxonomy.php:536
+#: wp-includes/taxonomy.php:539
 msgid "No categories found."
 msgstr "Nicio categorie găsită."
 
@@ -1791,7 +1791,7 @@ msgstr "Zonă text îmbogățit. Apasă Alt+Shift+H pentru ajutor"
 msgid "The following values do not describe a valid date: month %1$s, day %2$s."
 msgstr "Următoarele valori nu descriu o dată validă: lună %$1s, zi %2$s."
 
-#: wp-includes/taxonomy.php:2646
+#: wp-includes/taxonomy.php:2652
 msgid "A term with the name provided already exists in this taxonomy."
 msgstr "Un termen cu același nume și descriptor există deja în această taxonomie."
 
@@ -1810,14 +1810,14 @@ msgctxt "translations"
 msgid "Installed"
 msgstr "Instalată"
 
-#: wp-includes/pluggable.php:1467 wp-includes/pluggable.php:1477
-#: wp-includes/pluggable.php:1488 wp-includes/pluggable.php:1620
-#: wp-includes/pluggable.php:1628 wp-includes/pluggable.php:1636
+#: wp-includes/pluggable.php:1476 wp-includes/pluggable.php:1486
+#: wp-includes/pluggable.php:1497 wp-includes/pluggable.php:1629
+#: wp-includes/pluggable.php:1637 wp-includes/pluggable.php:1645
 msgid "URL: %s"
 msgstr "URL: %s"
 
-#: wp-includes/pluggable.php:1468 wp-includes/pluggable.php:1478
-#: wp-includes/pluggable.php:1489 wp-includes/pluggable.php:1637
+#: wp-includes/pluggable.php:1477 wp-includes/pluggable.php:1487
+#: wp-includes/pluggable.php:1498 wp-includes/pluggable.php:1646
 msgid "Comment: %s"
 msgstr "Comentariu: %s"
 
@@ -1829,7 +1829,7 @@ msgstr "Editează selecția"
 msgid "Older posts"
 msgstr "Articole mai vechi"
 
-#: wp-includes/media.php:3333
+#: wp-includes/media.php:3361
 msgctxt "noun"
 msgid "Trash"
 msgstr "Gunoi"
@@ -1848,15 +1848,15 @@ msgctxt "verb"
 msgid "Trash"
 msgstr "Aruncă la gunoi"
 
-#: wp-includes/pluggable.php:1490
+#: wp-includes/pluggable.php:1499
 msgid "You can see all comments on this post here:"
 msgstr "Poți vedea toate comentariile la acest articol aici:"
 
-#: wp-includes/pluggable.php:1479
+#: wp-includes/pluggable.php:1488
 msgid "You can see all pingbacks on this post here:"
 msgstr "Poți vedea toate pingback-urile la acest articol aici:"
 
-#: wp-includes/pluggable.php:1469
+#: wp-includes/pluggable.php:1478
 msgid "You can see all trackbacks on this post here:"
 msgstr "Poți vedea toate trackback-urile la acest articol aici:"
 
@@ -1866,33 +1866,33 @@ msgid "Posts navigation"
 msgstr "Navigare articole"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: wp-includes/general-template.php:1387
+#: wp-includes/general-template.php:1383
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: wp-includes/general-template.php:1383
+#: wp-includes/general-template.php:1379
 msgid "Archives: %s"
 msgstr "Arhive: %s"
 
-#: wp-includes/general-template.php:1378
+#: wp-includes/general-template.php:1374
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr "Audio"
 
-#: wp-includes/general-template.php:1351
+#: wp-includes/general-template.php:1347
 msgid "Category: %s"
 msgstr "Categorie: %s"
 
-#: wp-includes/general-template.php:1368
+#: wp-includes/general-template.php:1364
 msgctxt "post format archive title"
 msgid "Images"
 msgstr "Imagini"
 
-#: wp-includes/general-template.php:1357
+#: wp-includes/general-template.php:1353
 msgid "Year: %s"
 msgstr "An: %s"
 
-#: wp-includes/general-template.php:1355
+#: wp-includes/general-template.php:1351
 msgid "Author: %s"
 msgstr "Autor: %s"
 
@@ -1900,7 +1900,7 @@ msgstr "Autor: %s"
 msgid "Add to Dictionary"
 msgstr "Adaugă la dicționar"
 
-#: wp-includes/general-template.php:1366
+#: wp-includes/general-template.php:1362
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Galerii"
@@ -1915,32 +1915,32 @@ msgctxt "horizontal table cell alignment"
 msgid "H Align"
 msgstr "Aliniază O"
 
-#: wp-includes/general-template.php:1374
+#: wp-includes/general-template.php:1370
 msgctxt "post format archive title"
 msgid "Links"
 msgstr "Legături"
 
-#: wp-includes/general-template.php:1380
+#: wp-includes/general-template.php:1376
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Conversații"
 
-#: wp-includes/general-template.php:1376
+#: wp-includes/general-template.php:1372
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Stări"
 
-#: wp-includes/general-template.php:1370
+#: wp-includes/general-template.php:1366
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Videouri"
 
-#: wp-includes/general-template.php:1361 wp-includes/general-template.php:1949
+#: wp-includes/general-template.php:1357 wp-includes/general-template.php:1945
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "j F Y"
 
-#: wp-includes/general-template.php:1364
+#: wp-includes/general-template.php:1360
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr "Note"
@@ -1954,7 +1954,7 @@ msgstr "Nu furniza etichete de stil către wp_add_inline_style()."
 msgid "The following values do not describe a valid date: year %1$s, month %2$s, day %3$s."
 msgstr "Următoarele valori nu descriu o dată validă: anul %1$s, luna %2$d, ziua %3$d."
 
-#: wp-includes/comment-template.php:1558
+#: wp-includes/comment-template.php:1582
 msgid "Reply to %s"
 msgstr "Răspunde la %s"
 
@@ -1964,7 +1964,7 @@ msgstr "Răspunde la %s"
 msgid "Invalid value %1$s for %2$s. Expected value should be between %3$s and %4$s."
 msgstr "Valoare invalidă %1$s pentru %2$s. Valoarea așteptată trebuie să fie între %3$s și %4$s."
 
-#: wp-includes/general-template.php:1372
+#: wp-includes/general-template.php:1368
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Citat"
@@ -1977,15 +1977,15 @@ msgstr "Fără aliniere"
 msgid "Border color"
 msgstr "Culoare bordură"
 
-#: wp-includes/general-template.php:1353
+#: wp-includes/general-template.php:1349
 msgid "Tag: %s"
 msgstr "Etichetă: %s"
 
-#: wp-includes/general-template.php:1359
+#: wp-includes/general-template.php:1355
 msgid "Month: %s"
 msgstr "Lună: %s"
 
-#: wp-includes/general-template.php:1361
+#: wp-includes/general-template.php:1357
 msgid "Day: %s"
 msgstr "Zi: %s"
 
@@ -2062,15 +2062,15 @@ msgctxt "add new on admin bar"
 msgid "Post"
 msgstr "Articol"
 
-#: wp-login.php:851
+#: wp-login.php:850
 msgid "<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new."
 msgstr "<strong>Ai actualizat cu succes situl WordPress!</strong> Autentifică-te pentru a vedea ce este nou."
 
-#: wp-includes/media.php:3340
+#: wp-includes/media.php:3368
 msgid "Trash Selected"
 msgstr "Şterge Selectate"
 
-#: wp-includes/media.php:3341
+#: wp-includes/media.php:3369
 msgid "Untrash Selected"
 msgstr "Recuperare Selectate"
 
@@ -2078,7 +2078,7 @@ msgstr "Recuperare Selectate"
 msgid "Untrash"
 msgstr "Recuperare"
 
-#: wp-includes/media.php:3337
+#: wp-includes/media.php:3365
 msgid ""
 "You are about to trash these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -2090,15 +2090,15 @@ msgstr ""
 msgid "Press return or enter to open this panel"
 msgstr "Apasă return sau enter pentru a deschide acest panou"
 
-#: wp-includes/media.php:3338
+#: wp-includes/media.php:3366
 msgid "Bulk Select"
 msgstr "Selectare în masă"
 
-#: wp-includes/media.php:3339
+#: wp-includes/media.php:3367
 msgid "Cancel Selection"
 msgstr "Anulare selecție"
 
-#: wp-includes/media.php:3342
+#: wp-includes/media.php:3370
 msgid "Delete Selected"
 msgstr "Ștergere selectate"
 
@@ -2110,7 +2110,7 @@ msgstr "(fără titlu)"
 
 #. translators: %s: taxonomy label, %l: list of terms formatted as per
 #. $term_template
-#: wp-includes/taxonomy.php:4451
+#: wp-includes/taxonomy.php:4457
 msgid "%s: %l."
 msgstr "%s: %l."
 
@@ -2122,7 +2122,7 @@ msgstr "Căută sau folosește tastele cu săgețile sus și jos pentru a select
 msgid "Your browser does not support direct access to the clipboard. Please use keyboard shortcuts or your browser&#8217;s edit menu instead."
 msgstr "Navigatorul tău nu are suport pentru acces direct la clipbord. În loc de asta, te rog folosește scurtături de taste sau meniul de editare al navigatorului."
 
-#: wp-includes/media.php:3336 wp-includes/script-loader.php:82
+#: wp-includes/media.php:3364 wp-includes/script-loader.php:82
 msgid ""
 "You are about to permanently delete these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -2134,19 +2134,19 @@ msgstr ""
 msgid "Uploaded To"
 msgstr "Încărcat la"
 
-#: wp-includes/media.php:2105
+#: wp-includes/media.php:2133
 msgid "Bitrate Mode"
 msgstr "Mod rată de biți"
 
-#: wp-includes/media.php:3332
+#: wp-includes/media.php:3360
 msgid "Unattached"
 msgstr "Neatașat"
 
-#: wp-includes/media.php:3345
+#: wp-includes/media.php:3373
 msgid "Filter by date"
 msgstr "Filtrare după dată"
 
-#: wp-includes/media.php:3346
+#: wp-includes/media.php:3374
 msgid "Filter by type"
 msgstr "Filtrare după tip"
 
@@ -2178,7 +2178,7 @@ msgstr "Rată biți:"
 msgid "Uploaded By"
 msgstr "Încărcat de"
 
-#: wp-includes/media.php:2104
+#: wp-includes/media.php:2132
 msgid "Bitrate"
 msgstr "Rată biți"
 
@@ -2202,7 +2202,7 @@ msgstr "Arată pagină de tip atașament"
 msgid "Maximum upload file size: %s."
 msgstr "Dimensiunea maximă pentru încărcarea fișierelor: %s."
 
-#: wp-includes/media.php:3329
+#: wp-includes/media.php:3357
 msgid "All dates"
 msgstr "Toate datele"
 
@@ -2222,7 +2222,7 @@ msgstr "Editează următorul element media"
 msgid "Edit more details"
 msgstr "Editează mai multe detalii"
 
-#: wp-includes/media.php:3347
+#: wp-includes/media.php:3375
 msgid "Search Media"
 msgstr "Caută Media"
 
@@ -2283,11 +2283,11 @@ msgstr "Dacă doriți să transferați conținut formatat din Microsoft Word, î
 msgid "Keyboard Shortcuts"
 msgstr "Comenzi rapide tastatură"
 
-#: wp-login.php:784
+#: wp-login.php:783
 msgid "<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href=\"%s\">enable cookies</a> to use WordPress."
 msgstr "<strong>EROARE</strong>: Cookie-urile sunt blocate sau nu sunt acceptate de navigatorul tău. Trebuie să <a href=\"%s\">accepți cookie-urile</a> pentru a folosi WordPress."
 
-#: wp-login.php:780
+#: wp-login.php:779
 msgid "<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href=\"%1$s\">this documentation</a> or try the <a href=\"%2$s\">support forums</a>."
 msgstr "<strong>EROARE</strong>: Cookie-urile sunt blocate din cauza unei ieșiri neașteptate. Pentru ajutor, te rog să consulți <a href=\"%1$s\">această documentație</a> sau să accesezi <a href=\"%2$s\">forumurile pentru suport</a>."
 
@@ -2308,7 +2308,7 @@ msgstr "Familie Font"
 msgid "Font Sizes"
 msgstr "Marime Font"
 
-#: wp-includes/media-template.php:238 wp-includes/media.php:3383
+#: wp-includes/media-template.php:238 wp-includes/media.php:3411
 msgid "Suggested image dimensions:"
 msgstr "Dimensiuni sugerate pentru imagine:"
 
@@ -2317,53 +2317,53 @@ msgid "Image CSS Class"
 msgstr "Clasa CSS pentru Imagine"
 
 #: wp-includes/media-template.php:383 wp-includes/media-template.php:562
-#: wp-includes/media.php:2095
+#: wp-includes/media.php:2123
 msgid "Artist"
 msgstr "Artist"
 
 #: wp-includes/media-template.php:384 wp-includes/media-template.php:563
-#: wp-includes/media.php:2096
+#: wp-includes/media.php:2124
 msgid "Album"
 msgstr "Album"
 
-#: wp-includes/media.php:2100
+#: wp-includes/media.php:2128
 msgid "Genre"
 msgstr "Gen"
 
-#: wp-includes/media.php:2101
+#: wp-includes/media.php:2129
 msgid "Year"
 msgstr "An"
 
-#: wp-includes/media.php:3408
+#: wp-includes/media.php:3436
 msgid "Add to Audio Playlist"
 msgstr "Adaugă la Lista de Redare Audio"
 
-#: wp-includes/media.php:2102
+#: wp-includes/media.php:2130
 msgctxt "video or audio"
 msgid "Length"
 msgstr "Durată"
 
-#: wp-includes/media.php:3384
+#: wp-includes/media.php:3412
 msgid "There has been an error cropping your image."
 msgstr "A apărut o eroare la decuparea imaginii."
 
-#: wp-includes/media.php:3403
+#: wp-includes/media.php:3431
 msgid "Edit Audio Playlist"
 msgstr "Editare Listă de Redare Audio"
 
-#: wp-includes/media.php:3404
+#: wp-includes/media.php:3432
 msgid "&#8592; Cancel Audio Playlist"
 msgstr "&#8592; Anulează Lista de Redare Audio"
 
-#: wp-includes/media.php:3405
+#: wp-includes/media.php:3433
 msgid "Insert audio playlist"
 msgstr "Inserează listă de redare"
 
-#: wp-includes/media.php:3406
+#: wp-includes/media.php:3434
 msgid "Update audio playlist"
 msgstr "Actualizează lista de redare audio"
 
-#: wp-includes/media.php:3407
+#: wp-includes/media.php:3435
 msgid "Add to audio playlist"
 msgstr "Adaugă la lista de redare audio"
 
@@ -2444,7 +2444,7 @@ msgstr "Auto"
 msgid "Move to another area&hellip;"
 msgstr "Treci la o altă zonă&hellip;"
 
-#: wp-includes/media.php:3382
+#: wp-includes/media.php:3410
 msgid "Cropping&hellip;"
 msgstr "Decupez&hellip;"
 
@@ -2706,7 +2706,7 @@ msgstr "A apărut o eroare neașteptată. Ceva poate fi greșit cu WordPress.org
 #: wp-includes/class-wp-customize-section.php:356
 #: wp-includes/class-wp-customize-widgets.php:711
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:82
-#: wp-includes/media.php:3309
+#: wp-includes/media.php:3337
 msgid "Back"
 msgstr "Înapoi"
 
@@ -2716,17 +2716,17 @@ msgid "Search"
 msgstr "Caută"
 
 #. translators: used to join items in a list with more than 2 items
-#: wp-includes/formatting.php:4064
+#: wp-includes/formatting.php:4074
 msgid "%s, %s"
 msgstr "%s, %s"
 
 #. translators: used to join last two items in a list with more than 2 times
-#: wp-includes/formatting.php:4066
+#: wp-includes/formatting.php:4076
 msgid "%s, and %s"
 msgstr "%s, și %s"
 
 #. translators: used to join items in a list with only 2 items
-#: wp-includes/formatting.php:4068
+#: wp-includes/formatting.php:4078
 msgid "%s and %s"
 msgstr "%s și %s"
 
@@ -2738,24 +2738,24 @@ msgstr "Arată imaginile"
 msgid "Autoplay"
 msgstr "Auto-redare"
 
-#: wp-includes/media.php:3372
+#: wp-includes/media.php:3400
 msgid "Replace Image"
 msgstr "Înlocuiește Imaginea"
 
-#: wp-includes/media.php:3373 wp-includes/media.php:3390
-#: wp-includes/media.php:3396
+#: wp-includes/media.php:3401 wp-includes/media.php:3418
+#: wp-includes/media.php:3424
 msgid "Cancel Edit"
 msgstr "Renunță la Editare"
 
-#: wp-includes/media.php:3378
+#: wp-includes/media.php:3406
 msgid "Select and Crop"
 msgstr "Selectează și Decupează"
 
-#: wp-includes/media.php:3380
+#: wp-includes/media.php:3408
 msgid "Crop Image"
 msgstr "Decupează Imaginea"
 
-#: wp-includes/media.php:3381
+#: wp-includes/media.php:3409
 msgid "Crop your image"
 msgstr "Decupează Imaginea"
 
@@ -2763,31 +2763,31 @@ msgstr "Decupează Imaginea"
 msgid "There are no associated subtitles."
 msgstr "Nu există subtitrări asociate."
 
-#: wp-includes/media.php:3387
+#: wp-includes/media.php:3415
 msgid "Audio Details"
 msgstr "Detalii Audio"
 
-#: wp-includes/media.php:3389
+#: wp-includes/media.php:3417
 msgid "Add Audio Source"
 msgstr "Adaugă Sursă Audio"
 
-#: wp-includes/media.php:3393
+#: wp-includes/media.php:3421
 msgid "Video Details"
 msgstr "Detalii Video"
 
-#: wp-includes/media.php:3415
+#: wp-includes/media.php:3443
 msgid "Insert video playlist"
 msgstr "Inserează listă de redare video"
 
-#: wp-includes/media.php:3416
+#: wp-includes/media.php:3444
 msgid "Update video playlist"
 msgstr "Actualizează listă de redare video"
 
-#: wp-includes/media.php:3417
+#: wp-includes/media.php:3445
 msgid "Add to video playlist"
 msgstr "Adaugă la lista de redare video"
 
-#: wp-includes/media.php:3418
+#: wp-includes/media.php:3446
 msgid "Add to Video Playlist"
 msgstr "Adaugă la Lista de Redare Video"
 
@@ -2799,7 +2799,7 @@ msgstr "Imagine Poster"
 msgid "Metadata"
 msgstr "Metadata"
 
-#: wp-includes/media.php:3388
+#: wp-includes/media.php:3416
 msgid "Replace Audio"
 msgstr "Înlocuiește Audio"
 
@@ -2811,43 +2811,43 @@ msgstr "Arată Lista de Melodii"
 msgid "Show Artist Name in Tracklist"
 msgstr "Arată Numele Artistului în Lista de Melodii"
 
-#: wp-includes/media.php:3325
+#: wp-includes/media.php:3353
 msgid "Create a new playlist"
 msgstr "Creează o listă de redare nouă."
 
-#: wp-includes/media.php:3326
+#: wp-includes/media.php:3354
 msgid "Create a new video playlist"
 msgstr "Creează o listă de redare video nouă"
 
-#: wp-includes/media.php:3402
+#: wp-includes/media.php:3430
 msgid "Create Audio Playlist"
 msgstr "Creează Listă de Redare Audio"
 
-#: wp-includes/media.php:3412
+#: wp-includes/media.php:3440
 msgid "Create Video Playlist"
 msgstr "Creează Listă de Redare Video"
 
-#: wp-includes/media.php:3371
+#: wp-includes/media.php:3399
 msgid "Image Details"
 msgstr "Detalii Imagine"
 
-#: wp-includes/media.php:3394
+#: wp-includes/media.php:3422
 msgid "Replace Video"
 msgstr "Înlocuiește Video"
 
-#: wp-includes/media.php:3414
+#: wp-includes/media.php:3442
 msgid "&#8592; Cancel Video Playlist"
 msgstr "&#8592; Anulează Lista de Redare Video"
 
-#: wp-includes/media.php:3398
+#: wp-includes/media.php:3426
 msgid "Add Subtitles"
 msgstr "Adaugă Subtitrări"
 
-#: wp-includes/media.php:3395
+#: wp-includes/media.php:3423
 msgid "Add Video Source"
 msgstr "Adaugă Sursă Video"
 
-#: wp-includes/media.php:3413
+#: wp-includes/media.php:3441
 msgid "Edit Video Playlist"
 msgstr "Editează Lista de Redare Video"
 
@@ -2859,7 +2859,7 @@ msgstr "Setările Listei de Redare"
 msgid "The query argument of %s must have a placeholder."
 msgstr "Argumentul de interogare %s trebuie să aibă un substituent."
 
-#: wp-includes/media.php:3397
+#: wp-includes/media.php:3425
 msgid "Select Poster Image"
 msgstr "Selectează Imagine Afiș"
 
@@ -2867,20 +2867,20 @@ msgstr "Selectează Imagine Afiș"
 msgid "Invalid menu ID."
 msgstr "ID meniu invalid."
 
-#: wp-includes/media.php:3401
+#: wp-includes/media.php:3429
 msgid "Drag and drop to reorder tracks."
 msgstr "Trage și plasează pentru a reordona piesele."
 
-#: wp-includes/media.php:3411
+#: wp-includes/media.php:3439
 msgid "Drag and drop to reorder videos."
 msgstr "Trage și plasează pentru a reordona video-urile."
 
-#: wp-includes/media.php:3379
+#: wp-includes/media.php:3407
 msgid "Skip Cropping"
 msgstr "Sari peste Decupare"
 
 #: wp-includes/customize/class-wp-customize-image-control.php:41
-#: wp-includes/media.php:3377
+#: wp-includes/media.php:3405
 msgid "Choose Image"
 msgstr "Alege imaginea"
 
@@ -2942,7 +2942,7 @@ msgstr "Inserează imagine"
 msgid "Style"
 msgstr "Stil"
 
-#: wp-includes/media-template.php:885 wp-includes/media.php:3307
+#: wp-includes/media-template.php:885 wp-includes/media.php:3335
 msgid "Replace"
 msgstr "Înlocuiește"
 
@@ -3006,7 +3006,7 @@ msgid "https://wordpress.org/"
 msgstr "https://ro.wordpress.org/"
 
 #: wp-includes/admin-bar.php:145 wp-includes/wp-db.php:1085
-#: wp-includes/wp-db.php:1551 wp-includes/wp-db.php:1655 wp-login.php:781
+#: wp-includes/wp-db.php:1551 wp-includes/wp-db.php:1655 wp-login.php:780
 msgid "https://wordpress.org/support/"
 msgstr "http://ro.forums.wordpress.org/"
 
@@ -3148,22 +3148,22 @@ msgstr "Inserează eticheta Citește mai mult"
 msgid "Emoticons"
 msgstr "Emoticonuri"
 
-#: wp-includes/general-template.php:3146
+#: wp-includes/general-template.php:3142
 msgctxt "admin color scheme"
 msgid "Sunrise"
 msgstr "Răsărit"
 
-#: wp-includes/general-template.php:3152
+#: wp-includes/general-template.php:3148
 msgctxt "admin color scheme"
 msgid "Ectoplasm"
 msgstr "Ectoplasmă"
 
-#: wp-includes/general-template.php:3158
+#: wp-includes/general-template.php:3154
 msgctxt "admin color scheme"
 msgid "Ocean"
 msgstr "Ocean"
 
-#: wp-includes/general-template.php:3164
+#: wp-includes/general-template.php:3160
 msgctxt "admin color scheme"
 msgid "Coffee"
 msgstr "Cafea"
@@ -3228,17 +3228,17 @@ msgctxt "Open Sans font: on or off"
 msgid "on"
 msgstr "on"
 
-#: wp-includes/general-template.php:3140
+#: wp-includes/general-template.php:3136
 msgctxt "admin color scheme"
 msgid "Midnight"
 msgstr "Miezul nopții"
 
-#: wp-includes/general-template.php:3128
+#: wp-includes/general-template.php:3124
 msgctxt "admin color scheme"
 msgid "Light"
 msgstr "Deschis"
 
-#: wp-includes/general-template.php:3118
+#: wp-includes/general-template.php:3114
 msgctxt "admin color scheme"
 msgid "Default"
 msgstr "Implicit"
@@ -3281,7 +3281,7 @@ msgctxt "Comma-separated list of search stopwords in your language"
 msgid "about,an,are,as,at,be,by,com,for,from,how,in,is,it,of,on,or,that,the,this,to,was,what,when,where,who,will,with,www"
 msgstr "si,in,de,e,ca,la,fi,pentru,ce,cum,cat,pe,sau,asta,asa,care,cu,este"
 
-#: wp-includes/functions.php:1216
+#: wp-includes/functions.php:1221
 msgid "ERROR: This is not a valid feed template."
 msgstr "EROARE: Acesta nu este un șablon de flux valid."
 
@@ -3347,21 +3347,21 @@ msgstr "Legende/Subtitrări"
 msgid "Download File"
 msgstr "Descarcă fișier"
 
-#: wp-includes/formatting.php:2852
+#: wp-includes/formatting.php:2856
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] "%s săptămână"
 msgstr[1] "%s săptămâni"
 msgstr[2] "%s de săptămâni"
 
-#: wp-includes/formatting.php:2857
+#: wp-includes/formatting.php:2861
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%s lună"
 msgstr[1] "%s luni"
 msgstr[2] "%s de luni"
 
-#: wp-includes/formatting.php:2862
+#: wp-includes/formatting.php:2866
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] "%s an"
@@ -3440,7 +3440,7 @@ msgstr "Ai introdus corect adresa email? Ai introdus adresa %s, dacă este incor
 msgid "Your session has expired. You can log in again from this page or go to the login page."
 msgstr "Sesiune expirată. Te poți re-autentifica de pe această pagină sau de pe pagina de autentificare."
 
-#: wp-login.php:837
+#: wp-login.php:836
 msgid "Session expired. Please log in again. You will not move away from this page."
 msgstr "Sesiune expirată. Re-autentifică-te. Nu vei părăsi această pagină."
 
@@ -3454,7 +3454,7 @@ msgstr "%1$s %2$s, %3$s @ %4$s:%5$s"
 msgid "The site you were looking for, %s, does not exist, but you can create it now!"
 msgstr "Situl pe care îl cauți, %s, nu există, dar îl poți crea acum!"
 
-#: wp-includes/functions.php:4945
+#: wp-includes/functions.php:4950
 msgid "The login page will open in a new window. After logging in you can close it and return to this page."
 msgstr "Pagina de autentificare se va deschide într-o fereastră nouă. După autentificare o vei putea închide șî reveni la această pagină."
 
@@ -3485,11 +3485,11 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Caută"
 
-#: wp-includes/functions.php:4943 wp-includes/script-loader.php:443
+#: wp-includes/functions.php:4948 wp-includes/script-loader.php:443
 msgid "Session expired"
 msgstr "Sesiune expirată"
 
-#: wp-includes/taxonomy.php:536
+#: wp-includes/taxonomy.php:539
 msgid "No tags found."
 msgstr "Nicio etichetă găsită."
 
@@ -3527,11 +3527,11 @@ msgstr "Ordine aleatorie"
 #. If there is not a word you can use in your language to avoid issues with
 #. the 		   lack of plural support here, turn it into "selected: %d" then
 #. translate it.
-#: wp-includes/media.php:3314
+#: wp-includes/media.php:3342
 msgid "%d selected"
 msgstr "Selectate: %d"
 
-#: wp-includes/media.php:3354
+#: wp-includes/media.php:3382
 msgid "Insert from URL"
 msgstr "Inserează din URL"
 
@@ -3540,15 +3540,15 @@ msgctxt "Links widget"
 msgid "Random"
 msgstr "Aleatorie"
 
-#: wp-includes/media.php:3367
+#: wp-includes/media.php:3395
 msgid "Add to Gallery"
 msgstr "Adaugă în galerie"
 
-#: wp-includes/media-template.php:1229 wp-includes/media.php:3330
+#: wp-includes/media-template.php:1229 wp-includes/media.php:3358
 msgid "No items found."
 msgstr "Niciun element găsit."
 
-#: wp-includes/media.php:3368
+#: wp-includes/media.php:3396
 msgid "Reverse order"
 msgstr "Inversează ordinea"
 
@@ -3566,11 +3566,11 @@ msgid "Sorry, that file cannot be edited."
 msgstr "Regret, acel fișier nu poate fi editat."
 
 #: wp-includes/media-template.php:436 wp-includes/media-template.php:537
-#: wp-includes/media.php:3343
+#: wp-includes/media.php:3371
 msgid "Delete Permanently"
 msgstr "Șterge definitiv"
 
-#: wp-includes/media.php:3335
+#: wp-includes/media.php:3363
 msgid ""
 "You are about to permanently delete this item.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -3590,7 +3590,7 @@ msgstr "Ignoră Erori"
 msgid "Uploading"
 msgstr "Se încarcă"
 
-#: wp-includes/media.php:2823
+#: wp-includes/media.php:2851
 msgid "No editor could be selected."
 msgstr "Nu s-a putut alege un editor."
 
@@ -3647,11 +3647,11 @@ msgstr "Atașate acestui articol"
 msgid "Audio"
 msgstr "Audio"
 
-#: wp-includes/media.php:3328
+#: wp-includes/media.php:3356
 msgid "All media items"
 msgstr "Toate elementele media"
 
-#: wp-includes/media.php:3327
+#: wp-includes/media.php:3355
 msgid "&#8592; Return to library"
 msgstr "&#8592; Înapoi la bibliotecă"
 
@@ -3669,12 +3669,12 @@ msgstr "Text alternativ"
 msgid "Columns"
 msgstr "Coloane"
 
-#: wp-includes/media-template.php:494 wp-includes/media.php:3351
+#: wp-includes/media-template.php:494 wp-includes/media.php:3379
 msgid "Attachment Details"
 msgstr "Detalii atașament"
 
 #: wp-includes/media-template.php:689 wp-includes/media-template.php:764
-#: wp-includes/media-template.php:938 wp-includes/media.php:3062
+#: wp-includes/media-template.php:938 wp-includes/media.php:3090
 msgid "Large"
 msgstr "Mare"
 
@@ -3682,11 +3682,11 @@ msgstr "Mare"
 msgid "Gallery Settings"
 msgstr "Preferințe galerie"
 
-#: wp-includes/media.php:3319
+#: wp-includes/media.php:3347
 msgid "Upload Images"
 msgstr "Încarcă imagini"
 
-#: wp-includes/media.php:3363
+#: wp-includes/media.php:3391
 msgid "&#8592; Cancel Gallery"
 msgstr "&#8592; Anulează galerie"
 
@@ -3698,7 +3698,7 @@ msgstr "Setările afișării atașamentului"
 msgid "WordPress &rsaquo; Success"
 msgstr "WordPress &rsaquo; Succes"
 
-#: wp-includes/media.php:3318
+#: wp-includes/media.php:3346
 msgid "Upload Files"
 msgstr "Încarcă fișiere"
 
@@ -3706,7 +3706,7 @@ msgstr "Încarcă fișiere"
 msgid "Drop files anywhere to upload"
 msgstr "Lasă oriunde aici fișiere pentru încărcare"
 
-#: wp-includes/media.php:3364
+#: wp-includes/media.php:3392
 msgid "Insert gallery"
 msgstr "Inserează galerie"
 
@@ -3714,11 +3714,11 @@ msgstr "Inserează galerie"
 msgid "Drop files to upload"
 msgstr "Plasează fișiere pentru încărcare"
 
-#: wp-includes/media.php:3361
+#: wp-includes/media.php:3389
 msgid "Create Gallery"
 msgstr "Creează Galerie"
 
-#: wp-includes/media.php:3322
+#: wp-includes/media.php:3350
 msgid "Media Library"
 msgstr "Bibliotecă media"
 
@@ -3797,7 +3797,7 @@ msgstr "Descrie acest fișier audio&hellip;"
 msgid "Describe this media file&hellip;"
 msgstr "Descrie acest fișier media&hellip;"
 
-#: wp-includes/media.php:3365
+#: wp-includes/media.php:3393
 msgid "Update gallery"
 msgstr "Actualizează galerie"
 
@@ -3856,7 +3856,7 @@ msgstr "Salvare imagine eșuată."
 msgid "Clear"
 msgstr "Șterge"
 
-#: wp-includes/media.php:3366
+#: wp-includes/media.php:3394
 msgid "Add to gallery"
 msgstr "Adaugă în galerie"
 
@@ -3878,11 +3878,11 @@ msgctxt "Display name based on first name and last name"
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
-#: wp-includes/taxonomy.php:2872
+#: wp-includes/taxonomy.php:2878
 msgid "Could not insert term relationship into the database"
 msgstr "Nu am putut introduce în baza de date relaționarea termenului"
 
-#: wp-includes/media.php:3324
+#: wp-includes/media.php:3352
 msgid "Create a new gallery"
 msgstr "Creează o galerie nouă"
 
@@ -3894,7 +3894,7 @@ msgstr "Inserează în articol"
 msgid "View Attachment Page"
 msgstr "Vezi pagina atașamentului"
 
-#: wp-includes/media.php:3323
+#: wp-includes/media.php:3351
 msgid "Insert Media"
 msgstr "Inserează Media"
 
@@ -3931,7 +3931,7 @@ msgid "Display post date?"
 msgstr "Afișează dată articol?"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: post type name
-#: wp-includes/general-template.php:2522
+#: wp-includes/general-template.php:2518
 msgid "%1$s %2$s %3$s Feed"
 msgstr "Fluxul %1$s %2$s %3$s"
 
@@ -3975,11 +3975,11 @@ msgstr "Sari la bara de unelte"
 msgid "Hex Value"
 msgstr "Valoare hexazecimală"
 
-#: wp-includes/class-wp-customize-manager.php:1862
+#: wp-includes/class-wp-customize-manager.php:1864
 msgid "Header Text Color"
 msgstr "Culoare text antet"
 
-#: wp-includes/class-wp-customize-manager.php:1839
+#: wp-includes/class-wp-customize-manager.php:1841
 msgid "Colors"
 msgstr "Culori"
 
@@ -4014,7 +4014,7 @@ msgstr "Argumente insuficiente primite de metoda XML-RPC."
 msgid "Sorry, you cannot stick a private post."
 msgstr "Regret, nu poți evidenția un articol privat."
 
-#: wp-includes/class-wp-customize-manager.php:1885
+#: wp-includes/class-wp-customize-manager.php:1887
 #: wp-includes/customize/class-wp-customize-header-image-control.php:31
 msgid "Header Image"
 msgstr "Imagine antet"
@@ -4055,32 +4055,32 @@ msgstr "Numele de utilizator trebuie să conțină cel puțin 4 caractere"
 msgid "That name is not allowed."
 msgstr "Numele nu este permis."
 
-#: wp-includes/class-wp-customize-manager.php:2002
+#: wp-includes/class-wp-customize-manager.php:2004
 msgid "A static page"
 msgstr "O pagină statică"
 
-#: wp-includes/class-wp-customize-manager.php:1905
+#: wp-includes/class-wp-customize-manager.php:1907
 #: wp-includes/customize/class-wp-customize-background-image-control.php:30
 msgid "Background Image"
 msgstr "Imagine fundal"
 
-#: wp-includes/class-wp-customize-manager.php:1944
+#: wp-includes/class-wp-customize-manager.php:1946
 msgid "Background Position"
 msgstr "Poziție fundal"
 
-#: wp-includes/class-wp-customize-manager.php:1927
+#: wp-includes/class-wp-customize-manager.php:1929
 msgid "Background Repeat"
 msgstr "Repetare fundal"
 
-#: wp-includes/class-wp-customize-manager.php:1960
+#: wp-includes/class-wp-customize-manager.php:1962
 msgid "Background Attachment"
 msgstr "Atașament pentru fundal"
 
-#: wp-includes/class-wp-customize-manager.php:1877
+#: wp-includes/class-wp-customize-manager.php:1879
 msgid "Background Color"
 msgstr "Culoare fundal"
 
-#: wp-includes/class-wp-customize-manager.php:1855
+#: wp-includes/class-wp-customize-manager.php:1857
 msgid "Display Header Text"
 msgstr "Afișează text în antet"
 
@@ -4096,35 +4096,35 @@ msgstr "Înlătură imaginea"
 msgid "Sorry, you are not allowed to edit this post type."
 msgstr "Regret, nu ai dreptul de a edita acest tip de articol."
 
-#: wp-includes/class-wp-customize-manager.php:1931
+#: wp-includes/class-wp-customize-manager.php:1933
 msgid "No Repeat"
 msgstr "Fără repetare"
 
-#: wp-includes/class-wp-customize-manager.php:1932
+#: wp-includes/class-wp-customize-manager.php:1934
 msgid "Tile"
 msgstr "Orizontală și verticală"
 
-#: wp-includes/class-wp-customize-manager.php:1933
+#: wp-includes/class-wp-customize-manager.php:1935
 msgid "Tile Horizontally"
 msgstr "Doar pe orizontală"
 
-#: wp-includes/class-wp-customize-manager.php:1934
+#: wp-includes/class-wp-customize-manager.php:1936
 msgid "Tile Vertically"
 msgstr "Doar pe verticală"
 
-#: wp-includes/class-wp-customize-manager.php:1964
+#: wp-includes/class-wp-customize-manager.php:1966
 msgid "Scroll"
 msgstr "Imaginea se derulează"
 
-#: wp-includes/class-wp-customize-manager.php:1965
+#: wp-includes/class-wp-customize-manager.php:1967
 msgid "Fixed"
 msgstr "Imaginea e fixă"
 
-#: wp-includes/class-wp-customize-manager.php:2013
+#: wp-includes/class-wp-customize-manager.php:2015
 msgid "Front page"
 msgstr "Pagina principală"
 
-#: wp-includes/class-wp-customize-manager.php:2025
+#: wp-includes/class-wp-customize-manager.php:2027
 msgid "Posts page"
 msgstr "Pagina articolelor"
 
@@ -4137,7 +4137,7 @@ msgstr "Fișiere permise"
 #: wp-includes/customize/class-wp-customize-image-control.php:37
 #: wp-includes/customize/class-wp-customize-media-control.php:62
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:141
-#: wp-includes/media-template.php:467 wp-includes/media.php:3308
+#: wp-includes/media-template.php:467 wp-includes/media.php:3336
 msgid "Remove"
 msgstr "Elimină"
 
@@ -4151,8 +4151,8 @@ msgid "The term name cannot be empty."
 msgstr "Numele termenului nu poate fi gol."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1878
-#: wp-includes/class-wp-xmlrpc-server.php:1976 wp-includes/taxonomy.php:2569
-#: wp-includes/taxonomy.php:3161
+#: wp-includes/class-wp-xmlrpc-server.php:1976 wp-includes/taxonomy.php:2575
+#: wp-includes/taxonomy.php:3167
 msgid "Parent term does not exist."
 msgstr "Termenul părinte nu există."
 
@@ -4234,11 +4234,11 @@ msgstr "Șablonul \"%s\" nu este un șablon-părinte valid."
 msgid "ERROR: The themes directory is either empty or doesn&#8217;t exist. Please check your installation."
 msgstr "EROARE: Directorul de teme este gol sau nu există deloc. Verifică procesul de instalare."
 
-#: wp-includes/class-wp-customize-manager.php:1997
+#: wp-includes/class-wp-customize-manager.php:1999
 msgid "Front page displays"
 msgstr "Afișează pe prima pagină"
 
-#: wp-includes/class-wp-customize-manager.php:2001
+#: wp-includes/class-wp-customize-manager.php:2003
 msgid "Your latest posts"
 msgstr "Ultimele articole"
 
@@ -4252,15 +4252,15 @@ msgstr "&mdash; Selectează &mdash;"
 msgid "Collapse Sidebar"
 msgstr "Închide bară laterală"
 
-#: wp-includes/class-wp-customize-manager.php:1986
+#: wp-includes/class-wp-customize-manager.php:1988
 msgid "Your theme supports a static front page."
 msgstr "Tema ta acceptă o pagină statică ca primă pagină."
 
-#: wp-includes/class-wp-customize-manager.php:1983
+#: wp-includes/class-wp-customize-manager.php:1985
 msgid "Static Front Page"
 msgstr "Primă pagină statică"
 
-#: wp-includes/class-wp-customize-manager.php:1817
+#: wp-includes/class-wp-customize-manager.php:1819
 msgid "Tagline"
 msgstr "Slogan"
 
@@ -4366,12 +4366,12 @@ msgstr "Regret, nu ai dreptul de a evidenția acest articol."
 msgid "You are not allowed to edit posts in this post type."
 msgstr "Nu ai dreptul de a edita articole de acest tip."
 
-#: wp-includes/general-template.php:895 wp-includes/general-template.php:1359
+#: wp-includes/general-template.php:891 wp-includes/general-template.php:1355
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
 
-#: wp-includes/general-template.php:892 wp-includes/general-template.php:1357
+#: wp-includes/general-template.php:888 wp-includes/general-template.php:1353
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
@@ -4413,7 +4413,7 @@ msgid "&#8217;"
 msgstr "&#8217;"
 
 #. translators: opening curly double quote
-#: wp-includes/formatting.php:88 wp-includes/formatting.php:4315
+#: wp-includes/formatting.php:88 wp-includes/formatting.php:4325
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr "&#8222;"
@@ -4443,7 +4443,7 @@ msgstr "Contul tău a fost activat. Te poți <a href=\"%1$s\">autentifica</a> fo
 msgid "<a href=\"%1$s\">%2$s</a> is your new site. <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
 msgstr "<a href=\"%1$s\">%2$s</a> este noul tău sit. <a href=\"%3$s\">Autentifică-te</a> ca &#8222;%4$s&#8221; folosind parola ta existentă."
 
-#: wp-includes/functions.php:1397
+#: wp-includes/functions.php:1402
 msgid "One or more database tables are unavailable. The database may need to be <a href=\"%s\">repaired</a>."
 msgstr "Un tabel sau mai multe tabele din baze de date nu sunt disponibile. Baza de date <a href=\"%s\">poate fi reparată</a> dacă e cazul."
 
@@ -4540,15 +4540,15 @@ msgstr "Documentație"
 msgid "Support Forums"
 msgstr "Forumuri asistență"
 
-#: wp-includes/formatting.php:2949 wp-includes/general-template.php:3040
+#: wp-includes/formatting.php:2953 wp-includes/general-template.php:3036
 msgid "&hellip;"
 msgstr "&hellip;"
 
-#: wp-includes/functions.php:3504
+#: wp-includes/functions.php:3509
 msgid "Database Error"
 msgstr "Eroare la baza de date"
 
-#: wp-includes/functions.php:3508 wp-includes/ms-load.php:286
+#: wp-includes/functions.php:3513 wp-includes/ms-load.php:286
 #: wp-includes/wp-db.php:1533
 msgid "Error establishing a database connection"
 msgstr "Eroare la stabilirea unei conexiuni cu baza de date"
@@ -4569,12 +4569,12 @@ msgstr "WordPress.org"
 msgid "Network Admin: %s"
 msgstr "Administrare Rețea: %s"
 
-#: wp-includes/taxonomy.php:521
+#: wp-includes/taxonomy.php:524
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr "Etichete"
 
-#: wp-includes/taxonomy.php:522
+#: wp-includes/taxonomy.php:525
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Etichetă"
@@ -4599,12 +4599,12 @@ msgstr "Este mai mare decât dimensiunea maximă. Încearcă altul."
 msgid "This file is not an image. Please try another."
 msgstr "Fișierul nu este imagine. Încearcă altul."
 
-#: wp-includes/general-template.php:3134
+#: wp-includes/general-template.php:3130
 msgctxt "admin color scheme"
 msgid "Blue"
 msgstr "Albastru"
 
-#: wp-includes/formatting.php:3828
+#: wp-includes/formatting.php:3832
 msgid "The timezone you have entered is not valid. Please select a valid timezone."
 msgstr "Zona fusului orar introdus nu este validă. Mai încearcă o dată."
 
@@ -4618,11 +4618,11 @@ msgctxt "add new from admin bar"
 msgid "Media"
 msgstr "Media"
 
-#: wp-includes/taxonomy.php:529
+#: wp-includes/taxonomy.php:532
 msgid "View Tag"
 msgstr "Vezi etichetă"
 
-#: wp-includes/taxonomy.php:529
+#: wp-includes/taxonomy.php:532
 msgid "View Category"
 msgstr "Vezi categorie"
 
@@ -4720,11 +4720,11 @@ msgstr "Etichetele de interogare condiționale nu funcționează înainte ca int
 msgid "The user is already active."
 msgstr "Utilizatorul este deja activat."
 
-#: wp-includes/functions.php:3782
+#: wp-includes/functions.php:3787
 msgid "(This message was added in version %s.)"
 msgstr "(Acest mesaj a fost adăugat în versiunea %s.)"
 
-#: wp-includes/functions.php:3787
+#: wp-includes/functions.php:3792
 msgid "%1$s was called <strong>incorrectly</strong>. %2$s %3$s"
 msgstr "%1$s a fost denumit <strong>incorect</strong>. %2$s %3$s"
 
@@ -4732,7 +4732,7 @@ msgstr "%1$s a fost denumit <strong>incorect</strong>. %2$s %3$s"
 msgid "Sorry, you cannot publish this post."
 msgstr "Regret, nu poți publica acest articol."
 
-#: wp-includes/pluggable.php:1496
+#: wp-includes/pluggable.php:1505
 msgid "Permalink: %s"
 msgstr "Sursă: %s"
 
@@ -4932,7 +4932,7 @@ msgstr "Articol invalid."
 msgid "Invalid taxonomy: %s."
 msgstr "Taxonomie invalidă: %s."
 
-#: wp-includes/query.php:2549
+#: wp-includes/query.php:2552
 msgid "\"caller_get_posts\" is deprecated. Use \"ignore_sticky_posts\" instead."
 msgstr "&#8222;caller_get_posts&#8221; este învechit. Folosește &#8222;ignore_sticky_posts&#8221; în schimb."
 
@@ -5062,57 +5062,57 @@ msgstr "%1$s rulează cu mândrie pe %2$s"
 msgid "You have searched the %1$s blog archives for <strong>&#8216;%2$s&#8217;</strong>. If you are unable to find anything in these search results, you can try one of these links."
 msgstr "Ai căutat %1$s în arhivele blogului <strong>&#8222;%2$s&#8221;</strong>. Dacă nu găsești nimic în rezultatele acestei căutări, poți încerca una din următoare legăturile."
 
-#: wp-includes/taxonomy.php:535
+#: wp-includes/taxonomy.php:538
 msgid "Choose from the most used tags"
 msgstr "Alege dintre cele mai folosite etichete"
 
-#: wp-includes/taxonomy.php:531
+#: wp-includes/taxonomy.php:534
 msgid "Add New Category"
 msgstr "Adaugă o categorie nouă"
 
-#: wp-includes/taxonomy.php:532
+#: wp-includes/taxonomy.php:535
 msgid "New Tag Name"
 msgstr "Nume etichetă nouă"
 
-#: wp-includes/taxonomy.php:532
+#: wp-includes/taxonomy.php:535
 msgid "New Category Name"
 msgstr "Nume categorie nouă"
 
-#: wp-includes/taxonomy.php:530
+#: wp-includes/taxonomy.php:533
 msgid "Update Tag"
 msgstr "Actualizează etichetă"
 
-#: wp-includes/taxonomy.php:527
+#: wp-includes/taxonomy.php:530
 msgid "Parent Category:"
 msgstr "Categorie părinte:"
 
-#: wp-includes/taxonomy.php:526
+#: wp-includes/taxonomy.php:529
 msgid "Parent Category"
 msgstr "Categorie părinte"
 
-#: wp-includes/taxonomy.php:525
+#: wp-includes/taxonomy.php:528
 msgid "All Tags"
 msgstr "Toate etichetele"
 
-#: wp-includes/taxonomy.php:524
+#: wp-includes/taxonomy.php:527
 msgid "Popular Tags"
 msgstr "Etichete populare"
 
-#: wp-includes/taxonomy.php:522
+#: wp-includes/taxonomy.php:525
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr "Categorie"
 
-#: wp-includes/taxonomy.php:521
+#: wp-includes/taxonomy.php:524
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr "Categorii"
 
-#: wp-includes/taxonomy.php:523
+#: wp-includes/taxonomy.php:526
 msgid "Search Tags"
 msgstr "Caută etichete"
 
-#: wp-includes/taxonomy.php:531
+#: wp-includes/taxonomy.php:534
 msgid "Add New Tag"
 msgstr "Adaugă o etichetă nouă"
 
@@ -5192,7 +5192,7 @@ msgstr "Constanta <code>VHOST</code> <strong>este depășită</strong>. Foloseș
 msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
 msgstr "<strong>EROARE</strong>: Acest nume de utilizator nu este valid deoarece folosește caractere nepermise. Introdu un nume de utilizator valid."
 
-#: wp-includes/comment-template.php:2094
+#: wp-includes/comment-template.php:2155
 msgid "Required fields are marked %s"
 msgstr "Câmpurile necesare sunt marcate %s"
 
@@ -5289,7 +5289,7 @@ msgstr "Sit nou %1$s: %2$s"
 msgid "You are not allowed access to details about this site."
 msgstr "Nu ai dreptul de a accesa detaliile acestui sit."
 
-#: wp-includes/pluggable.php:1754
+#: wp-includes/pluggable.php:1763
 msgid "New user registration on your site %s:"
 msgstr "Utilizator nou înregistrat pe %s:"
 
@@ -5335,19 +5335,19 @@ msgstr "Situl accesat nu a fost instalat corect. I-a legătura cu administratoru
 msgid "The given object ID is not that of a menu item."
 msgstr "ID obiectului obținut nu pare să fie a unui item din meniu."
 
-#: wp-includes/formatting.php:3773
+#: wp-includes/formatting.php:3777
 msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "Adresa web completată nu pare să fie una validă. Încearcă încă o dată."
 
-#: wp-includes/formatting.php:3760
+#: wp-includes/formatting.php:3764
 msgid "The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "Adresa WordPress completată nu pare să fie una validă. Mai încearcă o dată."
 
-#: wp-includes/formatting.php:3657
+#: wp-includes/formatting.php:3661
 msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
 msgstr "Adresa email nu pare să fie validă. Mai încearcă o dată."
 
-#: wp-includes/taxonomy.php:2643
+#: wp-includes/taxonomy.php:2649
 msgid "A term with the name provided already exists with this parent."
 msgstr "Un termen cu numele furnizat există deja cu acest părinte"
 
@@ -5359,7 +5359,7 @@ msgstr "A apărut o eroare la adăugarea ta acestui sit. Întoarce-te la <a href
 msgid "This file is too big. Files must be less than %d KB in size."
 msgstr "Fișierul este prea mare. Fișierele trebuie să fie mai mici de %d KB."
 
-#: wp-includes/comment-template.php:2111
+#: wp-includes/comment-template.php:2172
 msgid "Your email address will not be published."
 msgstr "Adresa ta de email nu va fi publicată."
 
@@ -5408,7 +5408,7 @@ msgstr "Ești sigur că vrei să instalezi acest modul?"
 msgid "Use as featured image"
 msgstr "Folosește ca imagine reprezentativă"
 
-#: wp-includes/general-template.php:903
+#: wp-includes/general-template.php:899
 msgid "Page %s"
 msgstr "Pagina %s"
 
@@ -5448,7 +5448,7 @@ msgstr ""
 "Ești pe cale să ștergi definitiv acest meniu.\n"
 "  'Anulează' pentru a reveni, 'OK' pentru continuare."
 
-#: wp-includes/link-template.php:3643
+#: wp-includes/link-template.php:3647
 msgid "This is the short link."
 msgstr "Aceasta este legătura scurtă."
 
@@ -5535,23 +5535,23 @@ msgstr "Felicitări! Noul tău sit, %s, este aproape gata."
 msgid "Get <em>another</em> %s site in seconds"
 msgstr "Fă-ți un <em>alt</em> sit %s în câteva secunde"
 
-#: wp-includes/pluggable.php:1624
+#: wp-includes/pluggable.php:1633
 msgid "A new pingback on the post \"%s\" is waiting for your approval"
 msgstr "Un nou pingback la articolul \"%s\" așteaptă aprobarea ta"
 
-#: wp-includes/pluggable.php:1616
+#: wp-includes/pluggable.php:1625
 msgid "A new trackback on the post \"%s\" is waiting for your approval"
 msgstr "Un nou trackback la articolul \"%s\" așteaptă aprobarea ta"
 
-#: wp-includes/pluggable.php:1464
+#: wp-includes/pluggable.php:1473
 msgid "New trackback on your post \"%s\""
 msgstr "Trackback nou la articolul tău \"%s\""
 
-#: wp-includes/pluggable.php:1474
+#: wp-includes/pluggable.php:1483
 msgid "New pingback on your post \"%s\""
 msgstr "Pingback nou la articolul tău \"%s\""
 
-#: wp-includes/pluggable.php:1484
+#: wp-includes/pluggable.php:1493
 msgid "New comment on your post \"%s\""
 msgstr "Comentariu nou la articolul tău \"%s\""
 
@@ -5559,7 +5559,7 @@ msgstr "Comentariu nou la articolul tău \"%s\""
 msgid "The site %s is yours."
 msgstr "Situl %s este al tău."
 
-#: wp-includes/pluggable.php:1632
+#: wp-includes/pluggable.php:1641
 msgid "A new comment on the post \"%s\" is waiting for your approval"
 msgstr "Un nou comentariu la articolul \"%s\" așteaptă aprobarea ta"
 
@@ -5949,21 +5949,21 @@ msgid "Protected Comments: Please enter your password to view comments."
 msgstr "Comentarii protejate: se cere parola pentru a vedea comentariile."
 
 #. translators: min=minute
-#: wp-includes/formatting.php:2837
+#: wp-includes/formatting.php:2841
 msgid "%s min"
 msgid_plural "%s mins"
 msgstr[0] "%s minut"
 msgstr[1] "%s minute"
 msgstr[2] "%s de minute"
 
-#: wp-includes/formatting.php:2842
+#: wp-includes/formatting.php:2846
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s oră"
 msgstr[1] "%s ore"
 msgstr[2] "%s de ore"
 
-#: wp-includes/formatting.php:2847
+#: wp-includes/formatting.php:2851
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s zi"
@@ -5979,40 +5979,40 @@ msgstr ", "
 msgid "%s is a protected WP option and may not be modified"
 msgstr "%s este o opțiune protejată și nu poate fi modificată"
 
-#: wp-includes/functions.php:1921 wp-includes/functions.php:2058
+#: wp-includes/functions.php:1926 wp-includes/functions.php:2063
 msgid "Unable to create directory %s. Is its parent directory writable by the server?"
 msgstr "Nu s-a putut crea directorul %s. Directorul părinte are permisiuni de scriere pe server?"
 
-#: wp-includes/functions.php:2022
+#: wp-includes/functions.php:2027
 msgid "Empty filename"
 msgstr "Nume fișier lipsă"
 
-#: wp-includes/functions.php:2405
+#: wp-includes/functions.php:2410
 msgid "You are attempting to log out of %s"
 msgstr "Încerci să te deautentifici de pe %s"
 
-#: wp-includes/functions.php:2414
+#: wp-includes/functions.php:2419
 msgid "WordPress Failure Notice"
 msgstr "Notificare eșec WordPress"
 
-#: wp-includes/functions.php:2407
+#: wp-includes/functions.php:2412
 msgid "Do you really want to <a href='%s'>log out</a>?"
 msgstr "Ești sigur că vrei să te <a href='%s'>deautentifici</a>?"
 
-#: wp-includes/functions.php:2533
+#: wp-includes/functions.php:2538
 msgid "&laquo; Back"
 msgstr "&laquo; Înapoi"
 
-#: wp-includes/functions.php:2545 wp-load.php:92
+#: wp-includes/functions.php:2550 wp-load.php:92
 msgid "WordPress &rsaquo; Error"
 msgstr "Eroare &rsaquo; WordPress"
 
-#: wp-includes/functions.php:4294
+#: wp-includes/functions.php:4299
 msgid "Select a city"
 msgstr "Alege un oraș"
 
 #: wp-includes/general-template.php:276 wp-login.php:544 wp-login.php:607
-#: wp-login.php:657 wp-login.php:739
+#: wp-login.php:657 wp-login.php:738
 msgid "Log in"
 msgstr "Autentificare"
 
@@ -6021,21 +6021,21 @@ msgid "Log out"
 msgstr "Deautentificare"
 
 #: wp-includes/general-template.php:542 wp-login.php:547 wp-login.php:660
-#: wp-login.php:735 wp-login.php:917
+#: wp-login.php:734 wp-login.php:916
 msgid "Register"
 msgstr "Înregistrare"
 
 #. translators: 1: separator, 2: search phrase
-#: wp-includes/general-template.php:1066
+#: wp-includes/general-template.php:1062
 msgid "Search Results %1$s %2$s"
 msgstr "Rezultatele căutării %1$s %2$s"
 
-#: wp-includes/general-template.php:852 wp-includes/general-template.php:1071
+#: wp-includes/general-template.php:852 wp-includes/general-template.php:1067
 msgid "Page not found"
 msgstr "Pagina nu a fost găsită"
 
 #. translators: Separator between blog name and feed type in feed links
-#: wp-includes/general-template.php:2468 wp-includes/general-template.php:2510
+#: wp-includes/general-template.php:2464 wp-includes/general-template.php:2506
 msgctxt "feed link"
 msgid "&raquo;"
 msgstr "&raquo;"
@@ -6326,7 +6326,7 @@ msgstr "Ecran complet"
 msgid "Mute"
 msgstr "Oprește sonorul"
 
-#: wp-includes/media.php:3362
+#: wp-includes/media.php:3390
 msgid "Edit Gallery"
 msgstr "Editare galerie"
 
@@ -6382,23 +6382,23 @@ msgstr "PM"
 msgid "<strong>ERROR</strong>: Invalid username or incorrect password."
 msgstr "<strong>Eroare</strong>: Numele utilizatorului este invalid sau parola este greșită."
 
-#: wp-includes/pluggable.php:1502 wp-includes/pluggable.php:1645
+#: wp-includes/pluggable.php:1511 wp-includes/pluggable.php:1654
 msgid "Delete it: %s"
 msgstr "Șterge: %s"
 
-#: wp-includes/pluggable.php:1641
+#: wp-includes/pluggable.php:1650
 msgid "Approve it: %s"
 msgstr "Aprobă: %s"
 
-#: wp-includes/pluggable.php:1715
+#: wp-includes/pluggable.php:1724
 msgid "Password Lost and Changed for user: %s"
 msgstr "Parolă pierdută și modificată pentru utilizatorul: %s"
 
-#: wp-includes/pluggable.php:1719
+#: wp-includes/pluggable.php:1728
 msgid "[%s] Password Lost/Changed"
 msgstr "[%s] Parolă pierdută/modificată"
 
-#: wp-includes/pluggable.php:1755 wp-includes/pluggable.php:1779
+#: wp-includes/pluggable.php:1764 wp-includes/pluggable.php:1788
 #: wp-login.php:324
 msgid "Username: %s"
 msgstr "Nume de utilizator: %s"
@@ -6560,23 +6560,23 @@ msgstr "Nu s-a reușit setarea acestuia drept miniatură. Încercă un alt ataș
 msgid "Saving Draft&#8230;"
 msgstr "Salvez ciorna&#8230;"
 
-#: wp-includes/taxonomy.php:750 wp-includes/taxonomy.php:3134
-#: wp-includes/taxonomy.php:4319
+#: wp-includes/taxonomy.php:753 wp-includes/taxonomy.php:3140
+#: wp-includes/taxonomy.php:4325
 msgid "Empty Term"
 msgstr "Termen gol"
 
 #: wp-includes/class-wp-xmlrpc-server.php:1404
 #: wp-includes/class-wp-xmlrpc-server.php:1956
 #: wp-includes/class-wp-xmlrpc-server.php:2047
-#: wp-includes/class-wp-xmlrpc-server.php:2118 wp-includes/taxonomy.php:2560
+#: wp-includes/class-wp-xmlrpc-server.php:2118 wp-includes/taxonomy.php:2566
 msgid "Invalid term ID"
 msgstr "ID invalid"
 
-#: wp-includes/taxonomy.php:2563 wp-includes/taxonomy.php:3158
+#: wp-includes/taxonomy.php:2569 wp-includes/taxonomy.php:3164
 msgid "A name is required for this term"
 msgstr "Se cere un nume pentru acest termen"
 
-#: wp-includes/taxonomy.php:4522
+#: wp-includes/taxonomy.php:4528
 msgid "Invalid object ID"
 msgstr "ID invalid a obiectului"
 
@@ -6634,15 +6634,15 @@ msgstr "&larr; Înapoi la %s"
 msgid "Registration Form"
 msgstr "Formular de înregistrare"
 
-#: wp-login.php:803
+#: wp-login.php:802
 msgid "You have logged in successfully."
 msgstr "Te-ai autentificat cu succes."
 
-#: wp-login.php:841
+#: wp-login.php:840
 msgid "You are now logged out."
 msgstr "Ai fost deautentificat."
 
-#: wp-login.php:843
+#: wp-login.php:842
 msgid "User registration is currently not allowed."
 msgstr "Crearea unui cont nou nu este permisă."
 
@@ -6733,23 +6733,23 @@ msgstr "În așteptare"
 msgid "Revision"
 msgstr "Revizie"
 
-#: wp-includes/functions.php:4347
+#: wp-includes/functions.php:4352
 msgid "Manual Offsets"
 msgstr "Completări manuale"
 
-#: wp-includes/functions.php:4339 wp-includes/functions.php:4343
+#: wp-includes/functions.php:4344 wp-includes/functions.php:4348
 msgid "UTC"
 msgstr "UTC"
 
-#: wp-includes/functions.php:3734
+#: wp-includes/functions.php:3739
 msgid "%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available."
 msgstr "%1$s s-a apelat cu un argument care s-a <strong>învechit</strong> odată cu versiunea %2$s și care nu oferă alternative."
 
-#: wp-includes/functions.php:3732
+#: wp-includes/functions.php:3737
 msgid "%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s"
 msgstr "%1$s s-a apelat cu un argument care s-a <strong>învechit</strong> odată cu versiunea %2$s! %3$s"
 
-#: wp-includes/comment-template.php:2124
+#: wp-includes/comment-template.php:2185
 msgid "Cancel reply"
 msgstr "Anulează răspuns"
 
@@ -6758,16 +6758,16 @@ msgstr "Anulează răspuns"
 msgid "Sun"
 msgstr "Dum"
 
-#: wp-includes/user.php:142 wp-includes/user.php:168 wp-login.php:740
-#: wp-login.php:923
+#: wp-includes/user.php:142 wp-includes/user.php:168 wp-login.php:739
+#: wp-login.php:922
 msgid "Lost your password?"
 msgstr "Ți-ai uitat parola?"
 
-#: wp-login.php:740 wp-login.php:923
+#: wp-login.php:739 wp-login.php:922
 msgid "Password Lost and Found"
 msgstr "Recuperează-ți parola"
 
-#: wp-includes/general-template.php:413 wp-login.php:898
+#: wp-includes/general-template.php:413 wp-login.php:897
 msgid "Remember Me"
 msgstr "Ține-mă minte!"
 
@@ -6783,11 +6783,11 @@ msgstr "Programat pe:"
 msgid "Crunching&hellip;"
 msgstr "Se lucrează&hellip;"
 
-#: wp-includes/pluggable.php:1500 wp-includes/pluggable.php:1643
+#: wp-includes/pluggable.php:1509 wp-includes/pluggable.php:1652
 msgid "Trash it: %s"
 msgstr "Șterge: %s"
 
-#: wp-includes/pluggable.php:1629
+#: wp-includes/pluggable.php:1638
 msgid "Pingback excerpt: "
 msgstr "Descrierea din Pingback: "
 
@@ -6834,23 +6834,23 @@ msgid "number_format_thousands_sep"
 msgstr "."
 
 #. translators: 1: month name, 2: 4-digit year
-#: wp-includes/general-template.php:1632 wp-includes/media.php:3243
+#: wp-includes/general-template.php:1628 wp-includes/media.php:3271
 msgid "%1$s %2$d"
 msgstr "%1$s %2$d"
 
 #. translators: Calendar caption: 1: month name, 2: 4-digit year
-#: wp-includes/general-template.php:1857
+#: wp-includes/general-template.php:1853
 msgctxt "calendar caption"
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: tag name
-#: wp-includes/general-template.php:2516
+#: wp-includes/general-template.php:2512
 msgid "%1$s %2$s %3$s Tag Feed"
 msgstr "%1$s %2$s %3$s Fluxul pentru etichetă"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: author name
-#: wp-includes/general-template.php:2518
+#: wp-includes/general-template.php:2514
 msgid "%1$s %2$s Posts by %3$s Feed"
 msgstr "%1$s %2$s Articole de %3$s"
 
@@ -6860,11 +6860,11 @@ msgctxt "widgets"
 msgid "%1$s on %2$s"
 msgstr "%1$s în %2$s"
 
-#: wp-includes/functions.php:3570 wp-includes/functions.php:3674
+#: wp-includes/functions.php:3575 wp-includes/functions.php:3679
 msgid "%1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
 msgstr "%1$s este <strong>învechită</strong> din versiunea %2$s fără alternative disponibile în loc."
 
-#: wp-includes/functions.php:3568 wp-includes/functions.php:3672
+#: wp-includes/functions.php:3573 wp-includes/functions.php:3677
 msgid "%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr "%1$s este <strong>învechită</strong> din versiunea %2$s! Folosește %3$s în loc."
 
@@ -6876,7 +6876,7 @@ msgstr "Rulează pe WordPress în limba română"
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
 msgstr "Acest argument a fost transformat în array pentru un comportament similar cu alte funcții cron."
 
-#: wp-includes/functions.php:2064
+#: wp-includes/functions.php:2069
 msgid "Could not write file %s"
 msgstr "Nu s-a putut scrie fișierul %s"
 
@@ -6884,7 +6884,7 @@ msgstr "Nu s-a putut scrie fișierul %s"
 msgid "Cannot create a user with an empty login name."
 msgstr "Nu se poate crea un utilizator fără un nume de autentificare."
 
-#: wp-includes/functions.php:4944 wp-includes/user.php:206
+#: wp-includes/functions.php:4949 wp-includes/user.php:206
 msgid "Please log in again."
 msgstr "Autentifică-te din nou."
 
@@ -6892,17 +6892,17 @@ msgstr "Autentifică-te din nou."
 msgid "The parent theme is missing. Please install the \"%s\" parent theme."
 msgstr "Tema principală (părinte) lipsește. Instalează tema-părinte &#8222;%s&#8221;."
 
-#: wp-includes/functions.php:2411 wp-includes/ms-functions.php:1910
+#: wp-includes/functions.php:2416 wp-includes/ms-functions.php:1910
 msgid "Please try again."
 msgstr "Reîncearcă."
 
 #. translators: 1: blog name, 2: post title
-#: wp-includes/pluggable.php:1481
+#: wp-includes/pluggable.php:1490
 msgid "[%1$s] Pingback: \"%2$s\""
 msgstr "[%1$s] Pingback: &#8222;%2$s&#8221;"
 
 #. translators: 1: blog name, 2: post title
-#: wp-includes/pluggable.php:1492
+#: wp-includes/pluggable.php:1501
 msgid "[%1$s] Comment: \"%2$s\""
 msgstr "[%1$s] Comentariu: &#8222;%2$s&#8221;"
 
@@ -6923,7 +6923,7 @@ msgid "There was a configuration error. Please contact the server administrator.
 msgstr "Există o eroare de configurare. Contactează administratorul serverului."
 
 #. translators: 1: blog name, 2: post title
-#: wp-includes/pluggable.php:1471
+#: wp-includes/pluggable.php:1480
 msgid "[%1$s] Trackback: \"%2$s\""
 msgstr "[%1$s] Trackback: &#8222;%2$s&#8221;"
 
@@ -6992,7 +6992,7 @@ msgstr "Numele de utilizator este deja activat."
 msgid "New %1$s User: %2$s"
 msgstr "Utilizator nou %1$s: %2$s"
 
-#: wp-includes/taxonomy.php:2925
+#: wp-includes/taxonomy.php:2931
 msgid "Invalid Taxonomy"
 msgstr "Clasificare invalidă"
 
@@ -7004,14 +7004,14 @@ msgstr "Administrare sit"
 msgid "You do not have permission to do that."
 msgstr "Nu ai dreptul de a face asta."
 
-#: wp-includes/pluggable.php:1648
+#: wp-includes/pluggable.php:1657
 msgid "Currently %s comment is waiting for approval. Please visit the moderation panel:"
 msgid_plural "Currently %s comments are waiting for approval. Please visit the moderation panel:"
 msgstr[0] "%s comentariu așteaptă aprobare. Vizitează panoul de moderare:"
 msgstr[1] "%s comentarii așteaptă aprobare. Vizitează panoul de moderare:"
 msgstr[2] "%s de comentarii așteaptă aprobare. Vizitează panoul de moderare:"
 
-#: wp-includes/pluggable.php:1504 wp-includes/pluggable.php:1646
+#: wp-includes/pluggable.php:1513 wp-includes/pluggable.php:1655
 msgid "Spam it: %s"
 msgstr "Marchează ca spam: %s"
 
@@ -7039,7 +7039,7 @@ msgstr "Subtitlu 6"
 msgid "Give the feed a title (optional):"
 msgstr "Pune un titlu pentru flux (opțional):"
 
-#: wp-includes/pluggable.php:1758
+#: wp-includes/pluggable.php:1767
 msgid "[%s] New User Registration"
 msgstr "[%s] Utilizator nou"
 
@@ -7050,11 +7050,11 @@ msgstr[0] "Ciorne <span class=\"count\">(%s)</span>"
 msgstr[1] "Ciorne <span class=\"count\">(%s)</span>"
 msgstr[2] "Ciorne <span class=\"count\">(%s)</span>"
 
-#: wp-includes/pluggable.php:1652
+#: wp-includes/pluggable.php:1661
 msgid "[%1$s] Please moderate: \"%2$s\""
 msgstr "[%1$s] De moderat: \"%2$s\""
 
-#: wp-includes/pluggable.php:1785
+#: wp-includes/pluggable.php:1794
 msgid "[%s] Your username and password info"
 msgstr "[%s] Numele de utilizator și parola ta"
 
@@ -7082,7 +7082,7 @@ msgstr "Fără titlu"
 msgid "<strong>ERROR</strong>: Your account has been marked as a spammer."
 msgstr "<strong>EROARE</strong>: Contul tău a fost marcat ca spammer."
 
-#: wp-includes/pluggable.php:1621
+#: wp-includes/pluggable.php:1630
 msgid "Trackback excerpt: "
 msgstr "Descrierea din Trackback:"
 
@@ -7118,15 +7118,6 @@ msgstr "Copiază rând tabel"
 msgid "Delete row"
 msgstr "Șterge rând"
 
-#: wp-includes/class-wp-editor.php:892
-msgid "Insert/edit image"
-msgstr "Inserează/modifică imagine"
-
-#: wp-includes/class-wp-editor.php:926 wp-includes/class-wp-editor.php:1401
-#: wp-includes/script-loader.php:403
-msgid "Insert/edit link"
-msgstr "Inserează/modifică legătură"
-
 #: wp-includes/script-loader.php:104
 msgid "Insert link"
 msgstr "Inserează legătură"
@@ -7139,7 +7130,7 @@ msgstr "Inserează coloană înainte"
 msgid "Insert column after"
 msgstr "Inserează coloană după"
 
-#: wp-includes/taxonomy.php:2654
+#: wp-includes/taxonomy.php:2660
 msgid "Could not insert term into the database"
 msgstr "Nu s-a putut introduce termenul în baza de date"
 
@@ -7181,22 +7172,22 @@ msgstr[1] "Programate <span class=\"count\">(%s)</span>"
 msgstr[2] "Programate <span class=\"count\">(%s)</span>"
 
 #. translators: 1: blog title, 2: separator (raquo)
-#: wp-includes/general-template.php:2472
+#: wp-includes/general-template.php:2468
 msgid "%1$s %2$s Comments Feed"
 msgstr "%1$s %2$s Fluxul pentru comentarii"
 
 #. translators: 1: blog title, 2: separator (raquo)
-#: wp-includes/general-template.php:2470
+#: wp-includes/general-template.php:2466
 msgid "%1$s %2$s Feed"
 msgstr "%1$s %2$s Flux"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: category name
-#: wp-includes/general-template.php:2514
+#: wp-includes/general-template.php:2510
 msgid "%1$s %2$s %3$s Category Feed"
 msgstr "%1$s %2$s %3$s Flux categorie"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: post title
-#: wp-includes/general-template.php:2512
+#: wp-includes/general-template.php:2508
 msgid "%1$s %2$s %3$s Comments Feed"
 msgstr "%1$s %2$s %3$s Fluxul comentarii"
 
@@ -7213,7 +7204,7 @@ msgid "You do not have permission to preview drafts."
 msgstr "Nu ai dreptul de a previzualiza ciorne."
 
 #. translators: 1: blog name, 2: separator(raquo), 3: search phrase
-#: wp-includes/general-template.php:2520
+#: wp-includes/general-template.php:2516
 msgid "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed"
 msgstr "%1$s %2$s rezultatele căutării pentru fluxul &#8222;%3$s&#8221;"
 
@@ -7225,7 +7216,7 @@ msgstr "<strong>EROARE</strong>: Adresa de email nu este corectă."
 msgid "<strong>ERROR</strong>: There is no user registered with that email address."
 msgstr "<strong>EROARE</strong>: Nu există membru înregistrat cu această adresă de email."
 
-#: wp-includes/taxonomy.php:3218
+#: wp-includes/taxonomy.php:3224
 msgid "The slug &#8220;%s&#8221; is already in use by another term"
 msgstr "Descriptorul &#8222;%s&#8221; este deja folosit de alt termen"
 
@@ -7245,7 +7236,7 @@ msgstr "<strong>EROARE</strong>: Introdu un nume de utilizator sau o adresă de 
 msgid "<strong>ERROR</strong>: Invalid username or email."
 msgstr "<strong>EROARE</strong>: Nume de utilizator sau email invalid."
 
-#: wp-login.php:845
+#: wp-login.php:844
 msgid "Check your email for the confirmation link."
 msgstr "Verifică emailul pentru legătura de confirmare."
 
@@ -7285,7 +7276,7 @@ msgstr "Pagina precedentă"
 msgid "Next Post"
 msgstr "Articolul următor"
 
-#: wp-includes/general-template.php:2954
+#: wp-includes/general-template.php:2950
 msgid "&laquo; Previous"
 msgstr "&laquo; Precedentă"
 
@@ -7301,11 +7292,11 @@ msgstr "Închide toate tagurile HTML deschise"
 msgid "Show Link Rating"
 msgstr "Arată evaluare legătură"
 
-#: wp-includes/general-template.php:2955
+#: wp-includes/general-template.php:2951
 msgid "Next &raquo;"
 msgstr "Următoarea &raquo;"
 
-#: wp-includes/comment-template.php:2125
+#: wp-includes/comment-template.php:2186
 msgid "Post Comment"
 msgstr "Publică comentariul"
 
@@ -7325,7 +7316,7 @@ msgstr ","
 msgid "Monday"
 msgstr "luni"
 
-#: wp-login.php:847
+#: wp-login.php:846
 msgid "Check your email for your new password."
 msgstr "Verifică emailul pentru noua ta parolă."
 
@@ -7333,11 +7324,20 @@ msgstr "Verifică emailul pentru noua ta parolă."
 msgid "<strong>ERROR</strong>: Please type your email address."
 msgstr "<strong>EROARE</strong>: Te rog introdu adresa ta de email."
 
-#: wp-login.php:849
+#: wp-login.php:848
 msgid "Registration complete. Please check your email."
 msgstr "Înregistrare completă. Te rog verifică-ți emailul."
 
-#: wp-includes/taxonomy.php:528
+#: wp-includes/class-wp-editor.php:892
+msgid "Insert/edit image"
+msgstr "Inserează/editează imagine"
+
+#: wp-includes/class-wp-editor.php:926 wp-includes/class-wp-editor.php:1401
+#: wp-includes/script-loader.php:403
+msgid "Insert/edit link"
+msgstr "Inserează/editează legătură"
+
+#: wp-includes/taxonomy.php:531
 msgid "Edit Category"
 msgstr "Editare categorie"
 
@@ -7356,7 +7356,7 @@ msgstr "Lățime"
 msgid "Dashboard"
 msgstr "Panou control"
 
-#: wp-includes/general-template.php:414 wp-login.php:868 wp-login.php:900
+#: wp-includes/general-template.php:414 wp-login.php:867 wp-login.php:899
 msgid "Log In"
 msgstr "Autentificare"
 
@@ -7371,10 +7371,6 @@ msgstr "Setări"
 #: wp-includes/class-wp-xmlrpc-server.php:477
 msgid "Date Format"
 msgstr "Format dată"
-
-#: wp-includes/class-wp-xmlrpc-server.php:482
-msgid "Time Format"
-msgstr "Format de timp"
 
 #: wp-includes/class-wp-editor.php:983 wp-includes/media-template.php:958
 msgid "Height"
@@ -7398,7 +7394,7 @@ msgstr "Vizual"
 msgid "Title:"
 msgstr "Titlu:"
 
-#: wp-includes/taxonomy.php:533
+#: wp-includes/taxonomy.php:536
 msgid "Separate tags with commas"
 msgstr "Separă etichetele cu virgulă"
 
@@ -7460,12 +7456,12 @@ msgstr "Această pagină este validă XHTML 1.0 Transitional"
 msgid "Valid <abbr title=\"eXtensible HyperText Markup Language\">XHTML</abbr>"
 msgstr "<abbr title=\"eXtensible HyperText Markup Language\">XHTML</abbr> valid"
 
-#: wp-includes/comment-template.php:2088
-#: wp-includes/theme-compat/comments-popup.php:81 wp-login.php:721
+#: wp-includes/comment-template.php:2149
+#: wp-includes/theme-compat/comments-popup.php:81 wp-login.php:720
 msgid "Email"
 msgstr "Email"
 
-#: wp-includes/comment-template.php:2090
+#: wp-includes/comment-template.php:2151
 #: wp-includes/theme-compat/comments.php:102
 msgid "Website"
 msgstr "Pagină web"
@@ -7474,24 +7470,24 @@ msgstr "Pagină web"
 msgid "Sites"
 msgstr "Situri"
 
-#: wp-includes/comment-template.php:1670
+#: wp-includes/comment-template.php:1694
 msgid "Leave a Comment"
 msgstr "Lasă un comentariu"
 
-#: wp-includes/comment-template.php:1671
+#: wp-includes/comment-template.php:1695
 msgid "Log in to leave a Comment"
 msgstr "Autentifică-te pentru a lăsa un comentariu"
 
-#: wp-includes/comment-template.php:1739
+#: wp-includes/comment-template.php:1763
 msgid "Click here to cancel reply."
 msgstr "Apasă aici pentru a renunța."
 
-#: wp-includes/comment-template.php:1826 wp-includes/comment-template.php:2118
+#: wp-includes/comment-template.php:1850 wp-includes/comment-template.php:2179
 #: wp-includes/theme-compat/comments.php:75
 msgid "Leave a Reply"
 msgstr "Lasă un răspuns"
 
-#: wp-includes/comment-template.php:1827 wp-includes/comment-template.php:2119
+#: wp-includes/comment-template.php:1851 wp-includes/comment-template.php:2180
 #: wp-includes/theme-compat/comments.php:75
 msgid "Leave a Reply to %s"
 msgstr "Lasă un răspuns către %s"
@@ -7500,7 +7496,7 @@ msgstr "Lasă un răspuns către %s"
 msgid "Feed for all posts filed under %s"
 msgstr "Flux pentru toate articolele din categoria %s"
 
-#: wp-includes/comment-template.php:1559
+#: wp-includes/comment-template.php:1583
 msgid "Log in to Reply"
 msgstr "Autentifică-te pentru a răspunde"
 
@@ -7526,7 +7522,7 @@ msgstr "Ultima actualizare: %s"
 msgid "Bookmarks"
 msgstr "Semne de carte"
 
-#: wp-includes/category-template.php:528 wp-includes/taxonomy.php:537
+#: wp-includes/category-template.php:528 wp-includes/taxonomy.php:540
 msgid "No categories"
 msgstr "Nicio categorie"
 
@@ -7594,7 +7590,7 @@ msgstr "Niciun rezultat găsit."
 msgid "Comments on %s"
 msgstr "Comentarii la %s"
 
-#: wp-includes/comment-template.php:1476
+#: wp-includes/comment-template.php:1500
 msgid "Enter your password to view comments."
 msgstr "Introdu parola pentru a vizualiza comentariile."
 
@@ -7635,7 +7631,7 @@ msgstr "Folosirea nivelelor de acces pentru utilizatori în module și teme este
 msgid "Default"
 msgstr "Standard"
 
-#: wp-includes/class-wp-customize-manager.php:1806
+#: wp-includes/class-wp-customize-manager.php:1808
 #: wp-includes/class-wp-xmlrpc-server.php:467
 msgid "Site Title"
 msgstr "Titlu sit"
@@ -7645,7 +7641,7 @@ msgid "There are no options for this widget."
 msgstr "Nu există opțiuni pentru această piesă."
 
 #: wp-includes/admin-bar.php:735 wp-includes/class-wp-customize-widgets.php:359
-#: wp-includes/functions.php:3445
+#: wp-includes/functions.php:3450
 msgid "Widgets"
 msgstr "Piese"
 
@@ -7681,7 +7677,7 @@ msgstr "Regret, nu ai dreptul de a edita acest articol."
 msgid "Sorry, your entry could not be posted. Something wrong happened."
 msgstr "Regret, ce ai introdus nu se poate publica. S-a întâmplat ceva greșit."
 
-#: wp-includes/comment-template.php:2108
+#: wp-includes/comment-template.php:2169
 #: wp-includes/theme-compat/comments.php:82
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Trebuie să fii <a href=\"%s\">autentificat</a> pentru a publica un comentariu."
@@ -7716,6 +7712,10 @@ msgstr "Trimite comentariul"
 msgid "Comments (%s)"
 msgstr "Comentarii (%s)"
 
+#: wp-includes/class-wp-xmlrpc-server.php:482
+msgid "Time Format"
+msgstr "Format oră"
+
 #: wp-includes/script-loader.php:516
 msgid "Schedule"
 msgstr "Programează"
@@ -7734,7 +7734,7 @@ msgstr "Editează"
 msgid "New Post"
 msgstr "Articol nou"
 
-#: wp-includes/media.php:3028 wp-includes/script-loader.php:406
+#: wp-includes/media.php:3056 wp-includes/script-loader.php:406
 #: wp-includes/script-loader.php:564
 msgid "(no title)"
 msgstr "(fără titlu)"
@@ -7746,12 +7746,12 @@ msgid "Pages"
 msgstr "Pagini"
 
 #: wp-includes/class-wp-editor.php:862 wp-includes/class-wp-editor.php:1402
-#: wp-includes/functions.php:4932 wp-includes/script-loader.php:256
+#: wp-includes/functions.php:4937 wp-includes/script-loader.php:256
 #: wp-includes/script-loader.php:337 wp-includes/script-loader.php:439
 msgid "Close"
 msgstr "Închide"
 
-#: wp-includes/media.php:3304
+#: wp-includes/media.php:3332
 msgid "Select"
 msgstr "Selectează"
 
@@ -7784,7 +7784,7 @@ msgid "Dismiss"
 msgstr "Închide"
 
 #: wp-includes/admin-bar.php:809 wp-includes/admin-bar.php:810
-#: wp-includes/class-wp-editor.php:1421 wp-includes/media.php:3303
+#: wp-includes/class-wp-editor.php:1421 wp-includes/media.php:3331
 msgid "Search"
 msgstr "Caută"
 
@@ -7792,12 +7792,12 @@ msgstr "Caută"
 msgid "Public"
 msgstr "Public"
 
-#: wp-includes/media.php:3306 wp-includes/script-loader.php:404
+#: wp-includes/media.php:3334 wp-includes/script-loader.php:404
 #: wp-includes/script-loader.php:517
 msgid "Update"
 msgstr "Actualizează"
 
-#: wp-includes/taxonomy.php:525
+#: wp-includes/taxonomy.php:528
 msgid "All Categories"
 msgstr "Toate categoriile"
 
@@ -7819,23 +7819,23 @@ msgid "Image URL"
 msgstr "URL imagine"
 
 #: wp-includes/media-template.php:327 wp-includes/media-template.php:521
-#: wp-includes/media.php:3374
+#: wp-includes/media.php:3402
 msgid "Edit Image"
 msgstr "Editează imaginea"
 
-#: wp-includes/class-wp-customize-manager.php:1950
+#: wp-includes/class-wp-customize-manager.php:1952
 #: wp-includes/class-wp-editor.php:990 wp-includes/media-template.php:619
 #: wp-includes/media-template.php:850 wp-includes/media-template.php:916
 msgid "Right"
 msgstr "Dreapta"
 
 #: wp-includes/media-template.php:688 wp-includes/media-template.php:763
-#: wp-includes/media-template.php:937 wp-includes/media.php:3061
+#: wp-includes/media-template.php:937 wp-includes/media.php:3089
 msgid "Medium"
 msgstr "Mediu"
 
 #: wp-includes/media-template.php:690 wp-includes/media-template.php:765
-#: wp-includes/media-template.php:939 wp-includes/media.php:3063
+#: wp-includes/media-template.php:939 wp-includes/media.php:3091
 msgid "Full Size"
 msgstr "Mărime întreagă"
 
@@ -7858,28 +7858,28 @@ msgstr "Legendă"
 msgid "Saved."
 msgstr "Salvat."
 
-#: wp-includes/class-wp-customize-manager.php:1948
+#: wp-includes/class-wp-customize-manager.php:1950
 #: wp-includes/class-wp-editor.php:988 wp-includes/media-template.php:613
 #: wp-includes/media-template.php:844 wp-includes/media-template.php:910
 msgid "Left"
 msgstr "Stânga"
 
-#: wp-includes/class-wp-customize-manager.php:1949
+#: wp-includes/class-wp-customize-manager.php:1951
 #: wp-includes/class-wp-editor.php:989 wp-includes/media-template.php:616
 #: wp-includes/media-template.php:847 wp-includes/media-template.php:913
 msgid "Center"
 msgstr "Centru"
 
 #: wp-includes/media-template.php:687 wp-includes/media-template.php:762
-#: wp-includes/media-template.php:936 wp-includes/media.php:3060
+#: wp-includes/media-template.php:936 wp-includes/media.php:3088
 msgid "Thumbnail"
 msgstr "Miniatură"
 
-#: wp-includes/general-template.php:411 wp-login.php:717 wp-login.php:883
+#: wp-includes/general-template.php:411 wp-login.php:716 wp-login.php:882
 msgid "Username"
 msgstr "Nume utilizator"
 
-#: wp-includes/general-template.php:412 wp-login.php:887
+#: wp-includes/general-template.php:412 wp-login.php:886
 msgid "Password"
 msgstr "Parolă"
 
@@ -7891,14 +7891,14 @@ msgstr "Antet"
 msgid "Sidebar"
 msgstr "Bară laterală"
 
-#: wp-includes/general-template.php:1389
+#: wp-includes/general-template.php:1385
 #: wp-includes/theme-compat/sidebar.php:92
 #: wp-includes/widgets/class-wp-widget-archives.php:27
 #: wp-includes/widgets/class-wp-widget-archives.php:45
 msgid "Archives"
 msgstr "Arhive"
 
-#: wp-includes/comment-template.php:1557 wp-includes/script-loader.php:488
+#: wp-includes/comment-template.php:1581 wp-includes/script-loader.php:488
 msgid "Reply"
 msgstr "Răspunde"
 
@@ -7931,7 +7931,7 @@ msgid "No comments yet."
 msgstr "Niciun comentariu până acum."
 
 #: wp-includes/class-wp-editor.php:861 wp-includes/class-wp-editor.php:1446
-#: wp-includes/media.php:3305 wp-includes/script-loader.php:390
+#: wp-includes/media.php:3333 wp-includes/script-loader.php:390
 #: wp-includes/script-loader.php:438 wp-includes/script-loader.php:507
 msgid "Cancel"
 msgstr "Anulează"
@@ -7949,7 +7949,7 @@ msgstr "Module"
 msgid "RSS"
 msgstr "RSS"
 
-#: wp-includes/functions.php:2026
+#: wp-includes/functions.php:2031
 msgid "Invalid file type"
 msgstr "Tip de fișier invalid"
 
@@ -7986,7 +7986,7 @@ msgstr "Editare articol"
 msgid "None"
 msgstr "Nespecificat"
 
-#: wp-includes/taxonomy.php:528
+#: wp-includes/taxonomy.php:531
 msgid "Edit Tag"
 msgstr "Editează etichetă"
 
@@ -8009,7 +8009,7 @@ msgstr "Categorii"
 msgid "Advanced"
 msgstr "Avansat"
 
-#: wp-includes/comment-template.php:2086
+#: wp-includes/comment-template.php:2147
 #: wp-includes/theme-compat/comments-popup.php:76
 #: wp-includes/theme-compat/comments.php:96
 msgid "Name"
@@ -8030,7 +8030,7 @@ msgstr "Categorii legături"
 msgid "Edit Link Category"
 msgstr "Editare categorie pentru legături"
 
-#: wp-includes/taxonomy.php:530
+#: wp-includes/taxonomy.php:533
 msgid "Update Category"
 msgstr "Actualizare categorie"
 
@@ -8054,7 +8054,7 @@ msgstr "Spam"
 msgid "Publish"
 msgstr "Publică"
 
-#: wp-includes/class-wp-customize-widgets.php:669 wp-includes/media.php:3344
+#: wp-includes/class-wp-customize-widgets.php:669 wp-includes/media.php:3372
 msgid "Apply"
 msgstr "Aplică"
 
@@ -8075,16 +8075,16 @@ msgstr "Autor"
 #: wp-includes/class-wp-editor.php:1408
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:91
 #: wp-includes/media-template.php:371 wp-includes/media-template.php:550
-#: wp-includes/media.php:3301
+#: wp-includes/media.php:3329
 msgid "URL"
 msgstr "URL"
 
-#: wp-includes/comment-template.php:1041 wp-includes/comment-template.php:2106
+#: wp-includes/comment-template.php:1041 wp-includes/comment-template.php:2167
 msgctxt "noun"
 msgid "Comment"
 msgstr "Comentariu"
 
-#: wp-includes/deprecated.php:3082 wp-includes/functions.php:2409
+#: wp-includes/deprecated.php:3082 wp-includes/functions.php:2414
 msgid "Are you sure you want to do this?"
 msgstr "Ești sigur că vrei să faci asta?"
 
@@ -8096,7 +8096,7 @@ msgstr "Nu"
 msgid "Redo"
 msgstr "Repetă"
 
-#: wp-includes/taxonomy.php:523
+#: wp-includes/taxonomy.php:526
 msgid "Search Categories"
 msgstr "Caută categorii"
 
@@ -8106,11 +8106,11 @@ msgstr "Caută categorii"
 #: wp-includes/class-wp-xmlrpc-server.php:2034
 #: wp-includes/class-wp-xmlrpc-server.php:2105
 #: wp-includes/class-wp-xmlrpc-server.php:2163
-#: wp-includes/class-wp-xmlrpc-server.php:2258 wp-includes/taxonomy.php:665
-#: wp-includes/taxonomy.php:754 wp-includes/taxonomy.php:905
-#: wp-includes/taxonomy.php:1078 wp-includes/taxonomy.php:2294
-#: wp-includes/taxonomy.php:2545 wp-includes/taxonomy.php:2788
-#: wp-includes/taxonomy.php:3121
+#: wp-includes/class-wp-xmlrpc-server.php:2258 wp-includes/taxonomy.php:668
+#: wp-includes/taxonomy.php:757 wp-includes/taxonomy.php:908
+#: wp-includes/taxonomy.php:1081 wp-includes/taxonomy.php:2300
+#: wp-includes/taxonomy.php:2551 wp-includes/taxonomy.php:2794
+#: wp-includes/taxonomy.php:3127
 msgid "Invalid taxonomy"
 msgstr "Clasificare invalidă"
 
@@ -8126,11 +8126,11 @@ msgstr "Salvează"
 msgid "Save Draft"
 msgstr "Salvează"
 
-#: wp-includes/media.php:3348
+#: wp-includes/media.php:3376
 msgid "No media attachments found."
 msgstr "Atașamente multimedia inexistente."
 
-#: wp-includes/media.php:3302
+#: wp-includes/media.php:3330
 msgid "Add Media"
 msgstr "Adaugă Media"
 
@@ -8154,8 +8154,8 @@ msgstr "Fișierul &#8222;%s&#8221; nu există?"
 msgid "File &#8220;%s&#8221; is not an image."
 msgstr "Fișierul &#8222;%s&#8221; nu este o imagine."
 
-#: wp-includes/pluggable.php:1487 wp-includes/pluggable.php:1635
-#: wp-includes/pluggable.php:1756
+#: wp-includes/pluggable.php:1496 wp-includes/pluggable.php:1644
+#: wp-includes/pluggable.php:1765
 msgid "Email: %s"
 msgstr "Email: %s"
 
@@ -8168,7 +8168,7 @@ msgctxt "post"
 msgid "Add New"
 msgstr "Adaugă articol"
 
-#: wp-includes/taxonomy.php:534
+#: wp-includes/taxonomy.php:537
 msgid "Add or remove tags"
 msgstr "Adaugă sau înlătură etichete"
 

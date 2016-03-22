@@ -1,10 +1,10 @@
 
 /*
 * Title                   : Pinpoint Booking System WordPress Plugin
-* Version                 : 2.1.2
+* Version                 : 2.1.8
 * File                    : assets/js/discounts/backend-discount-item.js
-* File Version            : 1.0.5
-* Created / Last Modified : 11 October 2015
+* File Version            : 1.0.6
+* Created / Last Modified : 14 March 2016
 * Author                  : Dot on Paper
 * Copyright               : © 2012 Dot on Paper
 * Website                 : http://www.dotonpaper.net
@@ -78,10 +78,10 @@ var DOPBSPBackEndDiscountItem = new function(){
     /*
      * Edit discount item.
      * 
-     * @param id (Number): item ID
+     * @param id (Number): discount item ID
      * @param type (String): field type
-     * @param field (String): item field
-     * @param value (String): item field value
+     * @param field (String): field name
+     * @param value (String): field value
      * @param onBlur (Boolean): true if function has been called on blur event
      */
     this.edit = function(id, 
